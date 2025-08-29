@@ -1,1022 +1,0 @@
-﻿<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#D4AF37">
-    <title>چرخ طلایی | مزون لباس و آکادمی طراحی مد</title>
-    
-    <!-- فونت‌های فارسی -->
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- فونت نستعلیق -->
-    <style>
-        @font-face {
-            font-family: 'IranNastaliq';
-            src: url('https://cdn.jsdelivr.net/gh/rastikerdar/iran-nastaliq@v3.4.0/dist/IranNastaliq.woff2') format('woff2');
-        }
-    </style>
-    
-    <!-- Font Awesome Pro -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- AOS Animation -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="css/main.css"/>
-</head>
-<body>
-    <!-- لودینگ صفحه -->
-    <div id="loader" class="loader">
-        <div class="golden-wheel">
-            <div class="wheel-container">
-                <div class="wheel-spin"></div>
-                <div class="wheel-inner"></div>
-                <div class="wheel-dots">
-                    <span></span><span></span><span></span><span></span>
-                    <span></span><span></span><span></span><span></span>
-                </div>
-            </div>
-            <span class="loader-text">چرخ طلایی</span>
-            <div class="loader-progress">
-                <div class="loader-progress-bar"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- دکمه تغییر تم خفن -->
-    <div class="theme-toggle-container">
-        <button id="themeToggle" class="theme-toggle">
-            <div class="toggle-icon">
-                <i class="fas fa-sun sun-icon"></i>
-                <i class="fas fa-moon moon-icon"></i>
-            </div>
-            <div class="toggle-bg"></div>
-        </button>
-    </div>
-
-    <!-- دکمه بازگشت به بالا -->
-    <button id="scrollTop" class="scroll-top">
-        <i class="fas fa-chevron-up"></i>
-        <svg class="progress-ring" width="50" height="50">
-            <circle class="progress-ring-circle" stroke="#D4AF37" stroke-width="2" fill="transparent" r="23" cx="25" cy="25"/>
-        </svg>
-    </button>
-
-    <!-- چت پشتیبانی -->
-    <div class="chat-widget">
-        <button class="chat-toggle" id="chatToggle">
-            <div class="chat-icon-wrapper">
-                <i class="fas fa-headset"></i>
-                <span class="chat-badge">1</span>
-            </div>
-            <span class="pulse-ring"></span>
-            <span class="pulse-ring" style="animation-delay: 0.5s"></span>
-            <span class="pulse-ring" style="animation-delay: 1s"></span>
-        </button>
-        <div class="chat-box" id="chatBox">
-            <div class="chat-header">
-                <div class="chat-header-info">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%23D4AF37'/%3E%3C/svg%3E" alt="Support">
-                    <div>
-                        <h4>پشتیبانی آنلاین</h4>
-                        <span class="chat-status"><i class="fas fa-circle"></i> آنلاین</span>
-                    </div>
-                </div>
-                <button class="chat-close" id="chatClose">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="chat-messages" id="chatMessages">
-                <div class="chat-message bot animate-message">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%23D4AF37'/%3E%3C/svg%3E" alt="bot">
-                    <div class="message-content">
-                        <p>سلام! 👋</p>
-                        <p>چطور می‌تونم کمکتون کنم؟</p>
-                        <span class="message-time">14:30</span>
-                    </div>
-                </div>
-            </div>
-            <div class="chat-quick-replies">
-                <button class="quick-reply">قیمت‌ها</button>
-                <button class="quick-reply">زمان دوخت</button>
-                <button class="quick-reply">آموزش</button>
-            </div>
-            <div class="chat-input">
-                <button class="chat-attach">
-                    <i class="fas fa-paperclip"></i>
-                </button>
-                <input type="text" id="chatInput" placeholder="پیام خود را بنویسید...">
-                <button class="chat-emoji">
-                    <i class="far fa-smile"></i>
-                </button>
-                <button id="chatSend">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- هدر کامل -->
-    <header class="main-header">
-        <nav class="navbar">
-            <div class="nav-container">
-                <!-- لوگو -->
-                <div class="logo" data-aos="fade-right">
-                    <div class="logo-wrapper">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='none' stroke='%23D4AF37' stroke-width='3'/%3E%3Cpath d='M50 20 L60 40 L80 40 L65 55 L70 75 L50 60 L30 75 L35 55 L20 40 L40 40 Z' fill='%23D4AF37'/%3E%3C/svg%3E" alt="چرخ طلایی" class="logo-img">
-                        <div class="logo-shine"></div>
-                    </div>
-                    <span class="logo-text">چرخ طلایی</span>
-                </div>
-
-                <!-- منوی دسکتاپ -->
-                <ul class="nav-menu">
-                    <li><a href="#home" class="nav-link active" data-text="صفحه اصلی">صفحه اصلی</a></li>
-                    <li class="dropdown">
-                        <a href="#shop" class="nav-link" data-text="فروشگاه">فروشگاه <i class="fas fa-chevron-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#"><i class="fas fa-female"></i> زنانه</a></li>
-                            <li><a href="#"><i class="fas fa-male"></i> مردانه</a></li>
-                            <li><a href="#"><i class="fas fa-child"></i> بچگانه</a></li>
-                            <li><a href="#"><i class="fas fa-ring"></i> اکسسوری</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#academy" class="nav-link" data-text="آکادمی">آکادمی <i class="fas fa-chevron-down"></i></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#"><i class="fas fa-graduation-cap"></i> دوره‌های مقدماتی</a></li>
-                            <li><a href="#"><i class="fas fa-certificate"></i> دوره‌های پیشرفته</a></li>
-                            <li><a href="#"><i class="fas fa-trophy"></i> دوره‌های حرفه‌ای</a></li>
-                            <li><a href="#"><i class="fas fa-laptop"></i> آموزش آنلاین</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#blog" class="nav-link" data-text="وبلاگ">وبلاگ</a></li>
-                    <li><a href="#about" class="nav-link" data-text="درباره ما">درباره ما</a></li>
-                    <li><a href="#contact" class="nav-link" data-text="تماس با ما">تماس با ما</a></li>
-                </ul>
-
-                <!-- دکمه‌های اکشن -->
-                <div class="nav-actions">
-                    <button class="search-btn" id="searchBtn">
-                        <i class="fas fa-search"></i>
-                    </button>
-                    <a href="#" class="cart-btn">
-                        <i class="fas fa-shopping-bag"></i>
-                        <span class="cart-count">3</span>
-                    </a>
-                    <a href="#" class="auth-btn">
-                        <i class="fas fa-user"></i>
-                        <span>ورود</span>
-                    </a>
-                </div>
-
-                <!-- منوی موبایل -->
-                <button class="mobile-menu-toggle" id="mobileMenuToggle">
-                    <div class="hamburger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </button>
-            </div>
-        </nav>
-
-        <!-- جستجو -->
-        <div class="search-overlay" id="searchOverlay">
-            <button class="search-close" id="searchClose">
-                <i class="fas fa-times"></i>
-            </button>
-            <div class="search-wrapper">
-                <div class="search-container">
-                    <input type="text" id="searchInput" placeholder="جستجو در محصولات، دوره‌ها و مقالات..." autocomplete="off">
-                    <button class="search-submit">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-                <div class="search-suggestions">
-                    <h4>پرجستجوترین‌ها</h4>
-                    <div class="suggestion-tags">
-                        <span>لباس مجلسی</span>
-                        <span>دوره طراحی</span>
-                        <span>پارچه</span>
-                        <span>الگو</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- منوی موبایل -->
-        <div class="mobile-menu" id="mobileMenu">
-            <div class="mobile-menu-header">
-                <div class="mobile-menu-logo">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='none' stroke='%23D4AF37' stroke-width='3'/%3E%3C/svg%3E" alt="چرخ طلایی">
-                    <span>چرخ طلایی</span>
-                </div>
-                <button class="mobile-menu-close" id="mobileMenuClose">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="mobile-menu-body">
-                <div class="mobile-search">
-                    <input type="text" placeholder="جستجو...">
-                    <button><i class="fas fa-search"></i></button>
-                </div>
-                <ul class="mobile-nav">
-                    <li><a href="#home" class="active"><i class="fas fa-home"></i> صفحه اصلی</a></li>
-                    <li class="has-submenu">
-                        <a href="#"><i class="fas fa-shopping-bag"></i> فروشگاه <i class="fas fa-chevron-down"></i></a>
-                        <ul class="mobile-submenu">
-                            <li><a href="#">زنانه</a></li>
-                            <li><a href="#">مردانه</a></li>
-                            <li><a href="#">بچگانه</a></li>
-                            <li><a href="#">اکسسوری</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-submenu">
-                        <a href="#"><i class="fas fa-graduation-cap"></i> آکادمی <i class="fas fa-chevron-down"></i></a>
-                        <ul class="mobile-submenu">
-                            <li><a href="#">دوره‌های مقدماتی</a></li>
-                            <li><a href="#">دوره‌های پیشرفته</a></li>
-                            <li><a href="#">دوره‌های حرفه‌ای</a></li>
-                            <li><a href="#">آموزش آنلاین</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#blog"><i class="fas fa-blog"></i> وبلاگ</a></li>
-                    <li><a href="#about"><i class="fas fa-info-circle"></i> درباره ما</a></li>
-                    <li><a href="#contact"><i class="fas fa-phone"></i> تماس با ما</a></li>
-                </ul>
-                <div class="mobile-menu-footer">
-                    <a href="#" class="mobile-auth-btn">
-                        <i class="fas fa-user"></i>
-                        <span>ورود / ثبت‌نام</span>
-                    </a>
-                    <div class="mobile-social">
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- بخش هیرو -->
-    <section id="home" class="hero-section">
-        <div class="hero-bg">
-            <div class="hero-pattern"></div>
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3Crect fill='%23000' width='1920' height='1080'/%3E%3Cpath fill='%23D4AF37' opacity='0.1' d='M0,540 Q480,400 960,540 T1920,540 L1920,1080 L0,1080 Z'/%3E%3C/svg%3E" alt="Hero Background" class="hero-img">
-            <div class="hero-overlay"></div>
-        </div>
-        
-        <div class="hero-content">
-            <h1 class="hero-title" data-aos="fade-up">
-                <span class="title-main">چرخ طلایی</span>
-                <span class="title-divider">|</span>
-                <span class="title-sub">هنر پوشش ایرانی</span>
-            </h1>
-            <p class="hero-description" data-aos="fade-up" data-aos-delay="100">
-                تجربه‌ای بی‌نظیر از طراحی و دوخت لباس‌های اصیل ایرانی با کیفیت جهانی
-            </p>
-            <div class="hero-buttons" data-aos="fade-up" data-aos-delay="200">
-                <a href="#shop" class="btn btn-primary">
-                    <span>فروشگاه</span>
-                    <i class="fas fa-arrow-left"></i>
-                </a>
-                <a href="#academy" class="btn btn-secondary">
-                    <span>آکادمی</span>
-                    <i class="fas fa-graduation-cap"></i>
-                </a>
-            </div>
-            
-            <!-- شمارنده‌های متحرک -->
-            <div class="hero-stats" data-aos="fade-up" data-aos-delay="300">
-                <div class="stat-item">
-                    <span class="stat-number" data-target="5000">0</span>
-                    <span class="stat-label">مشتری راضی</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number" data-target="30">0</span>
-                    <span class="stat-label">سال تجربه</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number" data-target="1200">0</span>
-                    <span class="stat-label">طرح منحصر</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- ذرات متحرک -->
-        <div class="particles" id="particles"></div>
-        
-        <!-- اسکرول داون -->
-        <div class="scroll-indicator">
-            <div class="mouse">
-                <div class="wheel"></div>
-            </div>
-            <span>اسکرول کنید</span>
-        </div>
-    </section>
-
-    <!-- بخش درباره ما -->
-    <section id="about" class="about-section">
-        <div class="section-bg">
-            <div class="bg-pattern"></div>
-        </div>
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-badge">درباره ما</span>
-                <h2 class="section-title">داستان چرخ طلایی</h2>
-                <p class="section-subtitle">سه دهه تجربه در خدمت زیبایی و اصالت</p>
-            </div>
-            
-            <div class="about-content">
-                <div class="about-grid">
-                    <div class="about-text" data-aos="fade-right">
-                        <div class="about-icon">
-                            <i class="fas fa-crown"></i>
-                        </div>
-                        <h3>تاریخچه درخشان</h3>
-                        <p>
-                            مزون چرخ طلایی با بیش از ۳۰ سال سابقه در زمینه طراحی و دوخت لباس‌های سنتی و مدرن، 
-                            همواره در تلاش بوده تا با ترکیب هنر اصیل ایرانی و تکنولوژی روز دنیا، 
-                            بهترین و با کیفیت‌ترین پوشاک را به مشتریان عزیز ارائه دهد.
-                        </p>
-                        <div class="about-features">
-                            <div class="feature-mini">
-                                <i class="fas fa-check-circle"></i>
-                                <span>طراحی اختصاصی</span>
-                            </div>
-                            <div class="feature-mini">
-                                <i class="fas fa-check-circle"></i>
-                                <span>پارچه درجه یک</span>
-                            </div>
-                            <div class="feature-mini">
-                                <i class="fas fa-check-circle"></i>
-                                <span>دوخت تضمینی</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="about-image" data-aos="fade-left">
-                        <div class="image-wrapper">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect fill='%23f0f0f0' width='600' height='400'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23999' font-size='20'%3Eتصویر مزون%3C/text%3E%3C/svg%3E" alt="مزون چرخ طلایی">
-                            <div class="image-overlay">
-                                <div class="play-btn">
-                                    <i class="fas fa-play"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="experience-badge">
-                            <span class="number">30+</span>
-                            <span class="text">سال تجربه</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- ویژگی‌ها -->
-                <div class="features-grid" data-aos="fade-up">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-palette"></i>
-                        </div>
-                        <h4>طراحی خلاقانه</h4>
-                        <p>طرح‌های منحصر به فرد با الهام از هنر ایرانی</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-gem"></i>
-                        </div>
-                        <h4>متریال برتر</h4>
-                        <p>استفاده از بهترین پارچه‌های وارداتی و داخلی</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h4>تیم حرفه‌ای</h4>
-                        <p>طراحان و خیاطان ماهر با سال‌ها تجربه</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-award"></i>
-                        </div>
-                        <h4>تضمین کیفیت</h4>
-                        <p>ضمانت رضایت ۱۰۰٪ مشتری</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- بخش مسیر پیشرفت - خفن برای موبایل -->
-    <section class="timeline-section">
-        <div class="timeline-bg">
-            <div class="timeline-pattern"></div>
-        </div>
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-badge">تاریخچه</span>
-                <h2 class="section-title">مسیر پیشرفت ما</h2>
-            </div>
-            
-            <div class="timeline-wrapper">
-                <div class="timeline-line">
-                    <div class="timeline-progress"></div>
-                </div>
-                
-                <div class="timeline-item" data-aos="fade-right">
-                    <div class="timeline-dot">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">۱۳۷۰</div>
-                        <h3>تأسیس مزون</h3>
-                        <p>شروع فعالیت با یک کارگاه کوچک و رویای بزرگ</p>
-                        <div class="timeline-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23f0f0f0' width='300' height='200'/%3E%3C/svg%3E" alt="1370">
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item" data-aos="fade-left">
-                    <div class="timeline-dot">
-                        <i class="fas fa-store"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">۱۳۸۵</div>
-                        <h3>گسترش فعالیت</h3>
-                        <p>افتتاح اولین شعبه در مرکز شهر تهران</p>
-                        <div class="timeline-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23f0f0f0' width='300' height='200'/%3E%3C/svg%3E" alt="1385">
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item" data-aos="fade-right">
-                    <div class="timeline-dot">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">۱۳۹۵</div>
-                        <h3>راه‌اندازی آکادمی</h3>
-                        <p>شروع آموزش حرفه‌ای طراحی و دوخت</p>
-                        <div class="timeline-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23f0f0f0' width='300' height='200'/%3E%3C/svg%3E" alt="1395">
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item" data-aos="fade-left">
-                    <div class="timeline-dot">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">۱۴۰۲</div>
-                        <h3>فروشگاه آنلاین</h3>
-                        <p>ورود به دنیای دیجیتال و فروش آنلاین</p>
-                        <div class="timeline-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect fill='%23f0f0f0' width='300' height='200'/%3E%3C/svg%3E" alt="1402">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- بخش گالری -->
-    <section class="gallery-section">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-badge">نمونه کارها</span>
-                <h2 class="section-title">گالری آثار</h2>
-            </div>
-            
-            <div class="gallery-filter" data-aos="fade-up">
-                <button class="filter-btn active" data-filter="all">همه</button>
-                <button class="filter-btn" data-filter="women">زنانه</button>
-                <button class="filter-btn" data-filter="men">مردانه</button>
-                <button class="filter-btn" data-filter="kids">بچگانه</button>
-                <button class="filter-btn" data-filter="traditional">سنتی</button>
-            </div>
-            
-            <div class="gallery-grid">
-                <div class="gallery-item" data-category="women" data-aos="zoom-in">
-                    <div class="gallery-image">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3Crect fill='%23FFE4E1' width='400' height='500'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23999'%3Eلباس زنانه%3C/text%3E%3C/svg%3E" alt="Gallery 1">
-                        <div class="gallery-overlay">
-                            <div class="overlay-content">
-                                <h3>مجموعه بهاری</h3>
-                                <p>طراحی اختصاصی</p>
-                                <a href="#" class="gallery-link">
-                                    <i class="fas fa-expand"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item" data-category="men" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="gallery-image">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3Crect fill='%23E6F3FF' width='400' height='500'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23999'%3Eلباس مردانه%3C/text%3E%3C/svg%3E" alt="Gallery 2">
-                        <div class="gallery-overlay">
-                            <div class="overlay-content">
-                                <h3>کت و شلوار</h3>
-                                <p>دوخت تضمینی</p>
-                                <a href="#" class="gallery-link">
-                                    <i class="fas fa-expand"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item" data-category="kids" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="gallery-image">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3Crect fill='%23FFF9E6' width='400' height='500'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23999'%3Eلباس کودک%3C/text%3E%3C/svg%3E" alt="Gallery 3">
-                        <div class="gallery-overlay">
-                            <div class="overlay-content">
-                                <h3>مجموعه کودک</h3>
-                                <p>رنگارنگ و شاد</p>
-                                <a href="#" class="gallery-link">
-                                    <i class="fas fa-expand"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="gallery-item" data-category="traditional" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="gallery-image">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3Crect fill='%23F0E6FF' width='400' height='500'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23999'%3Eلباس سنتی%3C/text%3E%3C/svg%3E" alt="Gallery 4">
-                        <div class="gallery-overlay">
-                            <div class="overlay-content">
-                                <h3>لباس سنتی</h3>
-                                <p>اصالت ایرانی</p>
-                                <a href="#" class="gallery-link">
-                                    <i class="fas fa-expand"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- بخش نظرات مشتریان + فرم افزودن نظر -->
-    <section class="testimonials-section">
-        <div class="testimonials-bg">
-            <div class="bg-gradient"></div>
-        </div>
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-badge">نظرات</span>
-                <h2 class="section-title">مشتریان ما چه می‌گویند</h2>
-            </div>
-            
-            <!-- Swiper برای موبایل -->
-            <div class="testimonials-swiper swiper" data-aos="fade-up">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="testimonial-card">
-                            <div class="testimonial-header">
-                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%23FFE4E1'/%3E%3C/svg%3E" alt="Customer">
-                                <div class="customer-info">
-                                    <h4>سارا احمدی</h4>
-                                    <div class="rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                                <i class="fas fa-quote-right quote-icon"></i>
-                            </div>
-                            <p>کیفیت دوخت و طراحی لباس‌های مزون چرخ طلایی واقعاً بی‌نظیر است. من چندین سفارش داشتم و همیشه راضی بودم.</p>
-                            <span class="testimonial-date">۱۴۰۲/۰۹/۱۵</span>
-                        </div>
-                    </div>
-                    
-                    <div class="swiper-slide">
-                        <div class="testimonial-card">
-                            <div class="testimonial-header">
-                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%23E6F3FF'/%3E%3C/svg%3E" alt="Customer">
-                                <div class="customer-info">
-                                    <h4>رضا کریمی</h4>
-                                    <div class="rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                                <i class="fas fa-quote-right quote-icon"></i>
-                            </div>
-                            <p>در آکادمی چرخ طلایی دوره طراحی را گذراندم. اساتید حرفه‌ای و محیط بسیار دوستانه‌ای داشت.</p>
-                            <span class="testimonial-date">۱۴۰۲/۰۸/۲۵</span>
-                        </div>
-                    </div>
-                    
-                    <div class="swiper-slide">
-                        <div class="testimonial-card">
-                            <div class="testimonial-header">
-                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='%23FFF9E6'/%3E%3C/svg%3E" alt="Customer">
-                                <div class="customer-info">
-                                    <h4>مریم محمدی</h4>
-                                    <div class="rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                </div>
-                                <i class="fas fa-quote-right quote-icon"></i>
-                            </div>
-                            <p>طرح‌های سنتی با نگاهی مدرن، ترکیبی که در چرخ طلایی به بهترین شکل دیده می‌شود.</p>
-                            <span class="testimonial-date">۱۴۰۲/۰۷/۱۰</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-pagination"></div>
-            </div>
-            
-            <!-- فرم افزودن نظر - مینیمال -->
-            <div class="add-review-section" data-aos="fade-up">
-                <button class="add-review-btn" id="addReviewBtn">
-                    <i class="fas fa-plus"></i>
-                    <span>افزودن نظر شما</span>
-                </button>
-                
-                <div class="review-form" id="reviewForm">
-                    <form>
-                        <div class="form-row">
-                            <input type="text" placeholder="نام و نام خانوادگی" required>
-                            <input type="email" placeholder="ایمیل (اختیاری)">
-                        </div>
-                        <div class="rating-input">
-                            <span>امتیاز شما:</span>
-                            <div class="star-rating">
-                                <i class="far fa-star" data-rating="1"></i>
-                                <i class="far fa-star" data-rating="2"></i>
-                                <i class="far fa-star" data-rating="3"></i>
-                                <i class="far fa-star" data-rating="4"></i>
-                                <i class="far fa-star" data-rating="5"></i>
-                            </div>
-                        </div>
-                        <textarea placeholder="نظر خود را بنویسید..." rows="3" required></textarea>
-                        <div class="form-actions">
-                            <button type="submit" class="submit-review">ارسال نظر</button>
-                            <button type="button" class="cancel-review" id="cancelReview">انصراف</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- بخش دوره‌های آموزشی -->
-    <section class="courses-section">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-badge">آموزش</span>
-                <h2 class="section-title">دوره‌های آموزشی</h2>
-            </div>
-            
-            <div class="courses-grid">
-                <div class="course-card" data-aos="fade-up">
-                    <div class="course-badge">پرطرفدار</div>
-                    <div class="course-image">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect fill='%23FFE4E1' width='400' height='250'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23999'%3Eدوره طراحی%3C/text%3E%3C/svg%3E" alt="Course">
-                        <div class="course-overlay">
-                            <a href="#" class="course-link">مشاهده دوره</a>
-                        </div>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-category">طراحی</div>
-                        <h3>دوره جامع طراحی لباس</h3>
-                        <p>آموزش از مقدماتی تا پیشرفته با مدرک معتبر</p>
-                        <div class="course-meta">
-                            <span><i class="far fa-clock"></i> ۴۸ ساعت</span>
-                            <span><i class="far fa-user"></i> ۲۵۰ دانشجو</span>
-                        </div>
-                        <div class="course-footer">
-                            <div class="course-price">
-                                <span class="price-old">۲,۵۰۰,۰۰۰</span>
-                                <span class="price-current">۱,۸۵۰,۰۰۰ تومان</span>
-                            </div>
-                            <a href="#" class="btn-enroll">ثبت‌نام</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="course-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="course-image">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect fill='%23E6F3FF' width='400' height='250'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23999'%3Eدوره دوخت%3C/text%3E%3C/svg%3E" alt="Course">
-                        <div class="course-overlay">
-                            <a href="#" class="course-link">مشاهده دوره</a>
-                        </div>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-category">دوخت</div>
-                        <h3>دوره دوخت پیشرفته</h3>
-                        <p>تکنیک‌های حرفه‌ای دوخت انواع لباس</p>
-                        <div class="course-meta">
-                            <span><i class="far fa-clock"></i> ۶۰ ساعت</span>
-                            <span><i class="far fa-user"></i> ۱۸۰ دانشجو</span>
-                        </div>
-                        <div class="course-footer">
-                            <div class="course-price">
-                                <span class="price-current">۲,۲۰۰,۰۰۰ تومان</span>
-                            </div>
-                            <a href="#" class="btn-enroll">ثبت‌نام</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="course-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="course-badge new">جدید</div>
-                    <div class="course-image">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect fill='%23F0E6FF' width='400' height='250'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23999'%3Eدوره آنلاین%3C/text%3E%3C/svg%3E" alt="Course">
-                        <div class="course-overlay">
-                            <a href="#" class="course-link">مشاهده دوره</a>
-                        </div>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-category">آنلاین</div>
-                        <h3>دوره آنلاین الگوسازی</h3>
-                        <p>یادگیری در هر زمان و مکان</p>
-                        <div class="course-meta">
-                            <span><i class="far fa-clock"></i> ۳۰ ساعت</span>
-                            <span><i class="far fa-user"></i> ۳۲۰ دانشجو</span>
-                        </div>
-                        <div class="course-footer">
-                            <div class="course-price">
-                                <span class="price-current">۹۸۰,۰۰۰ تومان</span>
-                            </div>
-                            <a href="#" class="btn-enroll">ثبت‌نام</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- بخش تماس با ما -->
-    <section id="contact" class="contact-section">
-        <div class="contact-bg">
-            <div class="bg-shapes">
-                <div class="shape shape-1"></div>
-                <div class="shape shape-2"></div>
-                <div class="shape shape-3"></div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <span class="section-badge">ارتباط</span>
-                <h2 class="section-title">تماس با ما</h2>
-                <p class="section-subtitle">همیشه در کنار شما هستیم</p>
-            </div>
-            
-            <div class="contact-content">
-                <div class="contact-info" data-aos="fade-right">
-                    <div class="info-card">
-                        <div class="info-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="info-content">
-                            <h4>آدرس</h4>
-                            <p>تهران، خیابان ولیعصر، پلاک ۱۲۳</p>
-                            <a href="#" class="info-link">مشاهده روی نقشه</a>
-                        </div>
-                    </div>
-                    
-                    <div class="info-card">
-                        <div class="info-icon">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <div class="info-content">
-                            <h4>تلفن</h4>
-                            <p>۰۲۱-۱۲۳۴۵۶۷۸</p>
-                            <p>۰۹۱۲-۱۲۳۴۵۶۷</p>
-                        </div>
-                    </div>
-                    
-                    <div class="info-card">
-                        <div class="info-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="info-content">
-                            <h4>ایمیل</h4>
-                            <p>info@goldenwheel.ir</p>
-                            <p>support@goldenwheel.ir</p>
-                        </div>
-                    </div>
-                    
-                    <div class="info-card">
-                        <div class="info-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="info-content">
-                            <h4>ساعت کاری</h4>
-                            <p>شنبه تا چهارشنبه: ۹ تا ۱۸</p>
-                            <p>پنج‌شنبه: ۹ تا ۱۴</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="contact-form" data-aos="fade-left">
-                    <h3>فرم تماس</h3>
-                    <form>
-                        <div class="form-group">
-                            <input type="text" placeholder="نام و نام خانوادگی" required>
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" placeholder="شماره تماس" required>
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="ایمیل">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="form-group">
-                            <select required>
-                                <option value="">موضوع پیام</option>
-                                <option>سفارش لباس</option>
-                                <option>ثبت‌نام دوره</option>
-                                <option>همکاری</option>
-                                <option>سایر</option>
-                            </select>
-                            <i class="fas fa-list"></i>
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="متن پیام..." rows="5" required></textarea>
-                            <i class="fas fa-comment-alt"></i>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block">
-                            <span>ارسال پیام</span>
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
-            
-            <!-- نقشه -->
-            <div class="map-container" data-aos="fade-up">
-                <div class="map-wrapper">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.5674730991866!2d51.41999031525873!3d35.71232788018732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8e011237847dcd%3A0xba03cb92f066e2f!2sValiasr%20St%2C%20Tehran%2C%20Iran!5e0!3m2!1sen!2s!4v1647856432156!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- بخش CTA -->
-    <section class="cta-section">
-        <div class="cta-bg">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 600'%3E%3Crect fill='%23000' width='1920' height='600'/%3E%3C/svg%3E" alt="CTA Background">
-            <div class="cta-overlay"></div>
-        </div>
-        <div class="container">
-            <div class="cta-content" data-aos="zoom-in">
-                <div class="cta-icon">
-                    <i class="fas fa-gift"></i>
-                </div>
-                <h2>مشاوره رایگان طراحی لباس</h2>
-                <p>همین حالا برای دریافت مشاوره تخصصی رایگان با ما تماس بگیرید</p>
-                <div class="cta-timer">
-                    <div class="timer-item">
-                        <span id="days">00</span>
-                        <label>روز</label>
-                    </div>
-                    <div class="timer-item">
-                        <span id="hours">00</span>
-                        <label>ساعت</label>
-                    </div>
-                    <div class="timer-item">
-                        <span id="minutes">00</span>
-                        <label>دقیقه</label>
-                    </div>
-                    <div class="timer-item">
-                        <span id="seconds">00</span>
-                        <label>ثانیه</label>
-                    </div>
-                </div>
-                <a href="#contact" class="btn btn-primary btn-lg">
-                    <span>درخواست مشاوره</span>
-                    <i class="fas fa-arrow-left"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- فوتر بهبود یافته -->
-    <footer class="main-footer">
-        <div class="footer-top">
-            <div class="container">
-                <div class="footer-content">
-                    <div class="footer-about">
-                        <div class="footer-logo">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='none' stroke='%23D4AF37' stroke-width='3'/%3E%3C/svg%3E" alt="چرخ طلایی">
-                            <span>چرخ طلایی</span>
-                        </div>
-                        <p>با بیش از ۳۰ سال تجربه در طراحی و دوخت لباس، ما بهترین خدمات را به شما ارائه می‌دهیم.</p>
-                        <div class="footer-social">
-                            <a href="#" class="social-link instagram">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="#" class="social-link telegram">
-                                <i class="fab fa-telegram"></i>
-                            </a>
-                            <a href="#" class="social-link whatsapp">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
-                            <a href="#" class="social-link twitter">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="social-link youtube">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="footer-links">
-                        <h4>دسترسی سریع</h4>
-                        <ul>
-                            <li><a href="#"><i class="fas fa-angle-left"></i> صفحه اصلی</a></li>
-                            <li><a href="#"><i class="fas fa-angle-left"></i> فروشگاه</a></li>
-                            <li><a href="#"><i class="fas fa-angle-left"></i> آکادمی</a></li>
-                            <li><a href="#"><i class="fas fa-angle-left"></i> وبلاگ</a></li>
-                            <li><a href="#"><i class="fas fa-angle-left"></i> درباره ما</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-links">
-                        <h4>خدمات ما</h4>
-                        <ul>
-                            <li><a href="#"><i class="fas fa-angle-left"></i> طراحی لباس</a></li>
-                            <li><a href="#"><i class="fas fa-angle-left"></i> دوخت سفارشی</a></li>
-                            <li><a href="#"><i class="fas fa-angle-left"></i> تعمیرات</a></li>
-                            <li><a href="#"><i class="fas fa-angle-left"></i> مشاوره مد</a></li>
-                            <li><a href="#"><i class="fas fa-angle-left"></i> آموزش</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-newsletter">
-                        <h4>خبرنامه</h4>
-                        <p>برای دریافت آخرین اخبار و تخفیف‌ها عضو شوید</p>
-                        <form class="newsletter-form">
-                            <div class="form-wrapper">
-                                <input type="email" placeholder="ایمیل شما">
-                                <button type="submit">
-                                    <i class="fas fa-paper-plane"></i>
-                                </button>
-                            </div>
-                        </form>
-                        <div class="footer-app">
-                            <h5>دانلود اپلیکیشن</h5>
-                            <div class="app-buttons">
-                                <a href="#" class="app-btn">
-                                    <i class="fab fa-google-play"></i>
-                                    <span>Google Play</span>
-                                </a>
-                                <a href="#" class="app-btn">
-                                    <i class="fab fa-app-store"></i>
-                                    <span>App Store</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="bottom-content">
-                    <p>© ۱۴۰۳ چرخ طلایی - تمامی حقوق محفوظ است</p>
-                    <div class="footer-payments">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Crect fill='%23fff' width='60' height='40' rx='5'/%3E%3C/svg%3E" alt="Payment">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Crect fill='%23fff' width='60' height='40' rx='5'/%3E%3C/svg%3E" alt="Payment">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Crect fill='%23fff' width='60' height='40' rx='5'/%3E%3C/svg%3E" alt="Payment">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-   <!-- CDN ها -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
-
-<!-- اسکریپت‌های پروژه -->
-<script src="js/chat.js" defer></script>
-<script src="js/main.js" defer></script>
-</body>
-</html>
