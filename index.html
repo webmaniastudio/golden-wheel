@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fa" dir="rtl" data-theme="dark">
 <head>
   <meta charset="UTF-8">
@@ -23,7 +23,7 @@
   <!-- استایل اصلی پروژه -->
   <link rel="stylesheet" href="css/main.css">
 
-  <!-- نرم‌تر کردن تم روشن (فقط override متغیرها) -->
+  <!-- نرم‌تر کردن تم روشن (فقط override متغیرها، فایل CSS تغییر نمی‌کند) -->
   <style>
     [data-theme="light"]{
       --bg-primary:#f6f7f9; --bg-secondary:#eef0f3; --bg-tertiary:#e9ebf0;
@@ -34,7 +34,7 @@
 </head>
 <body>
 
-  <!-- لودینگ -->
+  <!-- Loader -->
   <div id="loader" class="loader">
     <div class="golden-wheel">
       <div class="wheel-container">
@@ -52,7 +52,7 @@
     </div>
   </div>
 
-  <!-- تغییر تم -->
+  <!-- Theme Toggle -->
   <div class="theme-toggle-container">
     <button id="themeToggle" class="theme-toggle">
       <div class="toggle-icon">
@@ -63,7 +63,7 @@
     </button>
   </div>
 
-  <!-- بازگشت به بالا -->
+  <!-- Scroll Top -->
   <button id="scrollTop" class="scroll-top">
     <i class="fas fa-chevron-up"></i>
     <svg class="progress-ring" width="50" height="50">
@@ -71,7 +71,7 @@
     </svg>
   </button>
 
-  <!-- چت پشتیبانی -->
+  <!-- Chat Widget -->
   <div class="chat-widget">
     <button class="chat-toggle" id="chatToggle">
       <div class="chat-icon-wrapper">
@@ -117,20 +117,20 @@
     </div>
   </div>
 
-  <!-- هدر -->
+  <!-- Header -->
   <header class="main-header">
     <nav class="navbar">
       <div class="nav-container">
-        <!-- لوگو -->
+        <!-- لوگو (دایره‌ای + بدون چرخش 360) -->
         <div class="logo" data-aos="fade-right">
-          <div class="logo-wrapper">
-            <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=200&q=60&auto=format&fit=crop" alt="چرخ طلایی" class="logo-img">
+          <div class="logo-wrapper" style="border-radius:50%;overflow:hidden;box-shadow:0 0 0 2px var(--gold) inset,0 0 16px rgba(212,175,55,.25)">
+            <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=200&q=60&auto=format&fit=crop" alt="چرخ طلایی" style="width:100%;height:100%;object-fit:cover">
             <div class="logo-shine"></div>
           </div>
           <span class="logo-text">چرخ طلایی</span>
         </div>
 
-        <!-- منوی دسکتاپ: لینک‌ها مطابق پوشه‌بندی -->
+        <!-- منوی دسکتاپ -->
         <ul class="nav-menu">
           <li><a href="index.html" class="nav-link active" data-text="صفحه اصلی">صفحه اصلی</a></li>
           <li class="dropdown">
@@ -145,10 +145,10 @@
           <li class="dropdown">
             <a href="academy.html" class="nav-link" data-text="آکادمی">آکادمی <i class="fas fa-chevron-down"></i></a>
             <ul class="dropdown-menu">
-              <li><a href="academy.html?type=basic"><i class="fas fa-graduation-cap"></i> دوره‌های مقدماتی</a></li>
-              <li><a href="academy.html?type=advanced"><i class="fas fa-certificate"></i> دوره‌های پیشرفته</a></li>
-              <li><a href="academy.html?type=professional"><i class="fas fa-trophy"></i> دوره‌های حرفه‌ای</a></li>
-              <li><a href="academy.html?type=online"><i class="fas fa-laptop"></i> آموزش آنلاین</a></li>
+              <li><a href="academy.html?type=basic"><i class="fas fa-graduation-cap"></i> مقدماتی</a></li>
+              <li><a href="academy.html?type=advanced"><i class="fas fa-certificate"></i> پیشرفته</a></li>
+              <li><a href="academy.html?type=professional"><i class="fas fa-trophy"></i> حرفه‌ای</a></li>
+              <li><a href="academy.html?type=online"><i class="fas fa-laptop"></i> آنلاین</a></li>
             </ul>
           </li>
           <li><a href="blog.html" class="nav-link" data-text="وبلاگ">وبلاگ</a></li>
@@ -156,13 +156,10 @@
           <li><a href="contact.html" class="nav-link" data-text="تماس با ما">تماس با ما</a></li>
         </ul>
 
-        <!-- اکشن‌ها -->
+        <!-- اکشن‌ها: سبد خرید حذف شد، سرچ به منوی موبایل منتقل شد -->
         <div class="nav-actions">
-          <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
-          <a href="cart.html" class="cart-btn">
-            <i class="fas fa-shopping-bag"></i>
-            <span class="cart-count">0</span>
-          </a>
+          <!-- <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button> -->
+          <!-- <a href="cart.html" class="cart-btn">...</a> -->
           <a href="auth.html" class="auth-btn"><i class="fas fa-user"></i><span>ورود</span></a>
         </div>
 
@@ -173,6 +170,63 @@
       </div>
     </nav>
   </header>
+
+  <!-- منوی موبایل (drawer) -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <div class="mobile-menu-logo">
+        <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=80&q=60&auto=format&fit=crop" alt="چرخ طلایی">
+        <span>چرخ طلایی</span>
+      </div>
+      <button class="mobile-menu-close" id="mobileMenuClose"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="mobile-menu-body">
+      <!-- جستجو داخل منو -->
+      <div class="mobile-search">
+        <input type="text" placeholder="جستجو...">
+        <button id="searchBtn"><i class="fas fa-search"></i></button>
+      </div>
+
+      <ul class="mobile-nav">
+        <li><a href="index.html" class="active"><i class="fas fa-home"></i> صفحه اصلی</a></li>
+
+        <li class="has-submenu">
+          <a href="shop.html"><span><i class="fas fa-shopping-bag"></i> فروشگاه</span> <i class="fas fa-chevron-down"></i></a>
+          <ul class="mobile-submenu">
+            <li><a href="shop.html?category=women">زنانه</a></li>
+            <li><a href="shop.html?category=men">مردانه</a></li>
+            <li><a href="shop.html?category=kids">بچگانه</a></li>
+            <li><a href="shop.html?category=accessories">اکسسوری</a></li>
+          </ul>
+        </li>
+
+        <li class="has-submenu">
+          <a href="academy.html"><span><i class="fas fa-graduation-cap"></i> آکادمی</span> <i class="fas fa-chevron-down"></i></a>
+          <ul class="mobile-submenu">
+            <li><a href="academy.html?type=basic">دوره‌های مقدماتی</a></li>
+            <li><a href="academy.html?type=advanced">دوره‌های پیشرفته</a></li>
+            <li><a href="academy.html?type=professional">دوره‌های حرفه‌ای</a></li>
+            <li><a href="academy.html?type=online">آموزش آنلاین</a></li>
+          </ul>
+        </li>
+
+        <li><a href="blog.html"><i class="fas fa-blog"></i> وبلاگ</a></li>
+        <li><a href="about.html"><i class="fas fa-info-circle"></i> درباره ما</a></li>
+        <li><a href="contact.html"><i class="fas fa-phone"></i> تماس با ما</a></li>
+        <li><a href="auth.html"><i class="fas fa-user-lock"></i> ورود / ثبت‌نام</a></li>
+      </ul>
+
+      <div class="mobile-menu-footer">
+        <a href="auth.html" class="mobile-auth-btn"><i class="fas fa-user"></i><span>ورود / ثبت‌نام</span></a>
+        <div class="mobile-social">
+          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- اورلی جستجو (خارج از هدر برای رفع باگ) -->
   <div class="search-overlay" id="searchOverlay">
@@ -194,7 +248,7 @@
     </div>
   </div>
 
-  <!-- هیرو -->
+  <!-- Hero -->
   <section id="home" class="hero-section">
     <div class="hero-bg">
       <div class="hero-pattern"></div>
@@ -216,7 +270,8 @@
         <a href="academy.html" class="btn btn-secondary"><span>آکادمی</span><i class="fas fa-graduation-cap"></i></a>
       </div>
 
-      <div class="hero-stats" data-aos="fade-up" data-aos-delay="300">
+      <!-- فاصله برای اینکه Scroll indicator روی سال تجربه نیفته -->
+      <div class="hero-stats" data-aos="fade-up" data-aos-delay="300" style="margin-bottom:70px">
         <div class="stat-item"><span class="stat-number" data-target="5000">0</span><span class="stat-label">مشتری راضی</span></div>
         <div class="stat-item"><span class="stat-number" data-target="30">0</span><span class="stat-label">سال تجربه</span></div>
         <div class="stat-item"><span class="stat-number" data-target="1200">0</span><span class="stat-label">طرح منحصر</span></div>
@@ -230,7 +285,7 @@
     </div>
   </section>
 
-  <!-- درباره ما -->
+  <!-- About -->
   <section id="about" class="about-section">
     <div class="section-bg"><div class="bg-pattern"></div></div>
     <div class="container">
@@ -272,7 +327,7 @@
     </div>
   </section>
 
-  <!-- تایم‌لاین -->
+  <!-- Timeline -->
   <section class="timeline-section">
     <div class="timeline-bg"><div class="timeline-pattern"></div></div>
     <div class="container">
@@ -336,7 +391,7 @@
     </div>
   </section>
 
-  <!-- گالری -->
+  <!-- Gallery -->
   <section class="gallery-section">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
@@ -353,38 +408,88 @@
       </div>
 
       <div class="gallery-grid">
+        <!-- 1 -->
         <div class="gallery-item" data-category="women" data-aos="zoom-in">
           <div class="gallery-image">
             <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1200&q=60&auto=format&fit=crop" alt="زنانه">
-            <div class="gallery-overlay"><div class="overlay-content"><h3>مجموعه بهاری</h3><p>طراحی اختصاصی</p><a href="#" class="gallery-link"><i class="fas fa-expand"></i></a></div></div>
+            <div class="gallery-overlay">
+              <div class="overlay-content">
+                <h3>مجموعه بهاری</h3>
+                <p>طراحی اختصاصی با پارچه‌های درجه یک</p>
+                <a href="shop.html" class="gallery-link" title="مشاهده در فروشگاه"><i class="fas fa-expand"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-caption" style="padding:12px 6px;color:var(--text-secondary)">
+            <p>طرح‌های جدید بهار با الهام از طبیعت</p>
+            <a href="shop.html" class="btn btn-primary" style="padding:8px 16px;border-radius:20px;display:inline-flex;align-items:center;gap:8px;margin-top:8px">
+              <span>مشاهده و سفارش</span><i class="fas fa-arrow-left"></i>
+            </a>
           </div>
         </div>
-
+        <!-- 2 -->
         <div class="gallery-item" data-category="men" data-aos="zoom-in" data-aos-delay="100">
           <div class="gallery-image">
             <img src="https://images.unsplash.com/photo-1511556670410-f76353ae45fb?w=1200&q=60&auto=format&fit=crop" alt="مردانه">
-            <div class="gallery-overlay"><div class="overlay-content"><h3>کت و شلوار</h3><p>دوخت تضمینی</p><a href="#" class="gallery-link"><i class="fas fa-expand"></i></a></div></div>
+            <div class="gallery-overlay">
+              <div class="overlay-content">
+                <h3>کت و شلوار</h3>
+                <p>دوخت تضمینی</p>
+                <a href="shop.html" class="gallery-link" title="مشاهده در فروشگاه"><i class="fas fa-expand"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-caption" style="padding:12px 6px;color:var(--text-secondary)">
+            <p>طرح‌های رسمی و کلاسیک مردانه</p>
+            <a href="shop.html" class="btn btn-primary" style="padding:8px 16px;border-radius:20px;display:inline-flex;align-items:center;gap:8px;margin-top:8px">
+              <span>مشاهده و سفارش</span><i class="fas fa-arrow-left"></i>
+            </a>
           </div>
         </div>
-
+        <!-- 3 -->
         <div class="gallery-item" data-category="kids" data-aos="zoom-in" data-aos-delay="200">
           <div class="gallery-image">
             <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=1200&q=60&auto=format&fit=crop" alt="کودک">
-            <div class="gallery-overlay"><div class="overlay-content"><h3>مجموعه کودک</h3><p>شاد و رنگارنگ</p><a href="#" class="gallery-link"><i class="fas fa-expand"></i></a></div></div>
+            <div class="gallery-overlay">
+              <div class="overlay-content">
+                <h3>مجموعه کودک</h3>
+                <p>شاد و رنگارنگ</p>
+                <a href="shop.html" class="gallery-link" title="مشاهده در فروشگاه"><i class="fas fa-expand"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-caption" style="padding:12px 6px;color:var(--text-secondary)">
+            <p>طرح‌های مناسب کودکان با رنگ‌های شاد</p>
+            <a href="shop.html" class="btn btn-primary" style="padding:8px 16px;border-radius:20px;display:inline-flex;align-items:center;gap:8px;margin-top:8px">
+              <span>مشاهده و سفارش</span><i class="fas fa-arrow-left"></i>
+            </a>
           </div>
         </div>
-
+        <!-- 4 -->
         <div class="gallery-item" data-category="traditional" data-aos="zoom-in" data-aos-delay="300">
           <div class="gallery-image">
             <img src="https://images.unsplash.com/photo-1541781286675-8c29bfa357e5?w=1200&q=60&auto=format&fit=crop" alt="سنتی">
-            <div class="gallery-overlay"><div class="overlay-content"><h3>لباس سنتی</h3><p>اصالت ایرانی</p><a href="#" class="gallery-link"><i class="fas fa-expand"></i></a></div></div>
+            <div class="gallery-overlay">
+              <div class="overlay-content">
+                <h3>لباس سنتی</h3>
+                <p>اصالت ایرانی</p>
+                <a href="shop.html" class="gallery-link" title="مشاهده در فروشگاه"><i class="fas fa-expand"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="gallery-caption" style="padding:12px 6px;color:var(--text-secondary)">
+            <p>ترکیب هنر سنتی با طراحی مدرن</p>
+            <a href="shop.html" class="btn btn-primary" style="padding:8px 16px;border-radius:20px;display:inline-flex;align-items:center;gap:8px;margin-top:8px">
+              <span>مشاهده و سفارش</span><i class="fas fa-arrow-left"></i>
+            </a>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- نظرات مشتریان -->
+  <!-- Testimonials -->
   <section class="testimonials-section">
     <div class="testimonials-bg"><div class="bg-gradient"></div></div>
     <div class="container">
@@ -401,9 +506,7 @@
                 <img src="https://i.pravatar.cc/100?img=47" alt="سارا احمدی">
                 <div class="customer-info">
                   <h4>سارا احمدی</h4>
-                  <div class="rating">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                  </div>
+                  <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                 </div>
                 <i class="fas fa-quote-right quote-icon"></i>
               </div>
@@ -418,13 +521,11 @@
                 <img src="https://i.pravatar.cc/100?img=32" alt="رضا کریمی">
                 <div class="customer-info">
                   <h4>رضا کریمی</h4>
-                  <div class="rating">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                  </div>
+                  <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                 </div>
                 <i class="fas fa-quote-right quote-icon"></i>
               </div>
-              <p>دوره‌های آکادمی فوق‌العاده‌اند، اساتید حرفه‌ای و محیط دوستانه.</p>
+              <p>دوره‌های آکادمی فوق‌العاده‌اند، اساتید حرفه‌ای و فضای دوستانه.</p>
               <span class="testimonial-date">۱۴۰۲/۰۸/۲۵</span>
             </div>
           </div>
@@ -435,9 +536,7 @@
                 <img src="https://i.pravatar.cc/100?img=15" alt="مریم محمدی">
                 <div class="customer-info">
                   <h4>مریم محمدی</h4>
-                  <div class="rating">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                  </div>
+                  <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
                 </div>
                 <i class="fas fa-quote-right quote-icon"></i>
               </div>
@@ -480,7 +579,7 @@
     </div>
   </section>
 
-  <!-- دوره‌ها -->
+  <!-- Courses -->
   <section class="courses-section">
     <div class="container">
       <div class="section-header" data-aos="fade-up">
@@ -546,7 +645,7 @@
     </div>
   </section>
 
-  <!-- تماس با ما -->
+  <!-- Contact -->
   <section id="contact" class="contact-section">
     <div class="contact-bg">
       <div class="bg-shapes">
@@ -571,17 +670,14 @@
               <a href="https://maps.google.com" class="info-link" target="_blank">مشاهده روی نقشه</a>
             </div>
           </div>
-
           <div class="info-card">
             <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
             <div class="info-content"><h4>تلفن</h4><p>۰۲۱-۱۲۳۴۵۶۷۸</p><p>۰۹۱۲-۱۲۳۴۵۶۷</p></div>
           </div>
-
           <div class="info-card">
             <div class="info-icon"><i class="fas fa-envelope"></i></div>
             <div class="info-content"><h4>ایمیل</h4><p>info@goldenwheel.ir</p><p>support@goldenwheel.ir</p></div>
           </div>
-
           <div class="info-card">
             <div class="info-icon"><i class="fas fa-clock"></i></div>
             <div class="info-content"><h4>ساعت کاری</h4><p>شنبه تا چهارشنبه: ۹ تا ۱۸</p><p>پنج‌شنبه: ۹ تا ۱۴</p></div>
@@ -641,7 +737,7 @@
       <div class="cta-overlay"></div>
     </div>
     <div class="container">
-      <div class="cta-content" data-aos="zoom-in">
+      <div class="cta-content" data-aos="zoom-in" style="padding:0 16px">
         <div class="cta-icon"><i class="fas fa-gift"></i></div>
         <h2>مشاوره رایگان طراحی لباس</h2>
         <p>همین حالا برای دریافت مشاوره تخصصی رایگان با ما تماس بگیرید</p>
@@ -656,7 +752,7 @@
     </div>
   </section>
 
-  <!-- فوتر (اپلیکیشن حذف شد) -->
+  <!-- Footer (payments حذف شد) -->
   <footer class="main-footer">
     <div class="footer-top">
       <div class="container">
@@ -707,7 +803,7 @@
                 <button type="submit"><i class="fas fa-paper-plane"></i></button>
               </div>
             </form>
-            <!-- بخش اپلیکیشن حذف شد -->
+            <!-- پرداخت‌ها/اپلیکیشن حذف شد -->
           </div>
         </div>
       </div>
@@ -717,17 +813,12 @@
       <div class="container">
         <div class="bottom-content">
           <p>© ۱۴۰۳ چرخ طلایی - تمامی حقوق محفوظ است</p>
-          <div class="footer-payments">
-            <img src="https://images.unsplash.com/photo-1556745753-b2904692b3cd?w=60&q=50&auto=format&fit=crop" alt="Payment">
-            <img src="https://images.unsplash.com/photo-1556745753-2a4a0b58b25c?w=60&q=50&auto=format&fit=crop" alt="Payment">
-            <img src="https://images.unsplash.com/photo-1556745753-2a4a0b58b35c?w=60&q=50&auto=format&fit=crop" alt="Payment">
-          </div>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Scripts (بدون chat.js تا دوباره ارسال نشه) -->
+  <!-- Scripts (فقط main.js تا چت دوبار ارسال نشه) -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
   <script src="js/main.js" defer></script>
