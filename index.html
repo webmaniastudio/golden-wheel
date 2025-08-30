@@ -23,13 +23,14 @@
   <!-- استایل اصلی پروژه -->
   <link rel="stylesheet" href="css/main.css">
 
-  <!-- نرم‌تر کردن تم روشن (فقط override متغیرها، فایل CSS تغییر نمی‌کند) -->
+  <!-- نرم‌تر کردن تم روشن + اصلاح افکت لینک هدر در تم تاریک (فقط override، فایل CSS تغییر نمی‌کند) -->
   <style>
     [data-theme="light"]{
       --bg-primary:#f6f7f9; --bg-secondary:#eef0f3; --bg-tertiary:#e9ebf0;
       --text-primary:#111; --text-secondary:#444; --text-tertiary:#666;
       --border-color:#d9dde5;
     }
+    [data-theme="dark"] .nav-link::before{ content:''; width:0!important; }
   </style>
 </head>
 <body>
@@ -93,7 +94,17 @@
         </div>
         <button class="chat-close" id="chatClose"><i class="fas fa-times"></i></button>
       </div>
-      <div class="chat-messages" id="chatMessages">
+
+      <!-- فرم شروع چت (نام + تلفن) -->
+      <div class="chat-onboard" id="chatOnboard" style="position:absolute;inset:0;background:var(--bg-secondary);display:flex;flex-direction:column;gap:10px;justify-content:center;align-items:center;padding:16px;border-top:1px solid var(--border-color);z-index:5;">
+        <h4 style="color:var(--gold);margin-bottom:4px;">شروع گفتگو</h4>
+        <input id="obName" type="text" placeholder="نام و نام خانوادگی" required style="width:90%;padding:10px;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-primary);color:var(--text-primary);">
+        <input id="obPhone" type="tel" placeholder="شماره تماس" required inputmode="tel" style="width:90%;padding:10px;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-primary);color:var(--text-primary);">
+        <button id="obStart" class="btn btn-primary" style="padding:10px 20px;border-radius:20px;cursor:pointer;">شروع گفتگو</button>
+        <small style="color:var(--text-secondary)">اطلاعات شما فقط برای شروع پشتیبانی استفاده می‌شود.</small>
+      </div>
+
+      <div class="chat-messages" id="chatMessages" style="position:relative;">
         <div class="chat-message bot animate-message">
           <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&q=70&auto=format&fit=crop" alt="bot">
           <div class="message-content">
@@ -110,9 +121,9 @@
       </div>
       <div class="chat-input">
         <button class="chat-attach"><i class="fas fa-paperclip"></i></button>
-        <input type="text" id="chatInput" placeholder="پیام خود را بنویسید...">
+        <input type="text" id="chatInput" placeholder="پیام خود را بنویسید..." disabled>
         <button class="chat-emoji"><i class="far fa-smile"></i></button>
-        <button id="chatSend"><i class="fas fa-paper-plane"></i></button>
+        <button id="chatSend" disabled><i class="fas fa-paper-plane"></i></button>
       </div>
     </div>
   </div>
@@ -121,10 +132,10 @@
   <header class="main-header">
     <nav class="navbar">
       <div class="nav-container">
-        <!-- لوگو (دایره‌ای + بدون چرخش 360) -->
+        <!-- لوگو دایره‌ای (بدون چرخش 360) -->
         <div class="logo" data-aos="fade-right">
           <div class="logo-wrapper" style="border-radius:50%;overflow:hidden;box-shadow:0 0 0 2px var(--gold) inset,0 0 16px rgba(212,175,55,.25)">
-            <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=200&q=60&auto=format&fit=crop" alt="چرخ طلایی" style="width:100%;height:100%;object-fit:cover">
+            <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=200&q=60&auto=format&fit=crop" alt="چرخ طلایی" style="width:100%;height:100%;object-fit:cover;animation:none">
             <div class="logo-shine"></div>
           </div>
           <span class="logo-text">چرخ طلایی</span>
@@ -156,11 +167,12 @@
           <li><a href="contact.html" class="nav-link" data-text="تماس با ما">تماس با ما</a></li>
         </ul>
 
-        <!-- اکشن‌ها: سبد خرید حذف شد، سرچ به منوی موبایل منتقل شد -->
+        <!-- اکشن‌ها: نمایش "ورود / ثبت‌نام" کنار آیکون در موبایل -->
         <div class="nav-actions">
-          <!-- <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button> -->
-          <!-- <a href="cart.html" class="cart-btn">...</a> -->
-          <a href="auth.html" class="auth-btn"><i class="fas fa-user"></i><span>ورود</span></a>
+          <a href="auth.html" class="auth-btn">
+            <i class="fas fa-user"></i>
+            <b class="auth-label" style="font-weight:600;">ورود / ثبت‌نام</b>
+          </a>
         </div>
 
         <!-- منوی موبایل -->
@@ -181,7 +193,7 @@
       <button class="mobile-menu-close" id="mobileMenuClose"><i class="fas fa-times"></i></button>
     </div>
     <div class="mobile-menu-body">
-      <!-- جستجو داخل منو -->
+      <!-- جستجو داخل منو (دکمه سرچ) -->
       <div class="mobile-search">
         <input type="text" placeholder="جستجو...">
         <button id="searchBtn"><i class="fas fa-search"></i></button>
@@ -270,7 +282,7 @@
         <a href="academy.html" class="btn btn-secondary"><span>آکادمی</span><i class="fas fa-graduation-cap"></i></a>
       </div>
 
-      <!-- فاصله برای اینکه Scroll indicator روی سال تجربه نیفته -->
+      <!-- فاصله جهت جلوگیری از هم‌پوشانی با Scroll-indicator -->
       <div class="hero-stats" data-aos="fade-up" data-aos-delay="300" style="margin-bottom:70px">
         <div class="stat-item"><span class="stat-number" data-target="5000">0</span><span class="stat-label">مشتری راضی</span></div>
         <div class="stat-item"><span class="stat-number" data-target="30">0</span><span class="stat-label">سال تجربه</span></div>
@@ -408,7 +420,6 @@
       </div>
 
       <div class="gallery-grid">
-        <!-- 1 -->
         <div class="gallery-item" data-category="women" data-aos="zoom-in">
           <div class="gallery-image">
             <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1200&q=60&auto=format&fit=crop" alt="زنانه">
@@ -427,7 +438,7 @@
             </a>
           </div>
         </div>
-        <!-- 2 -->
+
         <div class="gallery-item" data-category="men" data-aos="zoom-in" data-aos-delay="100">
           <div class="gallery-image">
             <img src="https://images.unsplash.com/photo-1511556670410-f76353ae45fb?w=1200&q=60&auto=format&fit=crop" alt="مردانه">
@@ -446,7 +457,7 @@
             </a>
           </div>
         </div>
-        <!-- 3 -->
+
         <div class="gallery-item" data-category="kids" data-aos="zoom-in" data-aos-delay="200">
           <div class="gallery-image">
             <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=1200&q=60&auto=format&fit=crop" alt="کودک">
@@ -465,7 +476,7 @@
             </a>
           </div>
         </div>
-        <!-- 4 -->
+
         <div class="gallery-item" data-category="traditional" data-aos="zoom-in" data-aos-delay="300">
           <div class="gallery-image">
             <img src="https://images.unsplash.com/photo-1541781286675-8c29bfa357e5?w=1200&q=60&auto=format&fit=crop" alt="سنتی">
@@ -506,7 +517,9 @@
                 <img src="https://i.pravatar.cc/100?img=47" alt="سارا احمدی">
                 <div class="customer-info">
                   <h4>سارا احمدی</h4>
-                  <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                  <div class="rating">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  </div>
                 </div>
                 <i class="fas fa-quote-right quote-icon"></i>
               </div>
@@ -521,7 +534,9 @@
                 <img src="https://i.pravatar.cc/100?img=32" alt="رضا کریمی">
                 <div class="customer-info">
                   <h4>رضا کریمی</h4>
-                  <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                  <div class="rating">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  </div>
                 </div>
                 <i class="fas fa-quote-right quote-icon"></i>
               </div>
@@ -536,7 +551,9 @@
                 <img src="https://i.pravatar.cc/100?img=15" alt="مریم محمدی">
                 <div class="customer-info">
                   <h4>مریم محمدی</h4>
-                  <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+                  <div class="rating">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                  </div>
                 </div>
                 <i class="fas fa-quote-right quote-icon"></i>
               </div>
@@ -548,7 +565,6 @@
         <div class="swiper-pagination"></div>
       </div>
 
-      <!-- افزودن نظر -->
       <div class="add-review-section" data-aos="fade-up">
         <button class="add-review-btn" id="addReviewBtn"><i class="fas fa-plus"></i><span>افزودن نظر شما</span></button>
         <div class="review-form" id="reviewForm">
@@ -720,7 +736,6 @@
         </div>
       </div>
 
-      <!-- نقشه با اورلی تیره -->
       <div class="map-container" data-aos="fade-up" style="position:relative;">
         <div class="map-wrapper" style="filter:grayscale(20%) contrast(1.05) brightness(.9);">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.5674730991866!2d51.41999031525873!3d35.71232788018732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8e011237847dcd%3A0xba03cb92f066e2f!2sValiasr%20St%2C%20Tehran%2C%20Iran!5e0!3m2!1sen!2s!4v1647856432156!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
@@ -752,7 +767,7 @@
     </div>
   </section>
 
-  <!-- Footer (payments حذف شد) -->
+  <!-- Footer -->
   <footer class="main-footer">
     <div class="footer-top">
       <div class="container">
@@ -803,7 +818,6 @@
                 <button type="submit"><i class="fas fa-paper-plane"></i></button>
               </div>
             </form>
-            <!-- پرداخت‌ها/اپلیکیشن حذف شد -->
           </div>
         </div>
       </div>
@@ -818,9 +832,48 @@
     </div>
   </footer>
 
-  <!-- Scripts (فقط main.js تا چت دوبار ارسال نشه) -->
+  <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
   <script src="js/main.js" defer></script>
+
+  <!-- اسکریپت کوچک فعال‌سازی چت بعد از دریافت نام/تلفن (بدون تغییر فایل‌های JS پروژه) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      const ob = document.getElementById('chatOnboard');
+      if(!ob) return;
+      const nameI = document.getElementById('obName');
+      const phoneI = document.getElementById('obPhone');
+      const startBtn = document.getElementById('obStart');
+      const input = document.getElementById('chatInput');
+      const send = document.getElementById('chatSend');
+
+      function validPhone(v){
+        const digits = (v||'').replace(/\D/g,'');
+        return /^[\d\s\-\+KATEX_INLINE_OPENKATEX_INLINE_CLOSE]+$/.test(v||'') && digits.length >= 10;
+      }
+      function enableChat(){
+        input?.removeAttribute('disabled');
+        send?.removeAttribute('disabled');
+        ob.style.display = 'none';
+      }
+      try{
+        const n = localStorage.getItem('support_name');
+        const p = localStorage.getItem('support_phone');
+        if(n && p){ enableChat(); }
+      }catch(e){}
+      startBtn?.addEventListener('click', ()=>{
+        const n = (nameI.value||'').trim();
+        const p = (phoneI.value||'').trim();
+        if(!n){ nameI.focus(); return; }
+        if(!validPhone(p)){ phoneI.focus(); phoneI.select?.(); return; }
+        try{
+          localStorage.setItem('support_name', n);
+          localStorage.setItem('support_phone', p);
+        }catch(e){}
+        enableChat();
+      });
+    });
+  </script>
 </body>
 </html>
