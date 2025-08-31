@@ -1,0 +1,1051 @@
+/* ========== استایل‌های اختصاصی محصول ========== */
+
+/* نان‌بردکامب */
+.breadcrumb-section {
+    background: var(--bg-secondary);
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.breadcrumb a {
+    color: var(--gold);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.breadcrumb a:hover {
+    color: var(--gold-light);
+}
+
+/* جزئیات محصول */
+.product-details {
+    padding: 60px 0;
+}
+
+.product-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+/* گالری تصاویر */
+.product-gallery {
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+}
+
+.main-image {
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.main-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.thumbs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.thumbs .swiper-slide {
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.thumbs .swiper-slide:hover {
+    opacity: 1;
+}
+
+.thumbs .swiper-slide-thumb-active {
+    opacity: 1;
+    border: 2px solid var(--gold);
+}
+
+.thumbs img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+}
+
+/* اطلاعات محصول */
+.product-info {
+    padding: 20px 0;
+}
+
+.product-category {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid var(--gold);
+    border-radius: 20px;
+    color: var(--gold);
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.product-info h1 {
+    font-size: 32px;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.product-rating {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.product-rating .stars {
+    display: flex;
+    gap: 2px;
+}
+
+.product-rating .stars i {
+    color: var(--gold);
+    font-size: 16px;
+}
+
+.product-rating span {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.write-review {
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 14px;
+    transition: var(--transition);
+}
+
+.write-review:hover {
+    color: var(--gold-light);
+}
+
+.product-price {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.price-old {
+    text-decoration: line-through;
+    color: var(--text-tertiary);
+    font-size: 18px;
+}
+
+.price-current {
+    color: var(--gold);
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.product-description {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+/* گزینه‌های محصول */
+.product-options {
+    margin-bottom: 30px;
+}
+
+.option-group {
+    margin-bottom: 25px;
+}
+
+.option-group:last-child {
+    margin-bottom: 0;
+}
+
+.option-group h4 {
+    color: var(--text-primary);
+    font-size: 16px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.option-group h4 i {
+    color: var(--gold);
+    font-size: 14px;
+}
+
+/* انتخاب رنگ */
+.color-options {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.color-option {
+    position: relative;
+}
+
+.color-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.color-swatch {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.color-option input[type="radio"]:checked + .color-swatch {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.3);
+}
+
+/* انتخاب سایز */
+.size-options {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.size-option {
+    position: relative;
+}
+
+.size-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.size-option span {
+    display: block;
+    padding: 8px 16px;
+    background: var(--bg-primary);
+    border: 2px solid var(--border-color);
+    border-radius: 25px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.size-option input[type="radio"]:checked + span {
+    background: var(--gold);
+    color: var(--black);
+    border-color: var(--gold);
+}
+
+.size-guide {
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 12px;
+    margin-right: 10px;
+    transition: var(--transition);
+}
+
+.size-guide:hover {
+    color: var(--gold-light);
+}
+
+/* انتخاب تعداد */
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: fit-content;
+}
+
+.quantity-btn {
+    width: 40px;
+    height: 40px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 18px;
+}
+
+.quantity-btn:hover {
+    background: var(--bg-tertiary);
+    color: var(--gold);
+}
+
+.quantity-input {
+    width: 60px;
+    height: 40px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    text-align: center;
+    outline: none;
+    font-size: 16px;
+}
+
+/* دکمه‌های اقدام */
+.product-actions {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.add-to-cart-btn {
+    flex: 1;
+    padding: 15px 30px;
+    background: var(--gold);
+    color: var(--black);
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.add-to-cart-btn:hover {
+    background: var(--gold-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+.add-to-wishlist-btn {
+    padding: 15px 25px;
+    background: transparent;
+    border: 2px solid var(--gold);
+    border-radius: 25px;
+    color: var(--gold);
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.add-to-wishlist-btn:hover {
+    background: var(--gold);
+    color: var(--black);
+}
+
+.add-to-wishlist-btn.active {
+    background: var(--gold);
+    color: var(--black);
+}
+
+/* ویژگی‌های محصول */
+.product-features {
+    background: var(--bg-secondary);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.product-features h4 {
+    color: var(--text-primary);
+    font-size: 18px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.product-features h4 i {
+    color: var(--gold);
+}
+
+.product-features ul {
+    list-style: none;
+}
+
+.product-features li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.product-features li:last-child {
+    margin-bottom: 0;
+}
+
+.product-features li i {
+    color: var(--gold);
+    font-size: 16px;
+}
+
+/* شبکه‌های اجتماعی */
+.product-share {
+    margin-bottom: 30px;
+}
+
+.product-share h4 {
+    color: var(--text-primary);
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.share-links {
+    display: flex;
+    gap: 10px;
+}
+
+.share-link {
+    width: 40px;
+    height: 40px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.share-link:hover {
+    background: var(--gold);
+    color: var(--black);
+    border-color: var(--gold);
+    transform: translateY(-3px);
+}
+
+/* تب‌های محصول */
+.product-tabs {
+    padding: 60px 0;
+    background: var(--bg-primary);
+}
+
+.tabs-header {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--border-color);
+    overflow-x: auto;
+}
+
+.tabs-header::-webkit-scrollbar {
+    height: 4px;
+}
+
+.tabs-header::-webkit-scrollbar-track {
+    background: var(--bg-tertiary);
+}
+
+.tabs-header::-webkit-scrollbar-thumb {
+    background: var(--gold);
+    border-radius: 2px;
+}
+
+.tab-btn {
+    padding: 12px 24px;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    position: relative;
+}
+
+.tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    transition: width 0.3s ease;
+}
+
+.tab-btn:hover {
+    color: var(--text-primary);
+}
+
+.tab-btn.active {
+    color: var(--gold);
+}
+
+.tab-btn.active::after {
+    width: 100%;
+}
+
+.tabs-content {
+    min-height: 400px;
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+.tab-content {
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.tab-content h3 {
+    color: var(--text-primary);
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-family: var(--font-nastaliq);
+}
+
+.tab-content p {
+    margin-bottom: 20px;
+}
+
+.tab-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* جدول جزئیات محصول */
+.product-details-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.product-details-table tr {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.product-details-table tr:last-child {
+    border-bottom: none;
+}
+
+.product-details-table td {
+    padding: 12px 0;
+    font-size: 14px;
+}
+
+.product-details-table td:first-child {
+    color: var(--text-tertiary);
+    font-weight: 500;
+    width: 150px;
+}
+
+.product-details-table td:last-child {
+    color: var(--text-primary);
+}
+
+/* خلاصه نظرات */
+.reviews-summary {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    margin-bottom: 30px;
+    padding: 25px;
+    background: var(--bg-secondary);
+    border-radius: 15px;
+}
+
+.average-rating {
+    text-align: center;
+}
+
+.rating-number {
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+
+.rating-stars {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+    margin-bottom: 10px;
+}
+
+.rating-stars i {
+    color: var(--gold);
+    font-size: 20px;
+}
+
+.rating-count {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.rating-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.rating-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.rating-bar span:first-child {
+    width: 80px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.bar-container {
+    flex: 1;
+    height: 8px;
+    background: var(--bg-tertiary);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    background: var(--gold);
+    transition: width 0.5s ease;
+}
+
+.rating-bar span:last-child {
+    width: 40px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    text-align: left;
+}
+
+/* افزودن نظر */
+.add-review-btn {
+    padding: 12px 30px;
+    background: var(--gold);
+    color: var(--black);
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.add-review-btn:hover {
+    background: var(--gold-dark);
+    transform: translateY(-2px);
+}
+
+/* لیست نظرات */
+.reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.review-item {
+    padding: 25px;
+    background: var(--bg-secondary);
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.reviewer-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.reviewer-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid var(--gold);
+}
+
+.reviewer-info h4 {
+    color: var(--text-primary);
+    font-size: 16px;
+    margin-bottom: 3px;
+}
+
+.review-date {
+    color: var(--text-tertiary);
+    font-size: 12px;
+}
+
+.review-rating {
+    display: flex;
+    gap: 2px;
+}
+
+.review-rating i {
+    color: var(--gold);
+    font-size: 14px;
+}
+
+.review-content {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.review-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.helpful-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 6px 15px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.helpful-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+
+.helpful-btn.active {
+    background: var(--gold);
+    color: var(--black);
+    border-color: var(--gold);
+}
+
+/* محصولات مرتبط */
+.related-products {
+    padding: 60px 0;
+}
+
+.recommended-item {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.recommended-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.recommended-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.recommended-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.recommended-info {
+    flex: 1;
+}
+
+.recommended-info h4 {
+    color: var(--text-primary);
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.recommended-info h4 a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.recommended-info h4 a:hover {
+    color: var(--gold);
+}
+
+.recommended-price {
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.add-to-cart-recommended {
+    padding: 6px 15px;
+    background: var(--gold);
+    color: var(--black);
+    border: none;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-to-cart-recommended:hover {
+    background: var(--gold-dark);
+}
+
+/* واکنش‌گرایی */
+@media (max-width: 1200px) {
+    .product-container {
+        gap: 40px;
+    }
+    
+    .main-image img {
+        height: 400px;
+    }
+    
+    .thumbs img {
+        height: 80px;
+    }
+}
+
+@media (max-width: 992px) {
+    .product-details {
+        padding: 40px 0;
+    }
+    
+    .product-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .product-gallery {
+        position: relative;
+        top: 0;
+        margin-bottom: 30px;
+    }
+    
+    .main-image img {
+        height: 400px;
+    }
+    
+    .product-info h1 {
+        font-size: 28px;
+    }
+    
+    .reviews-summary {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .average-rating {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    .recommended-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .recommended-image {
+        width: 100%;
+        height: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-details {
+        padding: 30px 0;
+    }
+    
+    .product-info h1 {
+        font-size: 24px;
+    }
+    
+    .product-price {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .price-old {
+        font-size: 16px;
+    }
+    
+    .price-current {
+        font-size: 24px;
+    }
+    
+    .product-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .add-to-cart-btn,
+    .add-to-wishlist-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .product-features {
+        padding: 20px;
+    }
+    
+    .product-features h4 {
+        font-size: 16px;
+    }
+    
+    .product-features li {
+        font-size: 13px;
+    }
+    
+    .tabs-header {
+        gap: 0;
+    }
+    
+    .tab-btn {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    
+    .tab-content h3 {
+        font-size: 20px;
+    }
+    
+    .product-details-table {
+        font-size: 12px;
+    }
+    
+    .product-details-table td:first-child {
+        width: 120px;
+    }
+    
+    .review-item {
+        padding: 20px;
+    }
+    
+    .review-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .reviewer-info img {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-details {
+        padding: 20px 0;
+    }
+    
+    .product-info h1 {
+        font-size: 20px;
+    }
+    
+    .color-options {
+        gap: 8px;
+    }
+    
+    .color-swatch {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .size-options {
+        gap: 8px;
+    }
+    
+    .size-option span {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    .quantity-selector {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .product-features {
+        padding: 15px;
+    }
+    
+    .product-features h4 {
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+    
+    .product-features li {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+    
+    .tabs-content {
+        font-size: 14px;
+    }
+    
+    .tab-content h3 {
+        font-size: 18px;
+    }
+    
+    .review-item {
+        padding: 15px;
+    }
+    
+    .review-content {
+        font-size: 14px;
+    }
+    
+    .helpful-btn {
+        font-size: 12px;
+        padding: 4px 12px;
+    }
+}

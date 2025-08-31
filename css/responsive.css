@@ -1,1 +1,1371 @@
-﻿
+﻿/* ========== رسپانسیو برای موبایل ========== */
+@media (max-width: 768px) {
+  /* تنظیمات کلی */
+  html {
+    font-size: 14px;
+  }
+  
+  body {
+    overflow-x: hidden;
+  }
+  
+  .container {
+    padding: 0 15px;
+  }
+  
+  /* هدر */
+  .main-header {
+    padding: 10px 0;
+  }
+  
+  .nav-container {
+    padding: 0 15px;
+  }
+  
+  .logo {
+    gap: 8px;
+  }
+  
+  .logo-wrapper {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .logo-text {
+    font-size: 20px;
+  }
+  
+  .nav-menu {
+    display: none;
+  }
+  
+  .nav-actions {
+    gap: 10px;
+  }
+  
+  .search-btn,
+  .cart-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+  
+  .auth-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+  
+  .auth-label {
+    display: none;
+  }
+  
+  .mobile-menu-toggle {
+    display: block;
+  }
+  
+  /* منوی موبایل */
+  .mobile-menu {
+    width: 100%;
+    max-width: none;
+  }
+  
+  .mobile-menu-header {
+    padding: 15px;
+  }
+  
+  .mobile-menu-logo img {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .mobile-menu-logo span {
+    font-size: 18px;
+  }
+  
+  .mobile-menu-body {
+    padding: 15px;
+  }
+  
+  .mobile-search {
+    margin-bottom: 20px;
+  }
+  
+  .mobile-search input {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+  
+  .mobile-search button {
+    padding: 10px 15px;
+  }
+  
+  .mobile-nav a {
+    padding: 12px 10px;
+    font-size: 14px;
+  }
+  
+  .mobile-nav i {
+    width: 20px;
+    font-size: 16px;
+  }
+  
+  .mobile-submenu a {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+  
+  .mobile-menu-footer {
+    padding: 15px;
+  }
+  
+  .mobile-auth-btn {
+    padding: 12px;
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+  
+  .social-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+  
+  /* جستجو */
+  .search-overlay {
+    padding: 20px;
+  }
+  
+  .search-close {
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+  }
+  
+  .search-wrapper {
+    width: 100%;
+  }
+  
+  .search-container input {
+    padding: 15px 50px 15px 20px;
+    font-size: 16px;
+  }
+  
+  .search-submit {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .search-suggestions h4 {
+    font-size: 16px;
+  }
+  
+  .suggestion-tags span {
+    padding: 6px 15px;
+    font-size: 12px;
+  }
+  
+  /* چت */
+  .chat-widget {
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .chat-toggle {
+    width: 55px;
+    height: 55px;
+  }
+  
+  .chat-icon-wrapper {
+    font-size: 22px;
+  }
+  
+  .chat-badge {
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+  }
+  
+  .chat-box {
+    width: calc(100vw - 40px);
+    max-width: 360px;
+    height: 450px;
+    right: 20px;
+    bottom: 75px;
+  }
+  
+  .chat-header {
+    padding: 15px;
+  }
+  
+  .chat-header-info img {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .chat-header h4 {
+    font-size: 14px;
+  }
+  
+  .chat-status {
+    font-size: 11px;
+  }
+  
+  .chat-close {
+    font-size: 18px;
+  }
+  
+  .chat-messages {
+    padding: 15px;
+  }
+  
+  .message-content {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  
+  .message-time {
+    font-size: 9px;
+  }
+  
+  .chat-quick-replies {
+    padding: 8px;
+  }
+  
+  .quick-reply {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+  
+  .chat-input {
+    padding: 10px;
+    gap: 8px;
+  }
+  
+  .chat-attach,
+  .chat-emoji {
+    font-size: 16px;
+  }
+  
+  #chatInput {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  
+  #chatSend {
+    width: 35px;
+    height: 35px;
+  }
+  
+  /* تم */
+  .theme-toggle-container {
+    top: auto;
+    bottom: 100px;
+    right: 20px;
+  }
+  
+  .theme-toggle {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .toggle-icon i {
+    font-size: 20px;
+  }
+  
+  /* اسکرول تاپ */
+  .scroll-top {
+    bottom: 20px;
+    left: 20px;
+    width: 45px;
+    height: 45px;
+  }
+  
+  /* هیرو */
+  .hero-section {
+    min-height: 70vh;
+  }
+  
+  .hero-title {
+    font-size: 28px;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .title-divider {
+    display: none;
+  }
+  
+  .hero-description {
+    font-size: 14px;
+    padding: 0 15px;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    padding: 0 15px;
+    gap: 15px;
+  }
+  
+  .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 25px;
+    font-size: 14px;
+  }
+  
+  .hero-stats {
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .hero-stats .stat-number {
+    font-size: 24px;
+  }
+  
+  .hero-stats .stat-label {
+    font-size: 12px;
+  }
+  
+  .scroll-indicator {
+    bottom: 20px;
+  }
+  
+  .mouse {
+    width: 22px;
+    height: 35px;
+  }
+  
+  .wheel {
+    width: 3px;
+    height: 6px;
+  }
+  
+  .scroll-indicator span {
+    font-size: 10px;
+  }
+  
+  /* بخش‌ها */
+  section {
+    padding: 50px 0;
+  }
+  
+  .section-header {
+    margin-bottom: 40px;
+  }
+  
+  .section-badge {
+    padding: 5px 15px;
+    font-size: 12px;
+  }
+  
+  .section-title {
+    font-size: 24px;
+  }
+  
+  .section-subtitle {
+    font-size: 14px;
+  }
+  
+  /* درباره ما */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .about-image {
+    order: -1;
+  }
+  
+  .image-wrapper img {
+    height: 250px;
+  }
+  
+  .experience-badge {
+    width: 80px;
+    height: 80px;
+    top: 15px;
+    right: 15px;
+  }
+  
+  .experience-badge .number {
+    font-size: 20px;
+  }
+  
+  .experience-badge .text {
+    font-size: 12px;
+  }
+  
+  .about-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .about-text h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .about-text p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  .feature-mini {
+    padding: 10px 15px;
+    font-size: 13px;
+  }
+  
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  .feature-card {
+    padding: 20px;
+  }
+  
+  .feature-card .feature-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .feature-card h4 {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  
+  .feature-card p {
+    font-size: 13px;
+  }
+  
+  /* تایم‌لاین */
+  .timeline-line {
+    display: none;
+  }
+  
+  .timeline-item {
+    flex-direction: column !important;
+    margin: 30px 0;
+  }
+  
+  .timeline-dot {
+    position: relative;
+    left: auto;
+    transform: none;
+    margin-bottom: 15px;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+  
+  .timeline-content {
+    width: 100%;
+    margin: 0 !important;
+    padding: 20px;
+  }
+  
+  .timeline-content::before {
+    display: none;
+  }
+  
+  .timeline-date {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  
+  .timeline-content h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  
+  .timeline-content p {
+    font-size: 13px;
+    margin-bottom: 15px;
+  }
+  
+  .timeline-image {
+    height: 120px;
+  }
+  
+  /* گالری */
+  .gallery-filter {
+    gap: 8px;
+    margin-bottom: 30px;
+  }
+  
+  .filter-btn {
+    padding: 6px 15px;
+    font-size: 12px;
+  }
+  
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .gallery-item {
+    height: 250px;
+  }
+  
+  .gallery-caption p {
+    font-size: 13px;
+  }
+  
+  .gallery-caption .btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  
+  /* نظرات */
+  .testimonial-card {
+    padding: 20px;
+  }
+  
+  .testimonial-header img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .customer-info h4 {
+    font-size: 16px;
+  }
+  
+  .rating {
+    font-size: 12px;
+  }
+  
+  .quote-icon {
+    font-size: 30px;
+  }
+  
+  .testimonial-card p {
+    font-size: 13px;
+  }
+  
+  .testimonial-date {
+    font-size: 11px;
+  }
+  
+  .add-review-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  
+  .review-form {
+    padding: 20px;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .review-form input,
+  .review-form textarea {
+    padding: 10px 15px;
+    font-size: 13px;
+  }
+  
+  .rating-input {
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .star-rating i {
+    font-size: 18px;
+  }
+  
+  .submit-review,
+  .cancel-review {
+    padding: 8px 20px;
+    font-size: 13px;
+  }
+  
+  /* دوره‌ها */
+  .courses-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .course-badge {
+    top: 15px;
+    right: 15px;
+    padding: 4px 12px;
+    font-size: 11px;
+  }
+  
+  .course-image {
+    height: 180px;
+  }
+  
+  .course-content {
+    padding: 20px;
+  }
+  
+  .course-category {
+    padding: 3px 10px;
+    font-size: 11px;
+    margin-bottom: 10px;
+  }
+  
+  .course-content h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  
+  .course-content p {
+    font-size: 13px;
+    margin-bottom: 15px;
+  }
+  
+  .course-meta {
+    gap: 15px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    font-size: 12px;
+  }
+  
+  .course-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .price-old {
+    font-size: 12px;
+  }
+  
+  .price-current {
+    font-size: 16px;
+  }
+  
+  .btn-enroll {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  
+  /* تماس با ما */
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .contact-form {
+    padding: 20px;
+  }
+  
+  .contact-form h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 12px 20px 12px 45px;
+    font-size: 13px;
+  }
+  
+  .form-group i {
+    right: 15px;
+    font-size: 16px;
+  }
+  
+  .info-card {
+    padding: 15px;
+    gap: 15px;
+  }
+  
+  .info-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+  
+  .info-content h4 {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .info-content p {
+    font-size: 13px;
+  }
+  
+  .info-link {
+    font-size: 12px;
+  }
+  
+  .map-container {
+    height: 250px;
+    margin-top: 30px;
+  }
+  
+  /* CTA */
+  .cta-section {
+    padding: 80px 0;
+  }
+  
+  .cta-content {
+    padding: 0 15px;
+  }
+  
+  .cta-icon {
+    width: 80px;
+    height: 80px;
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  
+  .cta-content h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .cta-content p {
+    font-size: 14px;
+    margin-bottom: 25px;
+  }
+  
+  .cta-timer {
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+  
+  .timer-item span {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+  }
+  
+  .timer-item label {
+    font-size: 12px;
+  }
+  
+  .btn-lg {
+    padding: 15px 30px;
+    font-size: 16px;
+  }
+  
+  /* فوتر */
+  .footer-top {
+    padding: 50px 0 40px;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+  
+  .footer-about {
+    padding-left: 0;
+  }
+  
+  .footer-logo {
+    margin-bottom: 15px;
+  }
+  
+  .footer-logo img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .footer-logo span {
+    font-size: 20px;
+  }
+  
+  .footer-about p {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+  
+  .footer-social {
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .social-link {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+  
+  .footer-links {
+    margin-bottom: 20px;
+  }
+  
+  .footer-links h4 {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  
+  .footer-links li {
+    margin-bottom: 8px;
+  }
+  
+  .footer-links a {
+    font-size: 13px;
+  }
+  
+  .footer-newsletter h4 {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  
+  .footer-newsletter p {
+    font-size: 13px;
+    margin-bottom: 15px;
+  }
+  
+  .newsletter-form input {
+    padding: 12px 45px 12px 15px;
+    font-size: 13px;
+  }
+  
+  .newsletter-form button {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .footer-app h5 {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  
+  .app-buttons {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .app-btn {
+    padding: 8px;
+    font-size: 11px;
+  }
+  
+  .footer-bottom {
+    padding: 20px 0;
+  }
+  
+  .bottom-content {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .footer-bottom p {
+    font-size: 12px;
+  }
+  
+  .footer-payments {
+    gap: 10px;
+  }
+  
+  .footer-payments img {
+    height: 25px;
+  }
+}
+
+/* ========== رسپانسیو برای تبلت ========== */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* تنظیمات کلی */
+  html {
+    font-size: 15px;
+  }
+  
+  .container {
+    padding: 0 20px;
+  }
+  
+  /* هدر */
+  .nav-menu {
+    gap: 20px;
+  }
+  
+  .nav-link {
+    font-size: 15px;
+  }
+  
+  .auth-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  
+  /* هیرو */
+  .hero-title {
+    font-size: 36px;
+  }
+  
+  .hero-description {
+    font-size: 16px;
+  }
+  
+  .hero-buttons {
+    gap: 15px;
+  }
+  
+  .btn {
+    padding: 12px 25px;
+    font-size: 15px;
+  }
+  
+  .hero-stats {
+    gap: 40px;
+  }
+  
+  .hero-stats .stat-number {
+    font-size: 28px;
+  }
+  
+  /* بخش‌ها */
+  section {
+    padding: 70px 0;
+  }
+  
+  .section-title {
+    font-size: 28px;
+  }
+  
+  /* درباره ما */
+  .about-grid {
+    gap: 40px;
+  }
+  
+  .image-wrapper img {
+    height: 350px;
+  }
+  
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  /* تایم‌لاین */
+  .timeline-content {
+    width: 48%;
+    padding: 25px;
+  }
+  
+  /* گالری */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+  
+  .gallery-item {
+    height: 300px;
+  }
+  
+  /* نظرات */
+  .testimonial-card {
+    padding: 25px;
+  }
+  
+  /* دوره‌ها */
+  .courses-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+  
+  /* تماس با ما */
+  .contact-content {
+    gap: 40px;
+  }
+  
+  .map-container {
+    height: 350px;
+  }
+  
+  /* CTA */
+  .cta-content h2 {
+    font-size: 32px;
+  }
+  
+  .cta-timer {
+    gap: 20px;
+  }
+  
+  .timer-item span {
+    width: 70px;
+    height: 70px;
+    font-size: 28px;
+  }
+  
+  /* فوتر */
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+  
+  .footer-about {
+    grid-column: span 2;
+    text-align: center;
+    padding-left: 0;
+  }
+  
+  .footer-social {
+    justify-content: center;
+  }
+}
+
+/* ========== رسپانسیو برای دسکتاپ کوچک ========== */
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+  
+  .nav-menu {
+    gap: 25px;
+  }
+  
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .courses-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .footer-content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .footer-about {
+    grid-column: span 3;
+    text-align: center;
+    padding-left: 0;
+  }
+  
+  .footer-social {
+    justify-content: center;
+  }
+}
+
+/* ========== رسپانسیو برای دسکتاپ بزرگ ========== */
+@media (min-width: 1201px) {
+  .container {
+    max-width: 1320px;
+  }
+  
+  .features-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .gallery-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .courses-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .footer-content {
+    grid-template-columns: 2fr 1fr 1fr 2fr;
+  }
+}
+
+/* ========== رسپانسیو برای صفحه‌های بسیار بزرگ ========== */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1400px;
+  }
+  
+  .hero-title {
+    font-size: 48px;
+  }
+  
+  .section-title {
+    font-size: 36px;
+  }
+  
+  .about-text h3 {
+    font-size: 32px;
+  }
+  
+  .features-grid {
+    gap: 40px;
+  }
+  
+  .gallery-grid {
+    gap: 40px;
+  }
+  
+  .courses-grid {
+    gap: 40px;
+  }
+  
+  .contact-content {
+    gap: 80px;
+  }
+}
+
+/* ========== رسپانسیو برای دستگاه‌های با ارتفاع کم ========== */
+@media (max-height: 600px) {
+  .hero-section {
+    min-height: 60vh;
+  }
+  
+  .hero-title {
+    font-size: 24px;
+  }
+  
+  .hero-description {
+    font-size: 14px;
+  }
+  
+  .hero-buttons {
+    margin-bottom: 30px;
+  }
+  
+  .hero-stats {
+    margin-bottom: 30px;
+  }
+  
+  .scroll-indicator {
+    bottom: 15px;
+  }
+  
+  section {
+    padding: 40px 0;
+  }
+  
+  .section-header {
+    margin-bottom: 30px;
+  }
+  
+  .cta-section {
+    padding: 60px 0;
+  }
+}
+
+/* ========== رسپانسیو برای دستگاه‌های با ارتفاع زیاد ========== */
+@media (min-height: 900px) {
+  .hero-section {
+    min-height: 90vh;
+  }
+  
+  .hero-title {
+    font-size: 42px;
+  }
+  
+  .hero-description {
+    font-size: 18px;
+  }
+  
+  .hero-buttons {
+    margin-bottom: 50px;
+  }
+  
+  .hero-stats {
+    margin-bottom: 50px;
+  }
+  
+  section {
+    padding: 80px 0;
+  }
+  
+  .section-header {
+    margin-bottom: 50px;
+  }
+  
+  .cta-section {
+    padding: 100px 0;
+  }
+}
+
+/* ========== رسپانسیو برای دستگاه‌های با عرض بسیار کم ========== */
+@media (max-width: 320px) {
+  html {
+    font-size: 13px;
+  }
+  
+  .container {
+    padding: 0 10px;
+  }
+  
+  .hero-title {
+    font-size: 24px;
+  }
+  
+  .section-title {
+    font-size: 22px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+  
+  .chat-box {
+    width: calc(100vw - 20px);
+    right: 10px;
+    bottom: 75px;
+  }
+  
+  .timeline-dot {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+  
+  .timer-item span {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+}
+
+/* ========== رسپانسیو برای دستگاه‌های با عرض بسیار زیاد ========== */
+@media (min-width: 1600px) {
+  .container {
+    max-width: 1500px;
+  }
+  
+  .hero-title {
+    font-size: 54px;
+  }
+  
+  .section-title {
+    font-size: 42px;
+  }
+  
+  .about-text h3 {
+    font-size: 36px;
+  }
+  
+  .features-grid {
+    gap: 50px;
+  }
+  
+  .gallery-grid {
+    gap: 50px;
+  }
+  
+  .courses-grid {
+    gap: 50px;
+  }
+  
+  .contact-content {
+    gap: 100px;
+  }
+}
+
+/* ========== رسپانسیو برای چاپ ========== */
+@media print {
+  /* مخفی کردن عناصر غیرضروری */
+  .main-header,
+  .mobile-menu,
+  .theme-toggle-container,
+  .scroll-top,
+  .chat-widget,
+  .search-overlay,
+  .hero-stats,
+  .scroll-indicator,
+  .cta-section,
+  .main-footer,
+  .btn,
+  .gallery-link,
+  .course-link,
+  .btn-enroll,
+  .testimonial-card .quote-icon,
+  .add-review-btn,
+  .review-form,
+  .form-actions button,
+  .mobile-menu-toggle,
+  .nav-actions {
+    display: none !important;
+  }
+  
+  /* تنظیمات کلی */
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+  
+  /* بخش‌ها */
+  section {
+    padding: 20px 0 !important;
+    page-break-inside: avoid;
+  }
+  
+  /* تصاویر */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  
+  /* لینک‌ها */
+  a {
+    color: black !important;
+    text-decoration: underline;
+  }
+  
+  /* جداول */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: right;
+  }
+  
+  /* کارت‌ها */
+  .feature-card,
+  .gallery-item,
+  .testimonial-card,
+  .course-card {
+    break-inside: avoid;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+  }
+  
+  /* تایم‌لاین */
+  .timeline-item {
+    break-inside: avoid;
+    margin-bottom: 30px;
+  }
+  
+  /* نظرات */
+  .testimonial-card {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+  
+  /* دوره‌ها */
+  .course-card {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+  
+  /* تماس با ما */
+  .contact-form {
+    display: none;
+  }
+  
+  .map-container {
+    display: none;
+  }
+  
+  /* فوتر */
+  .main-footer {
+    display: none;
+  }
+}

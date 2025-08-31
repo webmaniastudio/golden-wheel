@@ -1,1 +1,2023 @@
-﻿
+﻿<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#D4AF37">
+  <title>جزئیات محصول | چرخ طلایی</title>
+  <!-- فونت‌ها -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'IranNastaliq';
+      src: url('https://cdn.jsdelivr.net/gh/rastikerdar/iran-nastaliq@v3.4.0/dist/IranNastaliq.woff2') format('woff2');
+    }
+  </style>
+  <!-- آیکون‌ها + AOS + Swiper CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <!-- استایل اصلی پروژه -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <!-- استایل اختصاصی محصول -->
+  <style>
+    /* ========== استایل‌های اختصاصی محصول ========== */
+    .product-hero {
+      position: relative;
+      padding: 60px 0 40px;
+      background: var(--bg-secondary);
+    }
+    
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    
+    .breadcrumb a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    .breadcrumb a:hover {
+      color: var(--gold);
+    }
+    
+    .breadcrumb span {
+      color: var(--gold);
+    }
+    
+    /* ========== گالری محصول ========== */
+    .product-gallery {
+      margin-bottom: 40px;
+    }
+    
+    .main-image-container {
+      position: relative;
+      margin-bottom: 20px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .main-image {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .image-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 8px 16px;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: 600;
+      z-index: 1;
+    }
+    
+    .image-badge.new {
+      background: #00c851;
+      color: white;
+    }
+    
+    .image-badge.sale {
+      background: #ff4444;
+      color: white;
+    }
+    
+    .image-badge.featured {
+      background: var(--gold);
+      color: var(--black);
+    }
+    
+    .product-actions {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .action-btn {
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      color: var(--black);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .action-btn:hover {
+      background: var(--gold);
+      transform: scale(1.1);
+    }
+    
+    .action-btn.active {
+      background: var(--gold);
+    }
+    
+    .thumbnail-container {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+    
+    .thumbnail {
+      width: 100px;
+      height: 100px;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      flex-shrink: 0;
+      border: 2px solid transparent;
+      transition: var(--transition);
+    }
+    
+    .thumbnail:hover,
+    .thumbnail.active {
+      border-color: var(--gold);
+    }
+    
+    .thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    /* ========== اطلاعات محصول ========== */
+    .product-info {
+      margin-bottom: 40px;
+    }
+    
+    .product-title {
+      font-size: 32px;
+      color: var(--text-primary);
+      margin-bottom: 15px;
+      font-family: var(--font-nastaliq);
+    }
+    
+    .product-rating {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    
+    .stars {
+      display: flex;
+      gap: 2px;
+      color: var(--gold);
+    }
+    
+    .reviews-count {
+      color: var(--text-secondary);
+    }
+    
+    .write-review {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 14px;
+      transition: var(--transition);
+    }
+    
+    .write-review:hover {
+      text-decoration: underline;
+    }
+    
+    .product-price {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+    
+    .current-price {
+      font-size: 28px;
+      color: var(--gold);
+      font-weight: 600;
+    }
+    
+    .old-price {
+      font-size: 20px;
+      color: var(--text-tertiary);
+      text-decoration: line-through;
+    }
+    
+    .discount-badge {
+      padding: 5px 12px;
+      background: #ff4444;
+      color: white;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    
+    .product-description {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+    
+    .product-meta {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+    
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px;
+      background: var(--bg-primary);
+      border-radius: 10px;
+    }
+    
+    .meta-item i {
+      color: var(--gold);
+      font-size: 18px;
+    }
+    
+    .meta-item span {
+      color: var(--text-secondary);
+    }
+    
+    /* ========== گزینه‌های محصول ========== */
+    .product-options {
+      margin-bottom: 30px;
+    }
+    
+    .option-group {
+      margin-bottom: 25px;
+    }
+    
+    .option-label {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+    
+    .size-options {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    
+    .size-option {
+      padding: 10px 20px;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+    }
+    
+    .size-option:hover {
+      border-color: var(--gold);
+    }
+    
+    .size-option.selected {
+      background: var(--gold);
+      color: var(--black);
+      border-color: var(--gold);
+    }
+    
+    .size-option.out-of-stock {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    
+    .size-option.out-of-stock::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(255, 255, 255, 0.1) 10px,
+        rgba(255, 255, 255, 0.1) 20px
+      );
+    }
+    
+    .color-options {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    
+    .color-option {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: var(--transition);
+      position: relative;
+    }
+    
+    .color-option:hover {
+      transform: scale(1.1);
+    }
+    
+    .color-option.selected {
+      border-color: var(--gold);
+    }
+    
+    .color-option.selected::after {
+      content: '✓';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    
+    .quantity-selector {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .quantity-btn {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: var(--transition);
+      color: var(--text-primary);
+    }
+    
+    .quantity-btn:hover {
+      background: var(--gold);
+      color: var(--black);
+    }
+    
+    .quantity-input {
+      width: 60px;
+      height: 40px;
+      text-align: center;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: var(--text-primary);
+    }
+    
+    /* ========== دکمه‌های اقدام ========== */
+    .product-actions-footer {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+    
+    .add-to-cart-btn {
+      flex: 1;
+      padding: 15px;
+      background: var(--gold);
+      border: none;
+      border-radius: 10px;
+      color: var(--black);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 16px;
+    }
+    
+    .add-to-cart-btn:hover {
+      background: var(--gold-dark);
+      transform: translateY(-2px);
+    }
+    
+    .buy-now-btn {
+      flex: 1;
+      padding: 15px;
+      background: transparent;
+      border: 2px solid var(--gold);
+      border-radius: 10px;
+      color: var(--gold);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 16px;
+    }
+    
+    .buy-now-btn:hover {
+      background: var(--gold);
+      color: var(--black);
+    }
+    
+    .wishlist-btn {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: var(--transition);
+      color: var(--text-primary);
+    }
+    
+    .wishlist-btn:hover,
+    .wishlist-btn.active {
+      background: var(--gold);
+      color: var(--black);
+    }
+    
+    /* ========== تب‌ها ========== */
+    .product-tabs {
+      margin-bottom: 40px;
+    }
+    
+    .tabs-header {
+      display: flex;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 30px;
+    }
+    
+    .tab-btn {
+      padding: 15px 25px;
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+      font-size: 16px;
+      font-weight: 500;
+    }
+    
+    .tab-btn:hover {
+      color: var(--text-primary);
+    }
+    
+    .tab-btn.active {
+      color: var(--gold);
+    }
+    
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--gold);
+    }
+    
+    .tab-content {
+      display: none;
+    }
+    
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+    
+    .tab-content p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+    
+    .tab-content ul {
+      margin-right: 20px;
+      margin-bottom: 15px;
+    }
+    
+    .tab-content li {
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+    
+    /* ========== نظرات ========== */
+    .reviews-section {
+      margin-bottom: 40px;
+    }
+    
+    .reviews-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    
+    .reviews-title {
+      font-size: 24px;
+      color: var(--text-primary);
+    }
+    
+    .add-review-btn {
+      padding: 10px 20px;
+      background: var(--gold);
+      border: none;
+      border-radius: 8px;
+      color: var(--black);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .add-review-btn:hover {
+      background: var(--gold-dark);
+    }
+    
+    .reviews-summary {
+      display: flex;
+      gap: 40px;
+      margin-bottom: 30px;
+      padding: 25px;
+      background: var(--bg-primary);
+      border-radius: 15px;
+    }
+    
+    .rating-overall {
+      text-align: center;
+    }
+    
+    .rating-number {
+      font-size: 48px;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    
+    .rating-stars {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      margin-bottom: 10px;
+      color: var(--gold);
+    }
+    
+    .rating-count {
+      color: var(--text-secondary);
+    }
+    
+    .rating-breakdown {
+      flex: 1;
+    }
+    
+    .rating-bar {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 12px;
+    }
+    
+    .rating-bar-label {
+      width: 60px;
+      color: var(--text-secondary);
+    }
+    
+    .rating-bar-progress {
+      flex: 1;
+      height: 8px;
+      background: var(--bg-secondary);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    
+    .rating-bar-fill {
+      height: 100%;
+      background: var(--gold);
+    }
+    
+    .rating-bar-percent {
+      width: 40px;
+      color: var(--text-secondary);
+      text-align: left;
+    }
+    
+    .reviews-list {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+    
+    .review-item {
+      padding: 25px;
+      background: var(--bg-primary);
+      border-radius: 15px;
+    }
+    
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 15px;
+    }
+    
+    .reviewer-info {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .reviewer-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    
+    .reviewer-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .reviewer-details h4 {
+      color: var(--text-primary);
+      margin-bottom: 5px;
+    }
+    
+    .review-date {
+      color: var(--text-tertiary);
+      font-size: 14px;
+    }
+    
+    .review-rating {
+      display: flex;
+      gap: 5px;
+      color: var(--gold);
+    }
+    
+    .review-content {
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+    
+    .review-images {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    
+    .review-image {
+      width: 80px;
+      height: 80px;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    
+    .review-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    
+    .review-image:hover img {
+      transform: scale(1.1);
+    }
+    
+    .review-actions {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .review-action {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      transition: var(--transition);
+    }
+    
+    .review-action:hover {
+      color: var(--gold);
+    }
+    
+    /* ========== محصولات مرتبط ========== */
+    .related-products {
+      margin-bottom: 40px;
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .section-title {
+      font-size: 28px;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+      font-family: var(--font-nastaliq);
+    }
+    
+    .related-products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 25px;
+    }
+    
+    .related-product-card {
+      background: var(--bg-secondary);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-color);
+    }
+    
+    .related-product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      border-color: var(--gold);
+    }
+    
+    .related-product-image {
+      height: 200px;
+      overflow: hidden;
+    }
+    
+    .related-product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .related-product-card:hover .related-product-image img {
+      transform: scale(1.05);
+    }
+    
+    .related-product-info {
+      padding: 20px;
+    }
+    
+    .related-product-name {
+      font-size: 16px;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+    }
+    
+    .related-product-price {
+      color: var(--gold);
+      font-weight: 600;
+    }
+    
+    /* ========== فرم نظر ========== */
+    .review-form {
+      display: none;
+      padding: 30px;
+      background: var(--bg-primary);
+      border-radius: 15px;
+      margin-bottom: 30px;
+    }
+    
+    .review-form.active {
+      display: block;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+    
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 15px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: var(--text-primary);
+      outline: none;
+      transition: var(--transition);
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+    
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    
+    .rating-input {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .star-rating {
+      display: flex;
+      gap: 5px;
+    }
+    
+    .star-rating i {
+      font-size: 20px;
+      color: var(--text-tertiary);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .star-rating i:hover,
+    .star-rating i.active {
+      color: var(--gold);
+    }
+    
+    .form-actions {
+      display: flex;
+      gap: 15px;
+      justify-content: flex-end;
+    }
+    
+    .submit-review-btn {
+      padding: 12px 25px;
+      background: var(--gold);
+      border: none;
+      border-radius: 8px;
+      color: var(--black);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .submit-review-btn:hover {
+      background: var(--gold-dark);
+    }
+    
+    .cancel-review-btn {
+      padding: 12px 25px;
+      background: transparent;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: var(--text-secondary);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .cancel-review-btn:hover {
+      border-color: var(--text-primary);
+      color: var(--text-primary);
+    }
+    
+    /* ========== رسپانسیو ========== */
+    @media (max-width: 992px) {
+      .product-gallery {
+        margin-bottom: 30px;
+      }
+      
+      .main-image {
+        height: 400px;
+      }
+      
+      .product-title {
+        font-size: 28px;
+      }
+      
+      .product-meta {
+        grid-template-columns: 1fr;
+      }
+      
+      .reviews-summary {
+        flex-direction: column;
+        gap: 20px;
+      }
+      
+      .related-products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .product-hero {
+        padding: 40px 0 30px;
+      }
+      
+      .main-image {
+        height: 300px;
+      }
+      
+      .product-title {
+        font-size: 24px;
+      }
+      
+      .product-price {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      
+      .product-actions-footer {
+        flex-direction: column;
+      }
+      
+      .tabs-header {
+        overflow-x: auto;
+        padding-bottom: 10px;
+      }
+      
+      .reviews-summary {
+        padding: 20px;
+      }
+      
+      .related-products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 15px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .main-image {
+        height: 250px;
+      }
+      
+      .product-title {
+        font-size: 20px;
+      }
+      
+      .size-options {
+        gap: 5px;
+      }
+      
+      .size-option {
+        padding: 8px 15px;
+        font-size: 14px;
+      }
+      
+      .related-products-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Loader -->
+  <div id="loader" class="loader">
+    <div class="golden-wheel">
+      <div class="wheel-container">
+        <div class="wheel-spin"></div>
+        <div class="wheel-inner"></div>
+        <div class="wheel-dots">
+          <span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+      <span class="loader-text">چرخ طلایی</span>
+      <div class="loader-progress">
+        <div class="loader-progress-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Theme Toggle -->
+  <div class="theme-toggle-container">
+    <button id="themeToggle" class="theme-toggle">
+      <div class="toggle-icon">
+        <i class="fas fa-sun sun-icon"></i>
+        <i class="fas fa-moon moon-icon"></i>
+      </div>
+      <div class="toggle-bg"></div>
+    </button>
+  </div>
+
+  <!-- Scroll Top -->
+  <button id="scrollTop" class="scroll-top">
+    <i class="fas fa-chevron-up"></i>
+    <svg class="progress-ring" width="50" height="50">
+      <circle class="progress-ring-circle" stroke="#D4AF37" stroke-width="2" fill="transparent" r="23" cx="25" cy="25"/>
+    </svg>
+  </button>
+
+  <!-- Chat Widget -->
+  <div class="chat-widget">
+    <button class="chat-toggle" id="chatToggle">
+      <div class="chat-icon-wrapper">
+        <i class="fas fa-headset"></i>
+        <span class="chat-badge">1</span>
+      </div>
+      <span class="pulse-ring"></span>
+      <span class="pulse-ring" style="animation-delay:.5s"></span>
+      <span class="pulse-ring" style="animation-delay:1s"></span>
+    </button>
+    <div class="chat-box" id="chatBox">
+      <div class="chat-header">
+        <div class="chat-header-info">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=120&q=70&auto=format&fit=crop" alt="Support">
+          <div>
+            <h4>پشتیبانی آنلاین</h4>
+            <span class="chat-status"><i class="fas fa-circle"></i> آنلاین</span>
+          </div>
+        </div>
+        <button class="chat-close" id="chatClose"><i class="fas fa-times"></i></button>
+      </div>
+      <!-- فرم شروع چت (نام + تلفن) -->
+      <div class="chat-onboard" id="chatOnboard" style="position:absolute;inset:0;background:var(--bg-secondary);display:flex;flex-direction:column;gap:10px;justify-content:center;align-items:center;padding:16px;border-top:1px solid var(--border-color);z-index:5;">
+        <h4 style="color:var(--gold);margin-bottom:4px;">شروع گفتگو</h4>
+        <input id="obName" type="text" placeholder="نام و نام خانوادگی" required style="width:90%;padding:10px;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-primary);color:var(--text-primary);">
+        <input id="obPhone" type="tel" placeholder="شماره تماس" required inputmode="tel" style="width:90%;padding:10px;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-primary);color:var(--text-primary);">
+        <button id="obStart" class="btn btn-primary" style="padding:10px 20px;border-radius:20px;cursor:pointer;">شروع گفتگو</button>
+        <small style="color:var(--text-secondary)">اطلاعات شما فقط برای شروع پشتیبانی استفاده می‌شود.</small>
+      </div>
+      <div class="chat-messages" id="chatMessages" style="position:relative;">
+        <div class="chat-message bot animate-message">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&q=70&auto=format&fit=crop" alt="bot">
+          <div class="message-content">
+            <p>سلام! 👋</p>
+            <p>چطور می‌تونم کمکتون کنم؟</p>
+            <span class="message-time">14:30</span>
+          </div>
+        </div>
+      </div>
+      <div class="chat-quick-replies">
+        <button class="quick-reply">قیمت‌ها</button>
+        <button class="quick-reply">زمان دوخت</button>
+        <button class="quick-reply">آموزش</button>
+      </div>
+      <div class="chat-input">
+        <button class="chat-attach"><i class="fas fa-paperclip"></i></button>
+        <input type="text" id="chatInput" placeholder="پیام خود را بنویسید..." disabled>
+        <button class="chat-emoji"><i class="far fa-smile"></i></button>
+        <button id="chatSend" disabled><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="main-header">
+    <nav class="navbar">
+      <div class="nav-container">
+        <!-- لوگو دایره‌ای (بدون چرخش 360) -->
+        <div class="logo" data-aos="fade-right">
+          <div class="logo-wrapper" style="border-radius:50%;overflow:hidden;box-shadow:0 0 0 2px var(--gold) inset,0 0 16px rgba(212,175,55,.25)">
+            <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=200&q=60&auto=format&fit=crop" alt="چرخ طلایی" style="width:100%;height:100%;object-fit:cover;animation:none">
+            <div class="logo-shine"></div>
+          </div>
+          <span class="logo-text">چرخ طلایی</span>
+        </div>
+        <!-- منوی دسکتاپ -->
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link" data-text="صفحه اصلی">صفحه اصلی</a></li>
+          <li class="dropdown">
+            <a href="shop.html" class="nav-link" data-text="فروشگاه">فروشگاه <i class="fas fa-chevron-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="shop.html?category=women"><i class="fas fa-female"></i> زنانه</a></li>
+              <li><a href="shop.html?category=men"><i class="fas fa-male"></i> مردانه</a></li>
+              <li><a href="shop.html?category=kids"><i class="fas fa-child"></i> بچگانه</a></li>
+              <li><a href="shop.html?category=accessories"><i class="fas fa-ring"></i> اکسسوری</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="academy.html" class="nav-link" data-text="آکادمی">آکادمی <i class="fas fa-chevron-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="academy.html?type=basic"><i class="fas fa-graduation-cap"></i> مقدماتی</a></li>
+              <li><a href="academy.html?type=advanced"><i class="fas fa-certificate"></i> پیشرفته</a></li>
+              <li><a href="academy.html?type=professional"><i class="fas fa-trophy"></i> حرفه‌ای</a></li>
+              <li><a href="academy.html?type=online"><i class="fas fa-laptop"></i> آنلاین</a></li>
+            </ul>
+          </li>
+          <li><a href="blog.html" class="nav-link" data-text="وبلاگ">وبلاگ</a></li>
+          <li><a href="about.html" class="nav-link" data-text="درباره ما">درباره ما</a></li>
+          <li><a href="contact.html" class="nav-link" data-text="تماس با ما">تماس با ما</a></li>
+        </ul>
+        <!-- اکشن‌ها: نمایش "ورود / ثبت‌نام" کنار آیکون در موبایل -->
+        <div class="nav-actions">
+          <a href="auth.html" class="auth-btn">
+            <i class="fas fa-user"></i>
+            <b class="auth-label" style="font-weight:600;">ورود / ثبت‌نام</b>
+          </a>
+        </div>
+        <!-- منوی موبایل -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+          <div class="hamburger"><span></span><span></span><span></span></div>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- منوی موبایل (drawer) -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <div class="mobile-menu-logo">
+        <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=80&q=60&auto=format&fit=crop" alt="چرخ طلایی">
+        <span>چرخ طلایی</span>
+      </div>
+      <button class="mobile-menu-close" id="mobileMenuClose"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="mobile-menu-body">
+      <!-- جستجو داخل منو (دکمه سرچ) -->
+      <div class="mobile-search">
+        <input type="text" placeholder="جستجو...">
+        <button id="searchBtn"><i class="fas fa-search"></i></button>
+      </div>
+      <ul class="mobile-nav">
+        <li><a href="index.html"><i class="fas fa-home"></i> صفحه اصلی</a></li>
+        <li class="has-submenu">
+          <a href="shop.html"><span><i class="fas fa-shopping-bag"></i> فروشگاه</span> <i class="fas fa-chevron-down"></i></a>
+          <ul class="mobile-submenu">
+            <li><a href="shop.html?category=women">زنانه</a></li>
+            <li><a href="shop.html?category=men">مردانه</a></li>
+            <li><a href="shop.html?category=kids">بچگانه</a></li>
+            <li><a href="shop.html?category=accessories">اکسسوری</a></li>
+          </ul>
+        </li>
+        <li class="has-submenu">
+          <a href="academy.html"><span><i class="fas fa-graduation-cap"></i> آکادمی</span> <i class="fas fa-chevron-down"></i></a>
+          <ul class="mobile-submenu">
+            <li><a href="academy.html?type=basic">دوره‌های مقدماتی</a></li>
+            <li><a href="academy.html?type=advanced">دوره‌های پیشرفته</a></li>
+            <li><a href="academy.html?type=professional">دوره‌های حرفه‌ای</a></li>
+            <li><a href="academy.html?type=online">آموزش آنلاین</a></li>
+          </ul>
+        </li>
+        <li><a href="blog.html"><i class="fas fa-blog"></i> وبلاگ</a></li>
+        <li><a href="about.html"><i class="fas fa-info-circle"></i> درباره ما</a></li>
+        <li><a href="contact.html"><i class="fas fa-phone"></i> تماس با ما</a></li>
+        <li><a href="auth.html"><i class="fas fa-user-lock"></i> ورود / ثبت‌نام</a></li>
+      </ul>
+      <div class="mobile-menu-footer">
+        <a href="auth.html" class="mobile-auth-btn"><i class="fas fa-user"></i><span>ورود / ثبت‌نام</span></a>
+        <div class="mobile-social">
+          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- اورلی جستجو (خارج از هدر برای رفع باگ) -->
+  <div class="search-overlay" id="searchOverlay">
+    <button class="search-close" id="searchClose"><i class="fas fa-times"></i></button>
+    <div class="search-wrapper">
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="جستجو در محصولات، دوره‌ها و مقالات..." autocomplete="off">
+        <button class="search-submit"><i class="fas fa-search"></i></button>
+      </div>
+      <div class="search-suggestions">
+        <h4>پرجستجوترین‌ها</h4>
+        <div class="suggestion-tags">
+          <span>لباس مجلسی</span>
+          <span>دوره طراحی</span>
+          <span>پارچه</span>
+          <span>الگو</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product Hero -->
+  <section class="product-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">صفحه اصلی</a>
+        <i class="fas fa-chevron-left"></i>
+        <a href="shop.html">فروشگاه</a>
+        <i class="fas fa-chevron-left"></i>
+        <span id="productBreadcrumb">جزئیات محصول</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="product-page">
+      <div class="row">
+        <div class="col-lg-6">
+          <!-- Product Gallery -->
+          <div class="product-gallery" data-aos="fade-right">
+            <div class="main-image-container">
+              <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&q=60&auto=format&fit=crop" alt="محصول" class="main-image" id="mainImage">
+              <div class="product-actions">
+                <button class="action-btn" title="اشتراک‌گذاری">
+                  <i class="fas fa-share-alt"></i>
+                </button>
+                <button class="action-btn" title="مقایسه">
+                  <i class="fas fa-exchange-alt"></i>
+                </button>
+                <button class="action-btn wishlist-toggle" title="علاقه‌مندی">
+                  <i class="far fa-heart"></i>
+                </button>
+              </div>
+              <div class="image-badge new">جدید</div>
+            </div>
+            <div class="thumbnail-container" id="thumbnailContainer">
+              <!-- تصاویر بندانگشتی به صورت داینامیک在这里显示 -->
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <!-- Product Info -->
+          <div class="product-info" data-aos="fade-left">
+            <h1 class="product-title" id="productTitle">لباس مجلسی زنانه</h1>
+            <div class="product-rating">
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="reviews-count">(24 نظر)</span>
+              <a href="#" class="write-review">نظر خود را بنویسید</a>
+            </div>
+            <div class="product-price">
+              <span class="current-price" id="currentPrice">۲,۵۰۰,۰۰۰ تومان</span>
+              <span class="old-price" id="oldPrice">۳,۰۰۰,۰۰۰ تومان</span>
+              <span class="discount-badge">۱۷٪ تخفیف</span>
+            </div>
+            <p class="product-description" id="productDescription">
+              لباس مجلسی زنانه با طراحی خاص و دوخت عالی. این لباس با بهترین پارچه‌های وارداتی دوخته شده است و برای مجالس رسمی مناسب می‌باشد.
+            </p>
+            <div class="product-meta">
+              <div class="meta-item">
+                <i class="fas fa-tag"></i>
+                <span>کد محصول: <span id="productCode">LW-001</span></span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-check-circle"></i>
+                <span>موجود در انبار</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-shipping-fast"></i>
+                <span>ارسال سریع</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-shield-alt"></i>
+                <span>ضمانت بازگشت</span>
+              </div>
+            </div>
+            
+            <!-- Product Options -->
+            <div class="product-options">
+              <div class="option-group">
+                <label class="option-label">سایز</label>
+                <div class="size-options" id="sizeOptions">
+                  <!-- گزینه‌های سایز به صورت داینامیک在这里显示 -->
+                </div>
+              </div>
+              <div class="option-group">
+                <label class="option-label">رنگ</label>
+                <div class="color-options" id="colorOptions">
+                  <!-- گزینه‌های رنگ به صورت داینامیک在这里显示 -->
+                </div>
+              </div>
+              <div class="option-group">
+                <label class="option-label">تعداد</label>
+                <div class="quantity-selector">
+                  <button class="quantity-btn minus" id="minusBtn">-</button>
+                  <input type="number" value="1" min="1" max="10" class="quantity-input" id="quantityInput">
+                  <button class="quantity-btn plus" id="plusBtn">+</button>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Action Buttons -->
+            <div class="product-actions-footer">
+              <button class="add-to-cart-btn" id="addToCartBtn">
+                <i class="fas fa-shopping-cart"></i>
+                افزودن به سبد خرید
+              </button>
+              <button class="buy-now-btn" id="buyNowBtn">
+                <i class="fas fa-bolt"></i>
+                خرید فوری
+              </button>
+              <button class="wishlist-btn" id="wishlistBtn">
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Product Tabs -->
+      <div class="product-tabs" data-aos="fade-up">
+        <div class="tabs-header">
+          <button class="tab-btn active" data-tab="description">توضیحات</button>
+          <button class="tab-btn" data-tab="details">جزئیات</button>
+          <button class="tab-btn" data-tab="reviews">نظرات (24)</button>
+          <button class="tab-btn" data-tab="shipping">ارسال و بازگشت</button>
+        </div>
+        
+        <div class="tab-content active" id="description">
+          <p>
+            این لباس مجلسی با بهترین پارچه‌های وارداتی دوخته شده است و برای مجالس رسمی مناسب می‌باشد. طراحی این لباس به گونه‌ای است که زیبایی و شکوه شما را دوچندان می‌کند.
+          </p>
+          <p>
+            ویژگی‌های این محصول:
+          </p>
+          <ul>
+            <li>پارچه ابریشمی با کیفیت عالی</li>
+            <li>دوخت دقیق و حرفه‌ای</li>
+            <li>مناسب برای مجالس رسمی</li>
+            <li>قابل شستشو با دست</li>
+            <li>طرح‌های متنوع و زیبا</li>
+          </ul>
+        </div>
+        
+        <div class="tab-content" id="details">
+          <p>
+            جزئیات کامل محصول:
+          </p>
+          <ul>
+            <li>جنس پارچه: ابریشم مرغوب</li>
+            <li>کشور سازنده: ایران</li>
+            <li>نحوه شستشو: شستشو با دست در دمای ۳۰ درجه</li>
+            <li>نحوه اتوکشی: اتوکشی با دمای متوسط</li>
+            <li>تولید کننده: چرخ طلایی</li>
+          </ul>
+        </div>
+        
+        <div class="tab-content" id="reviews">
+          <!-- Reviews Section -->
+          <div class="reviews-section">
+            <div class="reviews-header">
+              <h3 class="reviews-title">نظرات کاربران</h3>
+              <button class="add-review-btn" id="addReviewBtn">افزودن نظر</button>
+            </div>
+            
+            <div class="reviews-summary">
+              <div class="rating-overall">
+                <div class="rating-number">4.5</div>
+                <div class="rating-stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="rating-count">بر اساس 24 نظر</div>
+              </div>
+              <div class="rating-breakdown">
+                <div class="rating-bar">
+                  <div class="rating-bar-label">5 ستاره</div>
+                  <div class="rating-bar-progress">
+                    <div class="rating-bar-fill" style="width: 70%"></div>
+                  </div>
+                  <div class="rating-bar-percent">70%</div>
+                </div>
+                <div class="rating-bar">
+                  <div class="rating-bar-label">4 ستاره</div>
+                  <div class="rating-bar-progress">
+                    <div class="rating-bar-fill" style="width: 20%"></div>
+                  </div>
+                  <div class="rating-bar-percent">20%</div>
+                </div>
+                <div class="rating-bar">
+                  <div class="rating-bar-label">3 ستاره</div>
+                  <div class="rating-bar-progress">
+                    <div class="rating-bar-fill" style="width: 5%"></div>
+                  </div>
+                  <div class="rating-bar-percent">5%</div>
+                </div>
+                <div class="rating-bar">
+                  <div class="rating-bar-label">2 ستاره</div>
+                  <div class="rating-bar-progress">
+                    <div class="rating-bar-fill" style="width: 3%"></div>
+                  </div>
+                  <div class="rating-bar-percent">3%</div>
+                </div>
+                <div class="rating-bar">
+                  <div class="rating-bar-label">1 ستاره</div>
+                  <div class="rating-bar-progress">
+                    <div class="rating-bar-fill" style="width: 2%"></div>
+                  </div>
+                  <div class="rating-bar-percent">2%</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="reviews-list" id="reviewsList">
+              <!-- نظرات به صورت داینامیک在这里显示 -->
+            </div>
+          </div>
+          
+          <!-- Review Form -->
+          <div class="review-form" id="reviewForm">
+            <h3>افزودن نظر</h3>
+            <form id="reviewFormElement">
+              <div class="form-group">
+                <label>نام و نام خانوادگی</label>
+                <input type="text" placeholder="نام و نام خانوادگی خود را وارد کنید" required>
+              </div>
+              <div class="form-group">
+                <label>ایمیل</label>
+                <input type="email" placeholder="ایمیل خود را وارد کنید">
+              </div>
+              <div class="form-group">
+                <label>امتیاز شما</label>
+                <div class="rating-input">
+                  <div class="star-rating" id="reviewRating">
+                    <i class="far fa-star" data-rating="1"></i>
+                    <i class="far fa-star" data-rating="2"></i>
+                    <i class="far fa-star" data-rating="3"></i>
+                    <i class="far fa-star" data-rating="4"></i>
+                    <i class="far fa-star" data-rating="5"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>نظر شما</label>
+                <textarea placeholder="نظر خود را بنویسید..." required></textarea>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="submit-review-btn">ارسال نظر</button>
+                <button type="button" class="cancel-review-btn" id="cancelReviewBtn">انصراف</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        
+        <div class="tab-content" id="shipping">
+          <p>
+            شرایط ارسال و بازگشت کالا:
+          </p>
+          <ul>
+            <li>ارسال به تمام نقاط ایران</li>
+            <li>هزینه ارسال بر اساس وزن و مقصد محاسبه می‌شود</li>
+            <li>زمان تحویل: 2-3 روز کاری در تهران و 3-5 روز کاری در شهرستان‌ها</li>
+            <li>امکان بازگشت کالا تا 7 روز پس از تحویل</li>
+            <li>کالا باید در بسته‌بندی اصلی و بدون استفاده باشد</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Related Products -->
+      <div class="related-products" data-aos="fade-up">
+        <div class="section-header">
+          <h2 class="section-title">محصولات مرتبط</h2>
+        </div>
+        <div class="related-products-grid" id="relatedProductsGrid">
+          <!-- محصولات مرتبط به صورت داینامیک在这里显示 -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-about">
+            <div class="footer-logo">
+              <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=120&q=60&auto=format&fit=crop" alt="چرخ طلایی">
+              <span>چرخ طلایی</span>
+            </div>
+            <p>با بیش از ۳۰ سال تجربه در طراحی و دوخت لباس، بهترین خدمات را ارائه می‌دهیم.</p>
+            <div class="footer-social">
+              <a href="#" class="social-link instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="social-link telegram"><i class="fab fa-telegram"></i></a>
+              <a href="#" class="social-link whatsapp"><i class="fab fa-whatsapp"></i></a>
+              <a href="#" class="social-link twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-link youtube"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+          <div class="footer-links">
+            <h4>دسترسی سریع</h4>
+            <ul>
+              <li><a href="index.html"><i class="fas fa-angle-left"></i> صفحه اصلی</a></li>
+              <li><a href="shop.html"><i class="fas fa-angle-left"></i> فروشگاه</a></li>
+              <li><a href="academy.html"><i class="fas fa-angle-left"></i> آکادمی</a></li>
+              <li><a href="blog.html"><i class="fas fa-angle-left"></i> وبلاگ</a></li>
+              <li><a href="about.html"><i class="fas fa-angle-left"></i> درباره ما</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>خدمات ما</h4>
+            <ul>
+              <li><a href="#"><i class="fas fa-angle-left"></i> طراحی لباس</a></li>
+              <li><a href="#"><i class="fas fa-angle-left"></i> دوخت سفارشی</a></li>
+              <li><a href="#"><i class="fas fa-angle-left"></i> تعمیرات</a></li>
+              <li><a href="#"><i class="fas fa-angle-left"></i> مشاوره مد</a></li>
+              <li><a href="#"><i class="fas fa-angle-left"></i> آموزش</a></li>
+            </ul>
+          </div>
+          <div class="footer-newsletter">
+            <h4>خبرنامه</h4>
+            <p>برای دریافت آخرین اخبار و تخفیف‌ها عضو شوید</p>
+            <form class="newsletter-form">
+              <div class="form-wrapper">
+                <input type="email" placeholder="ایمیل شما">
+                <button type="submit"><i class="fas fa-paper-plane"></i></button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="bottom-content">
+          <p>© ۱۴۰۳ چرخ طلایی - تمامی حقوق محفوظ است</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/shop.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  
+  <!-- اسکریپت محصول -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // دریافت ID محصول از URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = urlParams.get('id');
+      
+      if (productId) {
+        // بارگذاری اطلاعات محصول
+        loadProduct(productId);
+      } else {
+        // اگر ID محصول وجود نداشت، به فروشگاه هدایت شود
+        window.location.href = 'shop.html';
+      }
+      
+      // Initialize AOS
+      if (typeof AOS !== 'undefined') {
+        AOS.init({
+          duration: 1000,
+          once: true,
+          offset: 50,
+          disable: 'mobile'
+        });
+      }
+    });
+    
+    function loadProduct(productId) {
+      // شبیه‌سازی دریافت اطلاعات محصول از سرور
+      const products = [
+        {
+          id: 1,
+          name: 'لباس مجلسی زنانه',
+          price: 2500000,
+          oldPrice: 3000000,
+          image: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&q=60',
+          images: [
+            'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=800&q=60',
+            'https://images.unsplash.com/photo-1496715976403-7e36dc43f17b?w=800&q=60',
+            'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=800&q=60'
+          ],
+          description: 'لباس مجلسی زنانه با طراحی خاص و دوخت عالی. این لباس با بهترین پارچه‌های وارداتی دوخته شده است و برای مجالس رسمی مناسب می‌باشد.',
+          details: 'این لباس با بهترین پارچه‌های وارداتی دوخته شده است و برای مجالس رسمی مناسب می‌باشد.',
+          sizes: ['S', 'M', 'L', 'XL'],
+          colors: ['#000000', '#ffffff', '#ff0000', '#0000ff'],
+          inStock: true,
+          rating: 4.5,
+          reviews: 24,
+          code: 'LW-001',
+          category: 'women',
+          tags: ['مجلسی', 'زنانه', 'شیک'],
+          material: 'پارچه ابریشمی',
+          care: 'شستشو با دست',
+          origin: 'ایران'
+        },
+        {
+          id: 2,
+          name: 'کت و شلوار مردانه',
+          price: 4500000,
+          oldPrice: null,
+          image: 'https://images.unsplash.com/photo-1511556670410-f76353ae45fb?w=800&q=60',
+          images: [
+            'https://images.unsplash.com/photo-1511556670410-f76353ae45fb?w=800&q=60',
+            'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&q=60'
+          ],
+          description: 'کت و شلوار مردانه با دوخت تضمینی',
+          details: 'این کت و شلوار با بهترین پارچه‌های وارداتی دوخته شده است و برای مجالس رسمی مناسب می‌باشد.',
+          sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+          colors: ['#000000', '#000080', '#8B4513'],
+          inStock: true,
+          rating: 4.8,
+          reviews: 18,
+          code: 'MS-001',
+          category: 'men',
+          tags: ['کت', 'شلوار', 'مردانه', 'رسمی'],
+          material: 'پارچه پشمی',
+          care: 'خشکشویی',
+          origin: 'ترکیه'
+        }
+      ];
+      
+      // جستجوی محصول
+      const product = products.find(p => p.id == productId);
+      
+      if (product) {
+        // نمایش اطلاعات محصول
+        displayProduct(product);
+        
+        // بارگذاری محصولات مرتبط
+        loadRelatedProducts(product.category, product.id);
+      } else {
+        // اگر محصول یافت نشد
+        showNotification('محصول یافت نشد', 'error');
+        setTimeout(() => {
+          window.location.href = 'shop.html';
+        }, 2000);
+      }
+    }
+    
+    function displayProduct(product) {
+      // به‌روزرسانی عنوان صفحه
+      document.title = `${product.name} | چرخ طلایی`;
+      
+      // به‌روزرسانی breadcrumb
+      document.getElementById('productBreadcrumb').textContent = product.name;
+      
+      // به‌روزرسانی اطلاعات اصلی
+      document.getElementById('productTitle').textContent = product.name;
+      document.getElementById('currentPrice').textContent = toPersianNumber(product.price.toLocaleString()) + ' تومان';
+      document.getElementById('productDescription').textContent = product.description;
+      document.getElementById('productCode').textContent = product.code;
+      
+      // به‌روزرسانی قیمت قدیمی
+      const oldPriceElement = document.getElementById('oldPrice');
+      if (product.oldPrice) {
+        oldPriceElement.textContent = toPersianNumber(product.oldPrice.toLocaleString()) + ' تومان';
+        oldPriceElement.style.display = 'inline';
+      } else {
+        oldPriceElement.style.display = 'none';
+      }
+      
+      // به‌روزرسانی تصویر اصلی
+      document.getElementById('mainImage').src = product.image;
+      
+      // به‌روزرسانی تصاویر بندانگشتی
+      const thumbnailContainer = document.getElementById('thumbnailContainer');
+      thumbnailContainer.innerHTML = '';
+      
+      product.images.forEach((image, index) => {
+        const thumbnail = document.createElement('div');
+        thumbnail.className = `thumbnail ${index === 0 ? 'active' : ''}`;
+        thumbnail.innerHTML = `<img src="${image}" alt="${product.name}">`;
+        
+        thumbnail.addEventListener('click', function() {
+          // به‌روزرسانی تصویر اصلی
+          document.getElementById('mainImage').src = image;
+          
+          // به‌روزرسانی کلاس active
+          document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+          this.classList.add('active');
+        });
+        
+        thumbnailContainer.appendChild(thumbnail);
+      });
+      
+      // به‌روزرسانی گزینه‌های سایز
+      const sizeOptions = document.getElementById('sizeOptions');
+      sizeOptions.innerHTML = '';
+      
+      product.sizes.forEach(size => {
+        const sizeOption = document.createElement('div');
+        sizeOption.className = 'size-option';
+        sizeOption.textContent = size;
+        sizeOption.dataset.size = size;
+        
+        sizeOption.addEventListener('click', function() {
+          document.querySelectorAll('.size-option').forEach(o => o.classList.remove('selected'));
+          this.classList.add('selected');
+        });
+        
+        sizeOptions.appendChild(sizeOption);
+      });
+      
+      // به‌روزرسانی گزینه‌های رنگ
+      const colorOptions = document.getElementById('colorOptions');
+      colorOptions.innerHTML = '';
+      
+      product.colors.forEach(color => {
+        const colorOption = document.createElement('div');
+        colorOption.className = 'color-option';
+        colorOption.style.backgroundColor = color;
+        colorOption.dataset.color = color;
+        
+        colorOption.addEventListener('click', function() {
+          document.querySelectorAll('.color-option').forEach(o => o.classList.remove('selected'));
+          this.classList.add('selected');
+        });
+        
+        colorOptions.appendChild(colorOption);
+      });
+      
+      // به‌روزرسانی دکمه‌های اقدام
+      const addToCartBtn = document.getElementById('addToCartBtn');
+      const buyNowBtn = document.getElementById('buyNowBtn');
+      const wishlistBtn = document.getElementById('wishlistBtn');
+      
+      addToCartBtn.addEventListener('click', function() {
+        addToCart(product);
+      });
+      
+      buyNowBtn.addEventListener('click', function() {
+        addToCart(product);
+        window.location.href = 'checkout.html';
+      });
+      
+      wishlistBtn.addEventListener('click', function() {
+        toggleWishlist(product.id);
+        this.classList.toggle('active');
+        this.querySelector('i').classList.toggle('far');
+        this.querySelector('i').classList.toggle('fas');
+      });
+      
+      // به‌روزرسانی تب‌ها
+      initTabs();
+      
+      // به‌روزرسانی تعداد
+      const minusBtn = document.getElementById('minusBtn');
+      const plusBtn = document.getElementById('plusBtn');
+      const quantityInput = document.getElementById('quantityInput');
+      
+      minusBtn.addEventListener('click', function() {
+        const value = parseInt(quantityInput.value);
+        if (value > 1) {
+          quantityInput.value = value - 1;
+        }
+      });
+      
+      plusBtn.addEventListener('click', function() {
+        const value = parseInt(quantityInput.value);
+        if (value < 10) {
+          quantityInput.value = value + 1;
+        }
+      });
+    }
+    
+    function initTabs() {
+      const tabBtns = document.querySelectorAll('.tab-btn');
+      const tabContents = document.querySelectorAll('.tab-content');
+      
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const tabId = this.dataset.tab;
+          
+          // به‌روزرسانی دکمه‌ها
+          tabBtns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          
+          // به‌روزرسانی محتوا
+          tabContents.forEach(content => {
+            content.classList.remove('active');
+            if (content.id === tabId) {
+              content.classList.add('active');
+            }
+          });
+        });
+      });
+    }
+    
+    function loadRelatedProducts(category, excludeId) {
+      // شبیه‌سازی دریافت محصولات مرتبط
+      const relatedProducts = [
+        {
+          id: 2,
+          name: 'کت و شلوار مردانه',
+          price: 4500000,
+          image: 'https://images.unsplash.com/photo-1511556670410-f76353ae45fb?w=400&q=60'
+        },
+        {
+          id: 3,
+          name: 'لباس بچگانه',
+          price: 800000,
+          image: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=400&q=60'
+        },
+        {
+          id: 4,
+          name: 'روسری سنتی',
+          price: 500000,
+          image: 'https://images.unsplash.com/photo-1541781286675-8c29bfa357e5?w=400&q=60'
+        }
+      ];
+      
+      // نمایش محصولات مرتبط
+      const relatedProductsGrid = document.getElementById('relatedProductsGrid');
+      relatedProductsGrid.innerHTML = '';
+      
+      relatedProducts.forEach(product => {
+        if (product.id != excludeId) {
+          const productCard = document.createElement('div');
+          productCard.className = 'related-product-card';
+          productCard.innerHTML = `
+            <div class="related-product-image">
+              <img src="${product.image}" alt="${product.name}">
+            </div>
+            <div class="related-product-info">
+              <h3 class="related-product-name">${product.name}</h3>
+              <div class="related-product-price">${toPersianNumber(product.price.toLocaleString())} تومان</div>
+            </div>
+          `;
+          
+          productCard.addEventListener('click', function() {
+            window.location.href = `product.html?id=${product.id}`;
+          });
+          
+          relatedProductsGrid.appendChild(productCard);
+        }
+      });
+    }
+    
+    function addToCart(product) {
+      // دریافت اطلاعات انتخاب شده
+      const selectedSize = document.querySelector('.size-option.selected');
+      const selectedColor = document.querySelector('.color-option.selected');
+      const quantity = parseInt(document.getElementById('quantityInput').value);
+      
+      if (!selectedSize) {
+        showNotification('لطفاً سایز را انتخاب کنید', 'error');
+        return;
+      }
+      
+      if (!selectedColor) {
+        showNotification('لطفاً رنگ را انتخاب کنید', 'error');
+        return;
+      }
+      
+      // ایجاد آیتم سبد خرید
+      const cartItem = {
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        image: product.image,
+        size: selectedSize.dataset.size,
+        color: selectedColor.dataset.color,
+        quantity: quantity
+      };
+      
+      // دریافت سبد خرید فعلی
+      let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      
+      // بررسی وجود محصول در سبد خرید
+      const existingItemIndex = cart.findIndex(item => 
+        item.id === cartItem.id && 
+        item.size === cartItem.size && 
+        item.color === cartItem.color
+      );
+      
+      if (existingItemIndex !== -1) {
+        // به‌روزرسانی تعداد
+        cart[existingItemIndex].quantity += cartItem.quantity;
+      } else {
+        // افزودن محصول جدید
+        cart.push(cartItem);
+      }
+      
+      // ذخیره سبد خرید
+      localStorage.setItem('cart', JSON.stringify(cart));
+      
+      // نمایش اعلان
+      showNotification('محصول به سبد خرید اضافه شد', 'success');
+      
+      // به‌روزرسانی تعداد سبد خرید
+      updateCartCount();
+    }
+    
+    function toggleWishlist(productId) {
+      // دریافت علاقه‌مندی‌ها
+      let wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+      
+      const index = wishlist.indexOf(productId);
+      
+      if (index === -1) {
+        // افزودن به علاقه‌مندی‌ها
+        wishlist.push(productId);
+        showNotification('محصول به علاقه‌مندی‌ها اضافه شد', 'success');
+      } else {
+        // حذف از علاقه‌مندی‌ها
+        wishlist.splice(index, 1);
+        showNotification('محصول از علاقه‌مندی‌ها حذف شد', 'info');
+      }
+      
+      // ذخیره علاقه‌مندی‌ها
+      localStorage.setItem('wishlist', JSON.stringify(wishlist));
+    }
+    
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+      
+      const cartCount = document.querySelector('.cart-count');
+      if (cartCount) {
+        cartCount.textContent = totalItems;
+        
+        if (totalItems > 0) {
+          cartCount.style.display = 'flex';
+        } else {
+          cartCount.style.display = 'none';
+        }
+      }
+    }
+    
+    function toPersianNumber(str) {
+      const persianNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+      return str.toString().replace(/[0-9]/g, x => persianNumbers[x]);
+    }
+    
+    function showNotification(message, type = 'info') {
+      const notification = document.createElement('div');
+      notification.className = `notification notification-${type}`;
+      notification.innerHTML = `
+        <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+        <span>${message}</span>
+      `;
+      
+      document.body.appendChild(notification);
+      
+      setTimeout(() => {
+        notification.classList.add('show');
+      }, 100);
+      
+      setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+          notification.remove();
+        }, 300);
+      }, 3000);
+    }
+  </script>
+  
+  <!-- اسکریپت کوچک فعال‌سازی چت بعد از دریافت نام/تلفن (بدون تغییر فایل‌های JS پروژه) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      const ob = document.getElementById('chatOnboard');
+      if(!ob) return;
+      const nameI = document.getElementById('obName');
+      const phoneI = document.getElementById('obPhone');
+      const startBtn = document.getElementById('obStart');
+      const input = document.getElementById('chatInput');
+      const send = document.getElementById('chatSend');
+      function validPhone(v){
+        const digits = (v||'').replace(/\D/g,'');
+        return /^[\d\s\-\+KATEX_INLINE_OPENKATEX_INLINE_CLOSE]+$/.test(v||'') && digits.length >= 10;
+      }
+      function enableChat(){
+        input?.removeAttribute('disabled');
+        send?.removeAttribute('disabled');
+        ob.style.display = 'none';
+      }
+      try{
+        const n = localStorage.getItem('support_name');
+        const p = localStorage.getItem('support_phone');
+        if(n && p){ enableChat(); }
+      }catch(e){}
+      startBtn?.addEventListener('click', ()=>{
+        const n = (nameI.value||'').trim();
+        const p = (phoneI.value||'').trim();
+        if(!n){ nameI.focus(); return; }
+        if(!validPhone(p)){ phoneI.focus(); phoneI.select?.(); return; }
+        try{
+          localStorage.setItem('support_name', n);
+          localStorage.setItem('support_phone', p);
+        }catch(e){}
+        enableChat();
+      });
+    });
+  </script>
+</body>
+</html>
