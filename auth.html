@@ -1,435 +1,221 @@
+<!doctype html>
 ﻿<!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa" dir="rtl" data-theme="dark">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <meta name="theme-color" content="#0b0c0f" />
-  <title>ورود / ثبت‌نام | چرخ طلایی</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="مزون لباس">
+<meta property="og:description" content="خیاطی و مزون لباس شب و مجلسی">
+<meta property="og:url" content="/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="/">
+<meta name="description" content="مزون لباس | خرید و سفارش دوخت لباس شب و مجلسی با کیفیت عالی">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#D4AF37">
+  <title>چرخ طلایی | ورود / ثبت‌نام</title>
 
-  <!-- فونت فارسی حرفه‌ای و نرم (Tajawal) -->
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <!-- نستعلیق برای تیتر -->
-  <style>
-    @font-face {
-      font-family: 'IranNastaliq';
-      src: url('https://cdn.jsdelivr.net/gh/rastikerdar/iran-nastaliq@v3.4.0/dist/IranNastaliq.woff2') format('woff2');
-      font-display: swap;
-    }
-  </style>
-  <!-- آیکون‌ها -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <style>
-    :root{
-      --bg:#0b0c0f;
-      --surface:#13151a;
-      --surface-2:#0f1116;
-      --line:#23262d;
-      --text:#e8eaed;
-      --muted:#9aa0a6;
-      --gold:#D4AF37;
-      --gold-2:#B8860B;
-      --danger:#ef4444;
-      --ok:#10b981;
-      --radius:16px;
-      --shadow: 0 20px 70px rgba(0,0,0,.35);
-    }
-    [data-theme="light"]{
-      --bg:#f6f7f9;
-      --surface:#ffffff;
-      --surface-2:#f3f4f6;
-      --line:#e5e7eb;
-      --text:#111418;
-      --muted:#5b6370;
-    }
-
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: 'Tajawal', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      background:
-        radial-gradient(70rem 35rem at 15% -10%, rgba(212,175,55,.07), transparent 45%),
-        radial-gradient(60rem 30rem at 110% 10%, rgba(212,175,55,.05), transparent 50%),
-        var(--bg);
-      color:var(--text);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
-
-    /* شِل کلی */
-    .shell{
-      min-height:100dvh;
-      display:grid;
-      grid-template-rows: auto 1fr auto;
-    }
-
-    /* هدر کوچک */
-    .topbar{
-      max-width:1000px; margin:22px auto 0; padding:0 16px;
-      display:flex; align-items:center; justify-content:space-between;
-    }
-    .brand{display:flex; align-items:center; gap:10px; text-decoration:none}
-    .logo{
-      width:44px; height:44px; border-radius:50%;
-      border:1px solid var(--gold);
-      display:grid; place-items:center; color:var(--gold);
-      background:linear-gradient(140deg, rgba(212,175,55,.12), rgba(212,175,55,.04));
-      box-shadow:0 0 0 2px rgba(212,175,55,.12), 0 8px 24px rgba(0,0,0,.25);
-      position:relative; overflow:hidden;
-    }
-    .logo::after{
-      content:""; position:absolute; inset:-50%;
-      background:conic-gradient(from 0deg, transparent 0 80%, rgba(212,175,55,.18) 82%, transparent 90%);
-      filter:blur(8px);
-      animation:spin 10s linear infinite;
-    }
-    @keyframes spin{to{transform:rotate(360deg)}}
-    .brand span{color:var(--text); font-weight:800; letter-spacing:.2px;}
-    .back{color:var(--gold); text-decoration:none; font-weight:800; display:flex; gap:8px; align-items:center}
-    .back:hover{filter:brightness(1.08)}
-
-    /* قهرمان صفحه */
-    .hero{
-      text-align:center;
-      margin:10px 0 0;
-    }
-    .hero h1{
-      font-family:'IranNastaliq', serif;
-      font-size: clamp(28px, 6vw, 44px);
-      color: var(--gold);
-      margin: 0 0 6px;
-    }
-    .hero p{
-      color:var(--muted);
-      margin:0 0 20px;
-      font-weight:500;
-    }
-
-    /* کارت احراز هویت */
-    .wrap{max-width:680px; margin:0 auto; padding: 0 16px 30px}
-    .card{
-      background:linear-gradient(180deg, var(--surface), var(--surface));
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
-
-    /* تب‌ها */
-    .tabs{
-      display:grid; grid-template-columns:1fr 1fr; gap:10px;
-      background:var(--surface-2); border-bottom:1px solid var(--line);
-      padding:12px;
-    }
-    .tab{
-      border:1px solid var(--line); border-radius:12px;
-      background:var(--surface);
-      color:var(--muted);
-      padding:12px 14px; font-weight:800; cursor:pointer; transition:.25s; text-align:center;
-    }
-    .tab.active{
-      background:var(--gold); color:#0b0c0f; border-color:var(--gold);
-      box-shadow:0 10px 30px rgba(212,175,55,.35);
-    }
-
-    .pane{ padding: 22px 18px 24px; }
-    .title{font-weight:800; font-size:18px; margin:0 0 6px}
-    .sub{color:var(--muted); font-size:13.5px; margin:0 0 16px}
-
-    /* فرم‌ها */
-    .grid{display:grid; gap:12px}
-    .row2{display:grid; grid-template-columns:1fr 1fr; gap:12px}
-    @media (max-width:560px){ .row2{grid-template-columns:1fr} }
-
-    .field{position:relative}
-    .input{
-      width:100%;
-      background:var(--surface-2);
-      color:var(--text);
-      border:1px solid var(--line);
-      border-radius:12px;
-      padding:14px 44px 14px 14px; /* آیکون سمت راست */
-      outline:none; transition:.2s; font-size:14.5px; line-height:1.35;
-      word-break: break-word;
-    }
-    .input:focus{border-color:var(--gold); box-shadow:0 0 0 4px rgba(212,175,55,.14)}
-    .input::placeholder{color:color-mix(in oklab, var(--muted) 88%, #fff 12%)}
-    /* فیلدهای LTR مثل موبایل/ایمیل/پسورد برای جلوگیری از بیرون‌زدگی */
-    .ltr{ direction:ltr; text-align:left; unicode-bidi:plaintext; }
-
-    .field i.icon{
-      position:absolute; right:12px; top:50%; transform:translateY(-50%);
-      color:var(--gold);
-    }
-    .toggle{
-      position:absolute; left:12px; top:50%; transform:translateY(-50%);
-      color:var(--muted); cursor:pointer;
-    }
-
-    .row-between{display:flex; align-items:center; justify-content:space-between; gap:10px}
-    .a{color:var(--gold); font-weight:800; text-decoration:none}
-    .a:hover{filter:brightness(1.08)}
-
-    .actions{display:grid; gap:10px; margin-top:8px}
-    .btn{
-      appearance:none; border:none; border-radius:12px;
-      padding:12px 16px; font-weight:900; cursor:pointer;
-      display:flex; gap:10px; align-items:center; justify-content:center;
-      transition:.2s;
-    }
-    .btn-primary{background:var(--gold); color:#0b0c0f; box-shadow:0 12px 34px rgba(212,175,55,.38)}
-    .btn-primary:hover{filter:brightness(1.05); transform:translateY(-1px)}
-    .btn-google{background:#fff; color:#111; border:1px solid #e5e7eb}
-    .btn-google i{color:#4285F4}
-    @media (prefers-color-scheme: dark){
-      .btn-google{background:#f6f7f8}
-    }
-
-    .hr{display:flex; align-items:center; gap:12px; color:var(--muted); font-size:12.5px; justify-content:center}
-    .hr::before,.hr::after{content:""; height:1px; background:var(--line); flex:1; max-width:140px}
-
-    .error{display:none; color:var(--danger); font-size:12.5px; margin-top:6px}
-    @keyframes shake{10%,90%{transform:translateX(-1px)} 20%,80%{transform:translateX(2px)} 30%,50%,70%{transform:translateX(-4px)} 40%,60%{transform:translateX(4px)}}
-    .shake{animation:shake .45s}
-
-    /* فوتر کوچک */
-    .foot{
-      text-align:center; color:var(--muted); font-size:12.5px; padding:16px;
-    }
-  </style>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/fixes.css">
+  <link rel="stylesheet" href="css/account.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ClothingStore", "name": "مزون لباس", "image": "/og-image.jpg", "url": "/", "address": {"@type": "PostalAddress", "addressLocality": "تهران", "addressCountry": "IR"}, "openingHours": ["Sa-Thu 10:00-20:00"]}</script>
 </head>
 <body>
 
-  <div class="shell">
-
-    <!-- نوار بالا -->
-    <div class="topbar">
-      <a href="index.html" class="brand">
-        <div class="logo"><i class="fas fa-crown"></i></div>
-        <span>چرخ طلایی</span>
-      </a>
-      <a href="index.html" class="back"><i class="fas fa-arrow-right"></i> بازگشت</a>
-    </div>
-
-    <!-- عنوان -->
-    <div class="hero">
-      <h1>ورود / ثبت‌نام</h1>
-      <p>لطفاً اطلاعات خود را وارد کنید</p>
-    </div>
-
-    <!-- کارت -->
-    <div class="wrap">
-      <div class="card">
-
-        <!-- تب‌ها -->
-        <div class="tabs">
-          <button class="tab active" id="tab-login">ورود</button>
-          <button class="tab" id="tab-register">ثبت‌نام</button>
-        </div>
-
-        <!-- بدنه -->
-        <div class="pane">
-          <h3 class="title" id="formTitle">ورود به حساب</h3>
-          <p class="sub" id="formSub">به حساب خود وارد شوید و خرید راحت‌تری داشته باشید</p>
-
-          <!-- فرم ورود -->
-          <form id="loginForm" class="grid" novalidate>
-            <div class="field">
-              <input class="input ltr" id="loginId" type="text" placeholder="Email or Mobile" required />
-              <i class="icon fas fa-user"></i>
-              <div class="error" id="errLoginId">ایمیل یا شماره موبایل معتبر وارد کنید</div>
-            </div>
-
-            <div class="field">
-              <input class="input ltr" id="loginPass" type="password" placeholder="Password (min 8 chars)" minlength="8" required />
-              <i class="icon fas fa-lock"></i>
-              <span class="toggle" data-target="loginPass"><i class="far fa-eye"></i></span>
-              <div class="error" id="errLoginPass">رمز عبور حداقل ۸ کاراکتر باشد</div>
-            </div>
-
-            <div class="row-between">
-              <label style="display:flex;gap:8px;align-items:center;color:var(--muted);font-size:13px;">
-                <input type="checkbox" id="remember" /> مرا به خاطر بسپار
-              </label>
-              <a href="#" class="a">فراموشی رمز</a>
-            </div>
-
-            <div class="actions">
-              <button class="btn btn-primary" type="submit"><i class="fas fa-right-to-bracket"></i> ورود</button>
-              <div class="hr"><span>یا</span></div>
-              <button class="btn btn-google" type="button" id="googleLogin">
-                <i class="fab fa-google"></i> ورود با حساب گوگل
-              </button>
-            </div>
-          </form>
-
-          <!-- فرم ثبت‌نام -->
-          <form id="registerForm" class="grid" style="display:none" novalidate>
-            <div class="row2">
-              <div class="field">
-                <input class="input" id="regName" type="text" placeholder="نام و نام خانوادگی" required />
-                <i class="icon fas fa-id-card"></i>
-                <div class="error" id="errRegName">نام معتبر وارد کنید</div>
-              </div>
-              <div class="field">
-                <input class="input ltr" id="regPhone" type="tel" placeholder="+98 912 345 6789" inputmode="tel" required />
-                <i class="icon fas fa-mobile-alt"></i>
-                <div class="error" id="errRegPhone">شماره موبایل معتبر وارد کنید</div>
-              </div>
-            </div>
-
-            <div class="row2">
-              <div class="field">
-                <input class="input ltr" id="regEmail" type="email" placeholder="email@example.com" required />
-                <i class="icon fas fa-envelope"></i>
-                <div class="error" id="errRegEmail">ایمیل معتبر وارد کنید</div>
-              </div>
-              <div class="field">
-                <input class="input ltr" id="regPass" type="password" placeholder="Password (min 8 chars)" minlength="8" required />
-                <i class="icon fas fa-lock"></i>
-                <span class="toggle" data-target="regPass"><i class="far fa-eye"></i></span>
-                <div class="error" id="errRegPass">حداقل ۸ کاراکتر</div>
-              </div>
-            </div>
-
-            <div class="field">
-              <input class="input ltr" id="regPass2" type="password" placeholder="Confirm Password" minlength="8" required />
-              <i class="icon fas fa-lock"></i>
-              <span class="toggle" data-target="regPass2"><i class="far fa-eye"></i></span>
-              <div class="error" id="errRegPass2">با رمز عبور یکسان نیست</div>
-            </div>
-
-            <label style="display:flex;gap:8px;align-items:center;color:var(--muted);font-size:13px;">
-              <input type="checkbox" id="regTerms" /> قوانین و حریم خصوصی را می‌پذیرم
-            </label>
-            <div class="error" id="errRegTerms">برای ادامه باید قوانین را بپذیرید</div>
-
-            <div class="actions">
-              <button class="btn btn-primary" type="submit"><i class="fas fa-user-plus"></i> ثبت‌نام</button>
-              <div class="hr"><span>یا</span></div>
-              <button class="btn btn-google" type="button" id="googleRegister">
-                <i class="fab fa-google"></i> ادامه با گوگل
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-
-      <div class="foot">© چرخ طلایی</div>
+  <div id="loader" class="loader">
+    <div class="golden-wheel">
+      <div class="wheel-container"><div class="wheel-spin"></div><div class="wheel-inner"></div><div class="wheel-dots"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+      <span class="loader-text">چرخ طلایی</span>
+      <div class="loader-progress"><div class="loader-progress-bar"></div></div>
     </div>
   </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // تب‌ها
-      const tabLogin  = document.getElementById('tab-login');
-      const tabReg    = document.getElementById('tab-register');
-      const loginForm = document.getElementById('loginForm');
-      const regForm   = document.getElementById('registerForm');
-      const formTitle = document.getElementById('formTitle');
-      const formSub   = document.getElementById('formSub');
+  <header class="main-header">
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo">
+          <div class="logo-wrapper" style="border-radius:50%;overflow:hidden;box-shadow:0 0 0 2px var(--gold) inset,0 0 16px rgba(212,175,55,.25)">
+            <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=200&q=60&auto=format&fit=crop" alt="چرخ طلایی" style="width:100%;height:100%;object-fit:cover;animation:none">
+            <div class="logo-shine"></div>
+          </div>
+          <span class="logo-text">چرخ طلایی</span>
+        </div>
 
-      function setMode(m){
-        if(m==='login'){
-          tabLogin.classList.add('active'); tabReg.classList.remove('active');
-          loginForm.style.display=''; regForm.style.display='none';
-          formTitle.textContent='ورود به حساب';
-          formSub.textContent='به حساب خود وارد شوید و خرید راحت‌تری داشته باشید';
-        }else{
-          tabReg.classList.add('active'); tabLogin.classList.remove('active');
-          loginForm.style.display='none'; regForm.style.display='';
-          formTitle.textContent='ایجاد حساب کاربری';
-          formSub.textContent='با ثبت‌نام، سریع‌تر خرید کنید و به دوره‌ها دسترسی داشته باشید';
-        }
-      }
-      tabLogin.addEventListener('click', ()=>setMode('login'));
-      tabReg.addEventListener('click', ()=>setMode('register'));
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link" data-text="صفحه اصلی">صفحه اصلی</a></li>
+          <li><a href="shop.html" class="nav-link" data-text="فروشگاه">فروشگاه</a></li>
+          <li><a href="academy.html" class="nav-link" data-text="آکادمی">آکادمی</a></li>
+          <li><a href="blog.html" class="nav-link" data-text="وبلاگ">وبلاگ</a></li>
+          <li><a href="about.html" class="nav-link" data-text="درباره ما">درباره ما</a></li>
+          <li><a href="contact.html" class="nav-link" data-text="تماس با ما">تماس با ما</a></li>
+        </ul>
 
-      // نمایش/مخفی‌سازی رمز
-      document.querySelectorAll('.toggle').forEach(t=>{
-        t.addEventListener('click', ()=>{
-          const target = document.getElementById(t.dataset.target);
-          if(!target) return;
-          target.type = target.type==='password' ? 'text' : 'password';
-          t.innerHTML = `<i class="far fa-eye${target.type==='password'?'':'-slash'}"></i>`;
-        });
-      });
+        <div class="nav-actions">
+          <a href="auth.html" class="auth-btn"><i class="fas fa-user"></i><b class="auth-label" style="font-weight:600;">ورود / ثبت‌نام</b></a>
+        </div>
 
-      // اعتبارسنجی ساده و روان
-      const isEmail = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((v||'').trim());
-      const isPhone = v => { const d=(v||'').replace(/\D/g,''); return /^[\d\s\-\+KATEX_INLINE_OPENKATEX_INLINE_CLOSE]+$/.test(v||'') && d.length>=10; };
-      const shake = el => { el.classList.add('shake'); setTimeout(()=>el.classList.remove('shake'),450); };
-      const note = (msg) => { try{ showNotification && showNotification(msg, 'success'); }catch(e){} };
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="باز کردن منوی موبایل">
+          <div class="hamburger"><span></span><span></span><span></span></div>
+        </button>
+      </div>
+    </nav>
+  </header>
 
-      // ورود
-      loginForm.addEventListener('submit', (e)=>{
-        e.preventDefault();
-        const id   = document.getElementById('loginId');
-        const pass = document.getElementById('loginPass');
-        let ok = true;
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <div class="mobile-menu-logo">
+        <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=80&q=60&auto=format&fit=crop" alt="چرخ طلایی">
+        <span>چرخ طلایی</span>
+      </div>
+      <button class="mobile-menu-close" id="mobileMenuClose" aria-label="بستن منوی موبایل"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="mobile-menu-body">
+      <div class="mobile-search">
+        <input type="text" placeholder="جستجو..." aria-label="جستجو...">
+        <button id="searchBtn"><i class="fas fa-search"></i></button>
+      </div>
+      <ul class="mobile-nav">
+        <li><a href="index.html"><i class="fas fa-home"></i> صفحه اصلی</a></li>
+        <li><a href="shop.html"><i class="fas fa-shopping-bag"></i> فروشگاه</a></li>
+        <li><a href="academy.html"><i class="fas fa-graduation-cap"></i> آکادمی</a></li>
+        <li><a href="blog.html"><i class="fas fa-blog"></i> وبلاگ</a></li>
+        <li><a href="about.html"><i class="fas fa-info-circle"></i> درباره ما</a></li>
+        <li><a href="contact.html"><i class="fas fa-phone"></i> تماس با ما</a></li>
+        <li><a href="auth.html" class="active"><i class="fas fa-user-lock"></i> ورود / ثبت‌نام</a></li>
+      </ul>
+    </div>
+  </div>
 
-        if(!(isEmail(id.value)||isPhone(id.value))){
-          document.getElementById('errLoginId').style.display='block'; shake(id); ok=false;
-        }else document.getElementById('errLoginId').style.display='none';
+  <section class="auth-section">
+    <div class="container">
+      <div class="auth-card slim">
+        <div class="auth-tabs">
+          <button class="auth-tab active" data-tab="login"><i class="fas fa-sign-in-alt"></i> ورود</button>
+          <button class="auth-tab" data-tab="register"><i class="fas fa-user-plus"></i> ثبت‌نام</button>
+        </div>
 
-        if((pass.value||'').length<8){
-          document.getElementById('errLoginPass').style.display='block'; shake(pass); ok=false;
-        }else document.getElementById('errLoginPass').style.display='none';
+        <!-- ورود -->
+        <div class="auth-pane active" id="pane-login">
+          <div class="method-block" id="loginPhoneBlock">
+            <form id="loginPhoneForm" novalidate>
+              <div class="form-group">
+                <label>موبایل</label>
+                <input type="tel" id="lpPhone" required placeholder="09XXXXXXXXX" inputmode="tel" dir="ltr" aria-label="09XXXXXXXXX">
+              </div>
+              <div class="form-group code-wrap" id="lpCodeWrap" hidden>
+                <label>کد تایید</label>
+                <input type="text" id="lpCode" placeholder="۶ رقم" inputmode="numeric" maxlength="6" dir="ltr" aria-label="۶ رقم">
+                <div class="otp-helper">
+                  <small id="lpTimer" hidden>ارسال مجدد تا <b>60</b> ثانیه</small>
+                  <button type="button" id="lpResend" class="link-switch" hidden>ارسال مجدد</button>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block" id="lpActionBtn">
+                <i class="fas fa-sms"></i> <span id="lpActionText">ارسال کد</span>
+              </button>
+            </form>
+            <div class="method-switch">
+              <button class="link-switch" id="toLoginEmail">ورود با ایمیل</button>
+            </div>
+          </div>
 
-        if(!ok) return;
+          <div class="method-block" id="loginEmailBlock" hidden>
+            <form id="loginEmailForm" novalidate>
+              <div class="form-group">
+                <label>ایمیل</label>
+                <input type="email" id="leEmail" required placeholder="email@example.com" autocomplete="email" aria-label="email@example.com">
+              </div>
+              <div class="form-group">
+                <label>رمز عبور</label>
+                <input type="password" id="lePass" required placeholder="••••••" minlength="6" autocomplete="current-password" aria-label="••••••">
+              </div>
+              <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-unlock"></i> ورود</button>
+            </form>
+            <div class="method-switch">
+              <button class="link-switch" id="toLoginPhone">بازگشت به موبایل</button>
+            </div>
+          </div>
 
-        try{
-          localStorage.setItem('auth_token', Math.random().toString(36).slice(2));
-          localStorage.setItem('user', JSON.stringify({ id: id.value.trim(), name: 'کاربر چرخ طلایی' }));
-        }catch(e){}
-        note('ورود موفق');
-        setTimeout(()=>location.href='dashboard.html', 400);
-      });
+          <div class="or-row"><span>یا</span></div>
+          <div class="google-wrap">
+            <div id="g_id_onload"
+                 data-client_id="YOUR_GOOGLE_CLIENT_ID"
+                 data-context="signin"
+                 data-ux_mode="popup"
+                 data-callback="handleGoogleCredential"
+                 data-auto_prompt="false"></div>
+            <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="signin_with" data-shape="pill" data-logo_alignment="left"></div>
+          </div>
+        </div>
 
-      // ثبت‌نام
-      regForm.addEventListener('submit', (e)=>{
-        e.preventDefault();
-        const name = document.getElementById('regName');
-        const phone= document.getElementById('regPhone');
-        const email= document.getElementById('regEmail');
-        const pass = document.getElementById('regPass');
-        const pass2= document.getElementById('regPass2');
-        const terms= document.getElementById('regTerms');
-        let ok = true;
+        <!-- ثبت‌نام -->
+        <div class="auth-pane" id="pane-register">
+          <div class="method-block" id="regPhoneBlock">
+            <form id="regPhoneForm" novalidate>
+              <div class="form-group">
+                <label>موبایل</label>
+                <input type="tel" id="rpPhone" required placeholder="09XXXXXXXXX" inputmode="tel" dir="ltr" aria-label="09XXXXXXXXX">
+              </div>
+              <div class="form-group code-wrap" id="rpCodeWrap" hidden>
+                <label>کد تایید</label>
+                <input type="text" id="rpCode" placeholder="۶ رقم" inputmode="numeric" maxlength="6" dir="ltr" aria-label="۶ رقم">
+                <div class="otp-helper">
+                  <small id="rpTimer" hidden>ارسال مجدد تا <b>60</b> ثانیه</small>
+                  <button type="button" id="rpResend" class="link-switch" hidden>ارسال مجدد</button>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block" id="rpActionBtn">
+                <i class="fas fa-sms"></i> <span id="rpActionText">ارسال کد</span>
+              </button>
+            </form>
 
-        if(!name.value || name.value.trim().length<3){ document.getElementById('errRegName').style.display='block'; shake(name); ok=false; } else document.getElementById('errRegName').style.display='none';
-        if(!isPhone(phone.value)){ document.getElementById('errRegPhone').style.display='block'; shake(phone); ok=false; } else document.getElementById('errRegPhone').style.display='none';
-        if(!isEmail(email.value)){ document.getElementById('errRegEmail').style.display='block'; shake(email); ok=false; } else document.getElementById('errRegEmail').style.display='none';
-        if((pass.value||'').length<8){ document.getElementById('errRegPass').style.display='block'; shake(pass); ok=false; } else document.getElementById('errRegPass').style.display='none';
-        if(pass2.value!==pass.value){ document.getElementById('errRegPass2').style.display='block'; shake(pass2); ok=false; } else document.getElementById('errRegPass2').style.display='none';
-        if(!terms.checked){ document.getElementById('errRegTerms').style.display='block'; ok=false; } else document.getElementById('errRegTerms').style.display='none';
+            <form id="regProfileForm" class="stack" hidden>
+              <div class="form-group"><label>نام و نام خانوادگی</label><input type="text" id="rpName" required placeholder="مثلاً: علی رضایی" autocomplete="name" aria-label="مثلاً: علی رضایی"></div>
+              <div class="form-group"><label>ایمیل (اختیاری)</label><input type="email" id="rpEmail" placeholder="email@example.com" autocomplete="email" aria-label="email@example.com"></div>
+              <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-user-check"></i> ساخت حساب</button>
+            </form>
 
-        if(!ok) return;
+            <div class="method-switch">
+              <button class="link-switch" id="toRegEmail">ثبت‌نام با ایمیل</button>
+            </div>
+          </div>
 
-        try{
-          localStorage.setItem('auth_token', Math.random().toString(36).slice(2));
-          localStorage.setItem('user', JSON.stringify({ email: email.value.trim(), phone: phone.value.trim(), name: name.value.trim() }));
-        }catch(e){}
-        note('ثبت‌نام موفق');
-        setTimeout(()=>location.href='dashboard.html', 500);
-      });
+          <div class="method-block" id="regEmailBlock" hidden>
+            <form id="regEmailForm" novalidate>
+              <div class="form-group"><label>نام و نام خانوادگی</label><input type="text" id="reName" required placeholder="مثلاً: علی رضایی" autocomplete="name" aria-label="مثلاً: علی رضایی"></div>
+              <div class="form-group"><label>موبایل</label><input type="tel" id="rePhone" required placeholder="09XXXXXXXXX" inputmode="tel" dir="ltr" autocomplete="tel" aria-label="09XXXXXXXXX"></div>
+              <div class="form-group"><label>ایمیل</label><input type="email" id="reEmail" required placeholder="email@example.com" autocomplete="email" aria-label="email@example.com"></div>
+              <div class="form-group"><label>رمز عبور</label><input type="password" id="rePass1" required minlength="6" placeholder="حداقل ۶ کاراکتر" autocomplete="new-password" aria-label="حداقل ۶ کاراکتر"></div>
+              <div class="form-group"><label>تکرار رمز</label><input type="password" id="rePass2" required minlength="6" placeholder="تکرار رمز" autocomplete="new-password" aria-label="تکرار رمز"></div>
+              <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-user-plus"></i> ثبت‌نام</button>
+            </form>
+            <div class="method-switch"><button class="link-switch" id="toRegPhone">بازگشت به موبایل</button></div>
+          </div>
 
-      // گوگل (نمادین)
-      function googleAuth(btn){
-        btn.classList.add('shake');
-        setTimeout(()=>{
-          try{
-            localStorage.setItem('auth_token', Math.random().toString(36).slice(2));
-            localStorage.setItem('user', JSON.stringify({ email:'user@gmail.com', name:'Google User' }));
-          }catch(e){}
-          note('ورود با گوگل موفق');
-          location.href='dashboard.html';
-        }, 600);
-      }
-      document.getElementById('googleLogin')?.addEventListener('click', (e)=>googleAuth(e.currentTarget));
-      document.getElementById('googleRegister')?.addEventListener('click', (e)=>googleAuth(e.currentTarget));
-    });
-  </script>
+          <div class="or-row"><span>یا</span></div>
+          <div class="google-wrap">
+            <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="continue_with" data-shape="pill" data-logo_alignment="left"></div>
+          </div>
+        </div>
+
+        <div class="auth-note">با ورود/ثبت‌نام، با قوانین و حریم خصوصی موافقید.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="main-footer">
+    <div class="footer-bottom"><div class="container"><div class="bottom-content"><p>© ۱۴۰۳ چرخ طلایی</p></div></div></div>
+  </footer>
+
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/chat.js" defer></script>
+  <script src="js/api.js" defer></script>
+  <script src="js/auth-ui.js" defer></script>
+  <script src="js/auth.js" defer></script>
 </body>
 </html>

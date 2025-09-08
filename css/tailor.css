@@ -1,0 +1,14 @@
+/* tailor.css */
+.tailor-hero{ padding:40px 0 10px; text-align:center; background: var(--bg-secondary); border-bottom:1px solid var(--border-color); }
+.page-title{ font-family:var(--font-nastaliq); color:var(--gold); margin:6px 0; }
+.subtitle{ color:var(--text-tertiary); }
+.tailor-section{ padding:20px 0 70px; }
+.tailor-form{ border:1px solid var(--border-color); border-radius:12px; background:var(--bg-primary); padding:14px; }
+.step{ display:none; }
+.step.active{ display:block; animation: fadeIn .25s ease; }
+@keyframes fadeIn{ from{opacity:0; transform:translateY(6px)} to{opacity:1; transform:none} }
+.form-row{ display:grid; grid-template-columns:1fr; gap:12px; }
+@media(min-width:640px){ .form-row{ grid-template-columns:1fr 1fr; } }
+.form-group{ display:flex; flex-direction:column; gap:6px; }
+.form-group input, .form-group select, .form-group textarea{ padding:12px; border-radius:10px; border:1px solid var(--border-color); background:var(--bg-secondary); color:var(--text-primary); }
+.actions{ display:flex; gap:10px; justify-content:flex-end; margin-top:10px; }

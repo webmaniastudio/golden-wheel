@@ -1,28 +1,47 @@
+<!doctype html>
 ﻿<!DOCTYPE html>
 <html lang="fa" dir="rtl" data-theme="dark">
 <head>
+<meta property="og:type" content="website">
+<meta property="og:title" content="مزون لباس">
+<meta property="og:description" content="خیاطی و مزون لباس شب و مجلسی">
+<meta property="og:url" content="/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="/">
+<meta name="description" content="مزون لباس | خرید و سفارش دوخت لباس شب و مجلسی با کیفیت عالی">
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#D4AF37">
-  <title>آکادمی | چرخ طلایی</title>
-  <!-- فونت‌ها -->
+  <title>چرخ طلایی | آکادمی</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
-    @font-face {
-      font-family: 'IranNastaliq';
-      src: url('https://cdn.jsdelivr.net/gh/rastikerdar/iran-nastaliq@v3.4.0/dist/IranNastaliq.woff2') format('woff2');
+    @font-face{
+      font-family:'IranNastaliq';
+      src:
+        url('https://cdn.jsdelivr.net/gh/rastikerdar/iran-nastaliq/dist/IranNastaliq.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/rastikerdar/iran-nastaliq@v3.2.2/dist/IranNastaliq.woff2') format('woff2'),
+        url('https://raw.githubusercontent.com/rastikerdar/iran-nastaliq/v3.4.0/dist/IranNastaliq.woff2') format('woff2');
+      font-display: swap;
     }
   </style>
-  <!-- آیکون‌ها + AOS + Swiper CSS -->
+
+  <!-- Icons + AOS + Swiper CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-  <!-- استایل اصلی پروژه -->
+
+  <!-- Project Styles -->
   <link rel="stylesheet" href="css/main.css">
-  <!-- استایل‌های اختصاصی آکادمی -->
   <link rel="stylesheet" href="css/academy.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ClothingStore", "name": "مزون لباس", "image": "/og-image.jpg", "url": "/", "address": {"@type": "PostalAddress", "addressLocality": "تهران", "addressCountry": "IR"}, "openingHours": ["Sa-Thu 10:00-20:00"]}</script>
 </head>
 <body>
+
   <!-- Loader -->
   <div id="loader" class="loader">
     <div class="golden-wheel">
@@ -35,17 +54,66 @@
         </div>
       </div>
       <span class="loader-text">چرخ طلایی</span>
-      <div class="loader-progress">
-        <div class="loader-progress-bar"></div>
+      <div class="loader-progress"><div class="loader-progress-bar"></div></div>
+    </div>
+  </div>
+
+  <!-- Chat + Mini-cart (پایین-چپ) -->
+  <div class="chat-widget">
+    <button class="chat-toggle" id="chatToggle" aria-label="پشتیبانی آنلاین">
+      <div class="chat-icon-wrapper">
+        <i class="fas fa-headset"></i>
+        <span class="chat-badge">1</span>
+      </div>
+      <span class="pulse-ring"></span><span class="pulse-ring" style="animation-delay:.5s"></span><span class="pulse-ring" style="animation-delay:1s"></span>
+    </button>
+
+    <button id="miniCartPill" class="mini-cart-pill" title="سبد خرید">
+      <i class="fas fa-shopping-bag"></i>
+      <span id="miniCartCount">۰</span>
+      <span id="miniCartTotal">۰ تومان</span>
+    </button>
+
+    <div class="chat-box" id="chatBox">
+      <div class="chat-header">
+        <div class="chat-header-info">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=120&q=70&auto=format&fit=crop" alt="Support">
+          <div>
+            <h4>پشتیبانی آنلاین</h4>
+            <span class="chat-status"><i class="fas fa-circle"></i> آنلاین</span>
+          </div>
+        </div>
+        <button class="chat-close" id="chatClose" aria-label="بستن چت"><i class="fas fa-times"></i></button>
+      </div>
+
+      <div class="chat-onboard" id="chatOnboard" style="position:absolute;inset:0;background:var(--bg-secondary);display:flex;flex-direction:column;gap:10px;justify-content:center;align-items:center;padding:16px;border-top:1px solid var(--border-color);z-index:5;">
+        <h4 style="color:var(--gold);margin-bottom:4px;">شروع گفتگو</h4>
+        <input id="obName" type="text" placeholder="نام و نام خانوادگی" required style="width:90%;padding:10px;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-primary);color:var(--text-primary);" aria-label="نام و نام خانوادگی">
+        <input id="obPhone" type="tel" placeholder="شماره تماس" required inputmode="tel" autocomplete="tel" dir="ltr" style="width:90%;padding:10px;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-primary);color:var(--text-primary);" aria-label="شماره تماس">
+        <button id="obStart" class="btn btn-primary" style="padding:10px 20px;border-radius:20px;cursor:pointer;">شروع گفتگو</button>
+        <small style="color:var(--text-secondary)">اطلاعات شما فقط برای شروع پشتیبانی استفاده می‌شود.</small>
+      </div>
+
+      <div class="chat-messages" id="chatMessages" aria-live="polite"></div>
+
+      <div class="chat-quick-replies">
+        <button class="quick-reply">تقویم دوره‌ها</button>
+        <button class="quick-reply">شهریه</button>
+        <button class="quick-reply">نحوه ثبت‌نام</button>
+      </div>
+      <div class="chat-input">
+        <button class="chat-attach" aria-label="ضمیمه"><i class="fas fa-paperclip"></i></button>
+        <input type="text" id="chatInput" placeholder="پیام خود را بنویسید..." disabled aria-label="پیام خود را بنویسید...">
+        <button class="chat-emoji" aria-label="ایموجی"><i class="far fa-smile"></i></button>
+        <button id="chatSend" disabled aria-label="ارسال"><i class="fas fa-paper-plane"></i></button>
       </div>
     </div>
   </div>
 
-  <!-- Header -->
+  <!-- Header (مثل صفحه اصلی) + دکمه تم داخل هدر -->
   <header class="main-header">
     <nav class="navbar">
       <div class="nav-container">
-        <!-- لوگو -->
         <div class="logo" data-aos="fade-right">
           <div class="logo-wrapper" style="border-radius:50%;overflow:hidden;box-shadow:0 0 0 2px var(--gold) inset,0 0 16px rgba(212,175,55,.25)">
             <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=200&q=60&auto=format&fit=crop" alt="چرخ طلایی" style="width:100%;height:100%;object-fit:cover;animation:none">
@@ -53,8 +121,7 @@
           </div>
           <span class="logo-text">چرخ طلایی</span>
         </div>
-        
-        <!-- منوی دسکتاپ -->
+
         <ul class="nav-menu">
           <li><a href="index.html" class="nav-link" data-text="صفحه اصلی">صفحه اصلی</a></li>
           <li class="dropdown">
@@ -64,6 +131,7 @@
               <li><a href="shop.html?category=men"><i class="fas fa-male"></i> مردانه</a></li>
               <li><a href="shop.html?category=kids"><i class="fas fa-child"></i> بچگانه</a></li>
               <li><a href="shop.html?category=accessories"><i class="fas fa-ring"></i> اکسسوری</a></li>
+              <li><a href="shop.html?category=traditional"><i class="fas fa-star"></i> سنتی</a></li>
             </ul>
           </li>
           <li class="dropdown">
@@ -79,40 +147,37 @@
           <li><a href="about.html" class="nav-link" data-text="درباره ما">درباره ما</a></li>
           <li><a href="contact.html" class="nav-link" data-text="تماس با ما">تماس با ما</a></li>
         </ul>
-        
-        <!-- اکشن‌ها -->
+
         <div class="nav-actions">
-          <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
-          <a href="cart.html" class="cart-btn">
-            <i class="fas fa-shopping-bag"></i>
-            <span class="cart-count">0</span>
-          </a>
+          <button id="themeToggle" class="nav-theme-btn" aria-label="تغییر تم">
+            <i class="fas fa-sun sun-icon"></i>
+            <i class="fas fa-moon moon-icon"></i>
+          </button>
           <a href="auth.html" class="auth-btn">
             <i class="fas fa-user"></i>
             <b class="auth-label" style="font-weight:600;">ورود / ثبت‌نام</b>
           </a>
         </div>
-        
-        <!-- منوی موبایل -->
-        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="باز کردن منوی موبایل">
           <div class="hamburger"><span></span><span></span><span></span></div>
         </button>
       </div>
     </nav>
   </header>
 
-  <!-- منوی موبایل -->
+  <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-header">
       <div class="mobile-menu-logo">
         <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=80&q=60&auto=format&fit=crop" alt="چرخ طلایی">
         <span>چرخ طلایی</span>
       </div>
-      <button class="mobile-menu-close" id="mobileMenuClose"><i class="fas fa-times"></i></button>
+      <button class="mobile-menu-close" id="mobileMenuClose" aria-label="بستن منوی موبایل"><i class="fas fa-times"></i></button>
     </div>
     <div class="mobile-menu-body">
       <div class="mobile-search">
-        <input type="text" placeholder="جستجو...">
+        <input type="text" placeholder="جستجو..." aria-label="جستجو...">
         <button id="searchBtn"><i class="fas fa-search"></i></button>
       </div>
       <ul class="mobile-nav">
@@ -124,15 +189,16 @@
             <li><a href="shop.html?category=men">مردانه</a></li>
             <li><a href="shop.html?category=kids">بچگانه</a></li>
             <li><a href="shop.html?category=accessories">اکسسوری</a></li>
+            <li><a href="shop.html?category=traditional">سنتی</a></li>
           </ul>
         </li>
         <li class="has-submenu">
-          <a href="academy.html"><span><i class="fas fa-graduation-cap"></i> آکادمی</span> <i class="fas fa-chevron-down"></i></a>
+          <a href="academy.html" class="active"><span><i class="fas fa-graduation-cap"></i> آکادمی</span> <i class="fas fa-chevron-down"></i></a>
           <ul class="mobile-submenu">
-            <li><a href="academy.html?type=basic">دوره‌های مقدماتی</a></li>
-            <li><a href="academy.html?type=advanced">دوره‌های پیشرفته</a></li>
-            <li><a href="academy.html?type=professional">دوره‌های حرفه‌ای</a></li>
-            <li><a href="academy.html?type=online">آموزش آنلاین</a></li>
+            <li><a href="academy.html?type=basic">مقدماتی</a></li>
+            <li><a href="academy.html?type=advanced">پیشرفته</a></li>
+            <li><a href="academy.html?type=professional">حرفه‌ای</a></li>
+            <li><a href="academy.html?type=online">آنلاین</a></li>
           </ul>
         </li>
         <li><a href="blog.html"><i class="fas fa-blog"></i> وبلاگ</a></li>
@@ -140,6 +206,7 @@
         <li><a href="contact.html"><i class="fas fa-phone"></i> تماس با ما</a></li>
         <li><a href="auth.html"><i class="fas fa-user-lock"></i> ورود / ثبت‌نام</a></li>
       </ul>
+
       <div class="mobile-menu-footer">
         <a href="auth.html" class="mobile-auth-btn"><i class="fas fa-user"></i><span>ورود / ثبت‌نام</span></a>
         <div class="mobile-social">
@@ -152,577 +219,256 @@
     </div>
   </div>
 
-  <!-- اورلی جستجو -->
+  <!-- Search Overlay -->
   <div class="search-overlay" id="searchOverlay">
-    <button class="search-close" id="searchClose"><i class="fas fa-times"></i></button>
+    <button class="search-close" id="searchClose" aria-label="بستن جستجو"><i class="fas fa-times"></i></button>
     <div class="search-wrapper">
       <div class="search-container">
-        <input type="text" id="searchInput" placeholder="جستجو در دوره‌ها..." autocomplete="off">
+        <input type="text" id="searchInput" placeholder="جستجو در محصولات، دوره‌ها و مقالات..." autocomplete="off" aria-label="جستجو در محصولات، دوره‌ها و مقالات...">
         <button class="search-submit"><i class="fas fa-search"></i></button>
       </div>
       <div class="search-suggestions">
         <h4>پرجستجوترین‌ها</h4>
         <div class="suggestion-tags">
           <span>دوره طراحی</span>
-          <span>دوره دوخت</span>
+          <span>دوخت</span>
           <span>الگوسازی</span>
-          <span>آموزش آنلاین</span>
+          <span>آنلاین</span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- محتوای اصلی -->
-  <main class="academy-main">
-    <!-- بنر آکادمی -->
-    <section class="academy-banner">
-      <div class="container">
-        <div class="banner-content" data-aos="fade-up">
-          <h1>آکادمی چرخ طلایی</h1>
-          <p>آموزش حرفه‌ای طراحی و دوخت لباس با مدرک معتبر</p>
-          <div class="breadcrumb">
-            <a href="index.html">صفحه اصلی</a>
-            <i class="fas fa-chevron-left"></i>
-            <span>آکادمی</span>
-          </div>
+  <!-- Academy Hero -->
+  <section class="academy-hero">
+    <div class="academy-hero-bg">
+      <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=1920&q=60&auto=format&fit=crop" alt="آکادمی چرخ طلایی" />
+      <div class="academy-hero-overlay"></div>
+    </div>
+    <div class="container">
+      <div class="academy-hero-content" data-aos="fade-up">
+        <span class="section-badge">آکادمی</span>
+        <h1 class="academy-title">یادگیری خلاق، مسیر حرفه‌ای</h1>
+        <p class="academy-subtitle">از مقدماتی تا حرفه‌ای، با بهترین اساتید و سرفصل‌های استاندارد</p>
+        <div class="academy-cta">
+          <a href="#coursesSection" class="btn btn-primary"><i class="fas fa-book-open"></i> مشاهده دوره‌ها</a>
+          <a href="#consultSection" class="btn btn-secondary"><i class="fas fa-user-check"></i> مشاوره رایگان</a>
         </div>
       </div>
-    </section>
 
-    <!-- آمار آکادمی -->
-    <section class="academy-stats">
-      <div class="container">
-        <div class="stats-grid">
-          <div class="stat-item" data-aos="fade-up">
-            <div class="stat-icon">
-              <i class="fas fa-graduation-cap"></i>
-            </div>
-            <div class="stat-number" data-target="5000">0</div>
-            <div class="stat-label">فارغ‌التحصیل</div>
-          </div>
-          <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
-            <div class="stat-icon">
-              <i class="fas fa-chalkboard-teacher"></i>
-            </div>
-            <div class="stat-number" data-target="25">0</div>
-            <div class="stat-label">مدرس حرفه‌ای</div>
-          </div>
-          <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
-            <div class="stat-icon">
-              <i class="fas fa-book"></i>
-            </div>
-            <div class="stat-number" data-target="120">0</div>
-            <div class="stat-label">دوره آموزشی</div>
-          </div>
-          <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
-            <div class="stat-icon">
-              <i class="fas fa-award"></i>
-            </div>
-            <div class="stat-number" data-target="15">0</div>
-            <div class="stat-label">سال سابقه</div>
-          </div>
+      <!-- Stats -->
+      <div class="academy-stats" data-aos="fade-up" data-aos-delay="100">
+        <div class="stat-item">
+          <span class="stat-number" data-target="1200">0</span>
+          <span class="stat-label">دانشجو</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="42">0</span>
+          <span class="stat-label">دوره فعال</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="18">0</span>
+          <span class="stat-label">استاد</span>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- دسته‌بندی دوره‌ها -->
-    <section class="course-categories">
-      <div class="container">
-        <div class="section-header" data-aos="fade-up">
-          <span class="section-badge">دوره‌ها</span>
-          <h2 class="section-title">دسته‌بندی دوره‌های آموزشی</h2>
+  <!-- Toolbar -->
+  <section class="academy-toolbar">
+    <div class="container">
+      <div class="toolbar-row">
+        <div class="toolbar-search">
+          <i class="fas fa-search"></i>
+          <input id="academySearch" type="text" placeholder="جستجو در دوره‌ها..." autocomplete="off" aria-label="جستجو در دوره‌ها...">
+          <button id="clearAcademySearch" title="پاک کردن"><i class="fas fa-times"></i></button>
         </div>
-        
-        <div class="categories-grid">
-          <div class="category-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="category-icon">
-              <i class="fas fa-graduation-cap"></i>
-            </div>
-            <h3>دوره‌های مقدماتی</h3>
-            <p>آموزش اصول اولیه طراحی و دوخت لباس برای مبتدیان</p>
-            <a href="academy.html?type=basic" class="category-link">مشاهده دوره‌ها</a>
-          </div>
-          
-          <div class="category-card" data-aos="fade-up" data-aos-delay="200">
-            <div class="category-icon">
-              <i class="fas fa-certificate"></i>
-            </div>
-            <h3>دوره‌های پیشرفته</h3>
-            <p>تکنیک‌های حرفه‌ای طراحی و دوخت برای افراد با تجربه</p>
-            <a href="academy.html?type=advanced" class="category-link">مشاهده دوره‌ها</a>
-          </div>
-          
-          <div class="category-card" data-aos="fade-up" data-aos-delay="300">
-            <div class="category-icon">
-              <i class="fas fa-trophy"></i>
-            </div>
-            <h3>دوره‌های حرفه‌ای</h3>
-            <p>دوره‌های تخصصی برای تبدیل شدن به یک طراح حرفه‌ای</p>
-            <a href="academy.html?type=professional" class="category-link">مشاهده دوره‌ها</a>
-          </div>
-          
-          <div class="category-card" data-aos="fade-up" data-aos-delay="400">
-            <div class="category-icon">
-              <i class="fas fa-laptop"></i>
-            </div>
-            <h3>آموزش آنلاین</h3>
-            <p>دوره‌های آموزشی مجازی با امکان یادگیری در هر زمان و مکان</p>
-            <a href="academy.html?type=online" class="category-link">مشاهده دوره‌ها</a>
-          </div>
+        <div class="sort-select">
+          <i class="fas fa-sort-amount-down"></i>
+          <select id="academySort" aria-label="مرتب‌سازی">
+            <option value="popular">پربازدید</option>
+            <option value="newest">جدیدترین</option>
+            <option value="duration-asc">کوتاه‌ترین</option>
+            <option value="duration-desc">طولانی‌ترین</option>
+            <option value="price-asc">ارزان‌ترین</option>
+            <option value="price-desc">گران‌ترین</option>
+          </select>
         </div>
       </div>
-    </section>
 
-    <!-- دوره‌های محبوب -->
-    <section class="popular-courses">
-      <div class="container">
-        <div class="section-header" data-aos="fade-up">
-          <span class="section-badge">محبوب‌ترین‌ها</span>
-          <h2 class="section-title">دوره‌های پرطرفدار</h2>
-        </div>
-        
-        <div class="courses-slider swiper" data-aos="fade-up">
-          <div class="swiper-wrapper">
-            <!-- دوره 1 -->
-            <div class="swiper-slide">
-              <div class="course-card">
-                <div class="course-badge popular">پرطرفدار</div>
-                <div class="course-image">
-                  <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=800&q=60&auto=format&fit=crop" alt="دوره طراحی">
-                  <div class="course-overlay"><a href="course.html" class="course-link">مشاهده دوره</a></div>
-                </div>
-                <div class="course-content">
-                  <div class="course-category">طراحی</div>
-                  <h3>دوره جامع طراحی لباس</h3>
-                  <p>آموزش از مقدماتی تا پیشرفته با مدرک معتبر</p>
-                  <div class="course-meta">
-                    <span><i class="far fa-clock"></i> ۴۸ ساعت</span>
-                    <span><i class="far fa-user"></i> ۲۵۰ دانشجو</span>
-                  </div>
-                  <div class="course-footer">
-                    <div class="course-price">
-                      <span class="price-old">۲,۵۰۰,۰۰۰</span>
-                      <span class="price-current">۱,۸۵۰,۰۰۰ تومان</span>
-                    </div>
-                    <a href="course.html" class="btn-enroll">ثبت‌نام</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <!-- دوره 2 -->
-            <div class="swiper-slide">
-              <div class="course-card">
-                <div class="course-image">
-                  <img src="https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=800&q=60&auto=format&fit=crop" alt="دوره دوخت">
-                  <div class="course-overlay"><a href="course.html" class="course-link">مشاهده دوره</a></div>
-                </div>
-                <div class="course-content">
-                  <div class="course-category">دوخت</div>
-                  <h3>دوره دوخت پیشرفته</h3>
-                  <p>تکنیک‌های حرفه‌ای دوخت انواع لباس</p>
-                  <div class="course-meta">
-                    <span><i class="far fa-clock"></i> ۶۰ ساعت</span>
-                    <span><i class="far fa-user"></i> ۱۸۰ دانشجو</span>
-                  </div>
-                  <div class="course-footer">
-                    <div class="course-price">
-                      <span class="price-current">۲,۲۰۰,۰۰۰ تومان</span>
-                    </div>
-                    <a href="course.html" class="btn-enroll">ثبت‌نام</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <!-- دوره 3 -->
-            <div class="swiper-slide">
-              <div class="course-card">
-                <div class="course-badge new">جدید</div>
-                <div class="course-image">
-                  <img src="https://images.unsplash.com/photo-1536924940846-227afb31e2a5?w=800&q=60&auto=format&fit=crop" alt="دوره آنلاین">
-                  <div class="course-overlay"><a href="course.html" class="course-link">مشاهده دوره</a></div>
-                </div>
-                <div class="course-content">
-                  <div class="course-category">آنلاین</div>
-                  <h3>دوره آنلاین الگوسازی</h3>
-                  <p>یادگیری در هر زمان و هر مکان</p>
-                  <div class="course-meta">
-                    <span><i class="far fa-clock"></i> ۳۰ ساعت</span>
-                    <span><i class="far fa-user"></i> ۳۲۰ دانشجو</span>
-                  </div>
-                  <div class="course-footer">
-                    <div class="course-price">
-                      <span class="price-current">۹۸۰,۰۰۰ تومان</span>
-                    </div>
-                    <a href="course.html" class="btn-enroll">ثبت‌نام</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <!-- دوره 4 -->
-            <div class="swiper-slide">
-              <div class="course-card">
-                <div class="course-image">
-                  <img src="https://images.unsplash.com/photo-1594736797933-d0eb1ff2e2d6?w=800&q=60&auto=format&fit=crop" alt="دوره رنگ‌آمیزی">
-                  <div class="course-overlay"><a href="course.html" class="course-link">مشاهده دوره</a></div>
-                </div>
-                <div class="course-content">
-                  <div class="course-category">رنگ‌آمیزی</div>
-                  <h3>آموزش رنگ‌آمیزی پارچه</h3>
-                  <p>تکنیک‌های سنتی و مدرن رنگ‌آمیزی</p>
-                  <div class="course-meta">
-                    <span><i class="far fa-clock"></i> ۲۴ ساعت</span>
-                    <span><i class="far fa-user"></i> ۱۲۰ دانشجو</span>
-                  </div>
-                  <div class="course-footer">
-                    <div class="course-price">
-                      <span class="price-current">۱,۵۰۰,۰۰۰ تومان</span>
-                    </div>
-                    <a href="course.html" class="btn-enroll">ثبت‌نام</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-pagination"></div>
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
-        </div>
+      <div class="chips-row" id="academyChips" data-aos="fade-up">
+        <button class="chip active" data-cat="all"><i class="fas fa-layer-group"></i> همه</button>
+        <button class="chip" data-cat="basic"><i class="fas fa-seedling"></i> مقدماتی</button>
+        <button class="chip" data-cat="advanced"><i class="fas fa-level-up-alt"></i> پیشرفته</button>
+        <button class="chip" data-cat="professional"><i class="fas fa-trophy"></i> حرفه‌ای</button>
+        <button class="chip" data-cat="online"><i class="fas fa-laptop"></i> آنلاین</button>
       </div>
-    </section>
 
-    <!-- مزایای آکادمی -->
-    <section class="academy-features">
-      <div class="container">
-        <div class="section-header" data-aos="fade-up">
-          <span class="section-badge">مزایا</span>
-          <h2 class="section-title">چرا آکادمی چرخ طلایی؟</h2>
-        </div>
-        
-        <div class="features-grid">
-          <div class="feature-item" data-aos="fade-up" data-aos-delay="100">
-            <div class="feature-icon">
-              <i class="fas fa-users"></i>
-            </div>
-            <h3>کلاس‌های کوچک</h3>
-            <p>ظرفیت محدود کلاس‌ها برای آموزش با کیفیت و تمرکز بالا</p>
-          </div>
-          
-          <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
-            <div class="feature-icon">
-              <i class="fas fa-chalkboard-teacher"></i>
-            </div>
-            <h3>مدرسین حرفه‌ای</h3>
-            <p>اساتید با سابقه و متخصص در صنعت مد و لباس</p>
-          </div>
-          
-          <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
-            <div class="feature-icon">
-              <i class="fas fa-certificate"></i>
-            </div>
-            <h3>مدرک معتبر</h3>
-            <p>اعطای مدرک پایان دوره معتبر و قابل ترجمه</p>
-          </div>
-          
-          <div class="feature-item" data-aos="fade-up" data-aos-delay="400">
-            <div class="feature-icon">
-              <i class="fas fa-briefcase"></i>
-            </div>
-            <h3>فرصت‌های شغلی</h3>
-            <p>معرفی به برندهای معتبر و ایجاد فرصت‌های شغلی</p>
-          </div>
-          
-          <div class="feature-item" data-aos="fade-up" data-aos-delay="500">
-            <div class="feature-icon">
-              <i class="fas fa-tools"></i>
-            </div>
-            <h3>تجهیزات کامل</h3>
-              <p>دسترسی به تمامی تجهیزات و ابزارهای مورد نیاز</p>
-          </div>
-          
-          <div class="feature-item" data-aos="fade-up" data-aos-delay="600">
-            <div class="feature-icon">
-              <i class="fas fa-headset"></i>
-            </div>
-            <h3>پشتیبانی دائمی</h3>
-            <p>پشتیبانی حتی پس از اتمام دوره</p>
-          </div>
-        </div>
+      <div class="results-row">
+        <span id="acResults">۰ نتیجه</span>
+        <button id="acReset" class="link-reset"><i class="fas fa-undo"></i> حذف فیلترها</button>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- نظرات دانشجویان -->
-    <section class="testimonials-section">
-      <div class="container">
-        <div class="section-header" data-aos="fade-up">
-          <span class="section-badge">نظرات</span>
-          <h2 class="section-title">نظرات دانشجویان</h2>
-        </div>
-        
-        <div class="testimonials-slider swiper" data-aos="fade-up">
-          <div class="swiper-wrapper">
-            <!-- نظر 1 -->
-            <div class="swiper-slide">
-              <div class="testimonial-card">
-                <div class="testimonial-header">
-                  <img src="https://i.pravatar.cc/100?img=47" alt="سارا احمدی">
-                  <div class="customer-info">
-                    <h4>سارا احمدی</h4>
-                    <div class="rating">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                    </div>
-                  </div>
-                  <i class="fas fa-quote-right quote-icon"></i>
-                </div>
-                <p>دوره طراحی لباس در آکادمی چرخ طلایی واقعاً بی‌نظیر بود. اساتید بسیار حرفه‌ای و محیط آموزشی عالی دارد.</p>
-                <span class="testimonial-date">۱۴۰۲/۰۹/۱۵</span>
-              </div>
-            </div>
-            
-            <!-- نظر 2 -->
-            <div class="swiper-slide">
-              <div class="testimonial-card">
-                <div class="testimonial-header">
-                  <img src="https://i.pravatar.cc/100?img=32" alt="رضا کریمی">
-                  <div class="customer-info">
-                    <h4>رضا کریمی</h4>
-                    <div class="rating">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                    </div>
-                  </div>
-                  <i class="fas fa-quote-right quote-icon"></i>
-                </div>
-                <p>بعد از اتمام دوره، توانستم برند شخصی خودم رو راه‌اندازی کنم. خیلی از آکادمی ممنونم.</p>
-                <span class="testimonial-date">۱۴۰۲/۰۸/۲۵</span>
-              </div>
-            </div>
-            
-            <!-- نظر 3 -->
-            <div class="swiper-slide">
-              <div class="testimonial-card">
-                <div class="testimonial-header">
-                  <img src="https://i.pravatar.cc/100?img=15" alt="مریم محمدی">
-                  <div class="customer-info">
-                    <h4>مریم محمدی</h4>
-                    <div class="rating">
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>
-                      <i class="far fa-star"></i>
-                    </div>
-                  </div>
-                  <i class="fas fa-quote-right quote-icon"></i>
-                </div>
-                  <p>آموزش‌های کاربردی و محیط دوستانه. پیشنهاد می‌کنم حتماً در این آکادمی ثبت‌نام کنید.</p>
-                <span class="testimonial-date">۱۴۰۲/۰۷/۱۰</span>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
+  <!-- Courses Grid -->
+  <section id="coursesSection" class="courses-section">
+    <div class="container">
+      <div id="coursesGrid" class="courses-grid">
+        <div class="card-skeleton"></div><div class="card-skeleton"></div><div class="card-skeleton"></div>
+        <div class="card-skeleton"></div><div class="card-skeleton"></div><div class="card-skeleton"></div>
       </div>
-    </section>
 
-    <!-- فراخوان ثبت‌نام -->
-    <section class="enrollment-cta">
-      <div class="container">
-        <div class="cta-content" data-aos="fade-up">
-          <h2>همین حالا در دوره‌های ما ثبت‌نام کنید</h2>
-          <p>جایگاه خود را در دنیای مد و لباس پیدا کنید</p>
-          <div class="cta-buttons">
-            <a href="#courses" class="btn btn-primary">
-              <span>مشاهده دوره‌ها</span>
-              <i class="fas fa-arrow-left"></i>
-            </a>
-            <a href="contact.html" class="btn btn-secondary">
-              <span>مشاوره رایگان</span>
-              <i class="fas fa-headset"></i>
-            </a>
-          </div>
-        </div>
+      <div class="grid-actions">
+        <button id="acLoadMore" class="btn btn-secondary"><i class="fas fa-spinner"></i> بارگذاری بیشتر</button>
       </div>
-    </section>
 
-    <!-- لیست دوره‌ها -->
-    <section class="all-courses" id="courses">
-      <div class="container">
-        <div class="section-header" data-aos="fade-up">
-          <span class="section-badge">همه دوره‌ها</span>
-          <h2 class="section-title">دوره‌های آموزشی</h2>
-        </div>
-        
-        <div class="courses-filters">
-          <div class="filter-tabs">
-            <button class="filter-tab active" data-filter="all">همه دوره‌ها</button>
-            <button class="filter-tab" data-filter="basic">مقدماتی</button>
-            <button class="filter-tab" data-filter="advanced">پیشرفته</button>
-            <button class="filter-tab" data-filter="professional">حرفه‌ای</button>
-            <button class="filter-tab" data-filter="online">آنلاین</button>
+      <div id="acEmpty" class="empty-state" hidden>
+        <div class="empty-illustration"><i class="far fa-frown"></i></div>
+        <h4>دوره‌ای مطابق جستجو یافت نشد</h4>
+        <p>فیلترها را تغییر دهید یا دسته دیگری را امتحان کنید.</p>
+        <button id="acEmptyReset" class="btn btn-primary"><i class="fas fa-undo"></i> بازنشانی</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick View (Course) -->
+  <div id="courseView" class="courseview" aria-hidden="true">
+    <div class="cv-overlay" id="cvOverlay"></div>
+    <div class="cv-panel" role="dialog" aria-labelledby="cvTitle">
+      <button id="cvClose" class="cv-close" aria-label="بستن"><i class="fas fa-times"></i></button>
+
+      <div class="cv-body">
+        <div class="cv-gallery">
+          <div class="swiper cv-swiper">
+            <div class="swiper-wrapper" id="cvSlides"></div>
+            <div class="swiper-pagination"></div>
           </div>
         </div>
-        
-        <div class="courses-grid">
-          <!-- دوره 1 -->
-          <div class="course-card" data-aos="fade-up" data-category="basic">
-            <div class="course-badge new">جدید</div>
-            <div class="course-image">
-              <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=800&q=60&auto=format&fit=crop" alt="دوره طراحی">
-              <div class="course-overlay"><a href="course.html" class="course-link">مشاهده دوره</a></div>
-            </div>
-            <div class="course-content">
-              <div class="course-category">طراحی</div>
-              <h3>دوره جامع طراحی لباس</h3>
-              <p>آموزش از مقدماتی تا پیشرفته با مدرک معتبر</p>
-              <div class="course-meta">
-                <span><i class="far fa-clock"></i> ۴۸ ساعت</span>
-                <span><i class="far fa-user"></i> ۲۵۰ دانشجو</span>
-              </div>
-              <div class="course-footer">
-                <div class="course-price">
-                  <span class="price-old">۲,۵۰۰,۰۰۰</span>
-                  <span class="price-current">۱,۸۵۰,۰۰۰ تومان</span>
-                </div>
-                <a href="course.html" class="btn-enroll">ثبت‌نام</a>
-              </div>
-            </div>
+
+        <div class="cv-info">
+          <h3 id="cvTitle">—</h3>
+          <div class="cv-rating" id="cvRating"></div>
+
+          <div class="cv-meta">
+            <span id="cvDuration"><i class="far fa-clock"></i> — ساعت</span>
+            <span id="cvLevel"><i class="fas fa-signal"></i> —</span>
+            <span id="cvStudents"><i class="far fa-user"></i> — دانشجو</span>
           </div>
-          
-          <!-- دوره 2 -->
-          <div class="course-card" data-aos="fade-up" data-aos-delay="100" data-category="advanced">
-            <div class="course-image">
-              <img src="https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=800&q=60&auto=format&fit=crop" alt="دوره دوخت">
-              <div class="course-overlay"><a href="course.html" class="course-link">مشاهده دوره</a></div>
-            </div>
-            <div class="course-content">
-              <div class="course-category">دوخت</div>
-              <h3>دوره دوخت پیشرفته</h3>
-              <p>تکنیک‌های حرفه‌ای دوخت انواع لباس</p>
-              <div class="course-meta">
-                <span><i class="far fa-clock"></i> ۶۰ ساعت</span>
-                <span><i class="far fa-user"></i> ۱۸۰ دانشجو</span>
-              </div>
-              <div class="course-footer">
-                <div class="course-price">
-                  <span class="price-current">۲,۲۰۰,۰۰۰ تومان</span>
-                </div>
-                <a href="course.html" class="btn-enroll">ثبت‌نام</a>
-              </div>
-            </div>
+
+          <div class="cv-price">
+            <span class="price-current" id="cvPrice">—</span>
+            <span class="price-old" id="cvOldPrice"></span>
+            <span class="badge sale" id="cvSaleBadge" hidden>٪</span>
           </div>
-          
-          <!-- دوره 3 -->
-          <div class="course-card" data-aos="fade-up" data-aos-delay="200" data-category="online">
-            <div class="course-badge new">جدید</div>
-            <div class="course-image">
-              <img src="https://images.unsplash.com/photo-1536924940846-227afb31e2a5?w=800&q=60&auto=format&fit=crop" alt="دوره آنلاین">
-              <div class="course-overlay"><a href="course.html" class="course-link">مشاهده دوره</a></div>
-            </div>
-            <div class="course-content">
-              <div class="course-category">آنلاین</div>
-              <h3>دوره آنلاین الگوسازی</h3>
-              <p>یادگیری در هر زمان و هر مکان</p>
-              <div class="course-meta">
-                <span><i class="far fa-clock"></i> ۳۰ ساعت</span>
-                <span><i class="far fa-user"></i> ۳۲۰ دانشجو</span>
-              </div>
-              <div class="course-footer">
-                <div class="course-price">
-                  <span class="price-current">۹۸۰,۰۰۰ تومان</span>
-                </div>
-                <a href="course.html" class="btn-enroll">ثبت‌نام</a>
-              </div>
-            </div>
+
+          <div class="cv-syllabus">
+            <h4><i class="fas fa-list-ul"></i> سرفصل‌ها</h4>
+            <ul id="cvSyllabus" class="syllabus-list"></ul>
           </div>
-          
-          <!-- دوره 4 -->
-          <div class="course-card" data-aos="fade-up" data-aos-delay="300" data-category="professional">
-            <div class="course-badge popular">پرطرفدار</div>
-            <div class="course-image">
-              <img src="https://images.unsplash.com/photo-1594736797933-d0eb1ff2e2d6?w=800&q=60&auto=format&fit=crop" alt="دوره رنگ‌آمیزی">
-              <div class="course-overlay"><a href="course.html" class="course-link">مشاهده دوره</a></div>
-            </div>
-            <div class="course-content">
-              <div class="course-category">رنگ‌آمیزی</div>
-              <h3>آموزش رنگ‌آمیزی پارچه</h3>
-              <p>تکنیک‌های سنتی و مدرن رنگ‌آمیزی</p>
-              <div class="course-meta">
-                <span><i class="far fa-clock"></i> ۲۴ ساعت</span>
-                <span><i class="far fa-user"></i> ۱۲۰ دانشجو</span>
-              </div>
-              <div class="course-footer">
-                <div class="course-price">
-                  <span class="price-current">۱,۵۰۰,۰۰۰ تومان</span>
-                </div>
-                <a href="course.html" class="btn-enroll">ثبت‌نام</a>
-              </div>
-            </div>
+
+          <div class="cv-actions">
+            <button id="cvEnroll" class="btn btn-primary btn-block"><i class="fas fa-graduation-cap"></i> ثبت‌نام</button>
+            <button id="cvWishlist" class="btn btn-secondary btn-block"><i class="far fa-heart"></i> علاقه‌مندی</button>
           </div>
-          
-          <!-- دوره 5 -->
-          <div class="course-card" data-aos="fade-up" data-aos-delay="400" data-category="basic">
-            <div class="course-image">
-              <img src="https://images.unsplash.com/photo-1556905055-8f358a7a4b2c?w=800&q=60&auto=format&fit=crop" alt="دوره آشنایی با پارچه">
-              <div class="course-overlay"><a href="course.html" class="course-link">مشاهده دوره</a></div>
-            </div>
-            <div class="course-content">
-              <div class="course-category">پارچه</div>
-              <h3>آشنایی با انواع پارچه</h3>
-              <p>شناخت و انتخاب بهترین پارچه‌ها برای طراحی</p>
-              <div class="course-meta">
-                <span><i class="far fa-clock"></i> ۱۶ ساعت</span>
-                <span><i class="far fa-user"></i> ۹۰ دانشجو</span>
-              </div>
-              <div class="course-footer">
-                <div class="course-price">
-                  <span class="price-current">۷۵۰,۰۰۰ تومان</span>
-                </div>
-                <a href="course.html" class="btn-enroll">ثبت‌نام</a>
-              </div>
-            </div>
-          </div>
-          
-          <!-- دوره 6 -->
-          <div class="course-card" data-aos="fade-up" data-aos-delay="500" data-category="advanced">
-            <div class="course-image">
-              <img src="https://images.unsplash.com/photo-1618354691373-d851c3c3a4e2?w=800&q=60&auto=format&fit=crop" alt="دوره مدلسازی سه‌بعدی">
-              <div class="course-overlay"><a href="course.html" class="course-link">مشاهده دوره</a></div>
-            </div>
-            <div class="course-content">
-              <div class="course-category">نرم‌افزار</div>
-              <h3>مدلسازی سه‌بعدی لباس</h3>
-              <p>آموزش کار با نرم‌افزارهای تخصصی مدلسازی</p>
-              <div class="course-meta">
-                <span><i class="far fa-clock"></i> ۴۰ ساعت</span>
-                <span><i class="far fa-user"></i> ۱۵۰ دانشجو</span>
-              </div>
-              <div class="course-footer">
-                <div class="course-price">
-                  <span class="price-current">۲,۵۰۰,۰۰۰ تومان</span>
-                </div>
-                <a href="course.html" class="btn-enroll">ثبت‌نام</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- دکمه نمایش بیشتر -->
-        <div class="load-more" data-aos="fade-up">
-          <button class="btn btn-secondary">نمایش دوره‌های بیشتر</button>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </div>
+
+  <!-- Instructors -->
+  <section class="instructors-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-badge">اساتید</span>
+        <h2 class="section-title">مدرسان آکادمی</h2>
+      </div>
+
+      <div class="swiper instructors-swiper" data-aos="fade-up">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="inst-card">
+              <img src="https://i.pravatar.cc/300?img=12" alt="استاد 1">
+              <div class="inst-info">
+                <h4>نگین کیانی</h4>
+                <p>طراحی لباس</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="inst-card">
+              <img src="https://i.pravatar.cc/300?img=32" alt="استاد 2">
+              <div class="inst-info">
+                <h4>مهران باقری</h4>
+                <p>الگوسازی و دوخت</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="inst-card">
+              <img src="https://i.pravatar.cc/300?img=15" alt="استاد 3">
+              <div class="inst-info">
+                <h4>پریسا صادقی</h4>
+                <p>دوخت پیشرفته</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="inst-card">
+              <img src="https://i.pravatar.cc/300?img=47" alt="استاد 4">
+              <div class="inst-info">
+                <h4>لیلا احمدی</h4>
+                <p>طراحی مد دیجیتال</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-badge">سوالات متداول</span>
+        <h2 class="section-title">آنچه باید بدانید</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q"><span>نحوه ثبت‌نام در دوره‌ها چگونه است؟</span><i class="fas fa-plus"></i></button>
+          <div class="faq-a"><p>از طریق دکمه ثبت‌نام در صفحه هر دوره یا تماس با پشتیبانی می‌توانید ثبت‌نام کنید.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>آیا دوره‌ها گواهی‌نامه دارند؟</span><i class="fas fa-plus"></i></button>
+          <div class="faq-a"><p>بله، پس از اتمام موفق دوره‌ها گواهی معتبر آکادمی صادر می‌شود.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>آیا امکان شرکت آنلاین وجود دارد؟</span><i class="fas fa-plus"></i></button>
+          <div class="faq-a"><p>بله، دوره‌های آنلاین با کلاس‌های زنده و ضبط‌شده ارائه می‌شوند.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Consult CTA -->
+  <section id="consultSection" class="consult-section">
+    <div class="consult-bg">
+      <img src="https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=1920&q=60&auto=format&fit=crop" alt="مشاوره آکادمی">
+      <div class="consult-overlay"></div>
+    </div>
+    <div class="container">
+      <div class="consult-content" data-aos="zoom-in">
+        <div class="consult-icon"><i class="fas fa-headset"></i></div>
+        <h2>مشاوره رایگان انتخاب دوره</h2>
+        <p>بهترین دوره مناسب شما را در چند دقیقه پیشنهاد می‌دهیم</p>
+        <a href="contact.html" class="btn btn-primary btn-lg"><i class="fas fa-phone"></i> درخواست مشاوره</a>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer class="main-footer">
@@ -743,6 +489,7 @@
               <a href="#" class="social-link youtube"><i class="fab fa-youtube"></i></a>
             </div>
           </div>
+
           <div class="footer-links">
             <h4>دسترسی سریع</h4>
             <ul>
@@ -753,29 +500,33 @@
               <li><a href="about.html"><i class="fas fa-angle-left"></i> درباره ما</a></li>
             </ul>
           </div>
+
           <div class="footer-links">
             <h4>خدمات ما</h4>
             <ul>
               <li><a href="#"><i class="fas fa-angle-left"></i> طراحی لباس</a></li>
               <li><a href="#"><i class="fas fa-angle-left"></i> دوخت سفارشی</a></li>
-              <li><a href="#"><i class="fas fa-angle-left"></i> تعمیرات</a></li>
               <li><a href="#"><i class="fas fa-angle-left"></i> مشاوره مد</a></li>
               <li><a href="#"><i class="fas fa-angle-left"></i> آموزش</a></li>
+              <li><a href="#"><i class="fas fa-angle-left"></i> تعمیرات</a></li>
             </ul>
           </div>
+
           <div class="footer-newsletter">
             <h4>خبرنامه</h4>
             <p>برای دریافت آخرین اخبار و تخفیف‌ها عضو شوید</p>
             <form class="newsletter-form">
               <div class="form-wrapper">
-                <input type="email" placeholder="ایمیل شما">
+                <input type="email" placeholder="ایمیل شما" aria-label="ایمیل شما">
                 <button type="submit"><i class="fas fa-paper-plane"></i></button>
               </div>
             </form>
           </div>
+
         </div>
       </div>
     </div>
+
     <div class="footer-bottom">
       <div class="container">
         <div class="bottom-content">
@@ -785,120 +536,13 @@
     </div>
   </footer>
 
-  <!-- Theme Toggle -->
-  <div class="theme-toggle-container">
-    <button id="themeToggle" class="theme-toggle">
-      <div class="toggle-icon">
-        <i class="fas fa-sun sun-icon"></i>
-        <i class="fas fa-moon moon-icon"></i>
-      </div>
-      <div class="toggle-bg"></div>
-    </button>
-  </div>
-
-  <!-- Scroll Top -->
-  <button id="scrollTop" class="scroll-top">
-    <i class="fas fa-chevron-up"></i>
-    <svg class="progress-ring" width="50" height="50">
-      <circle class="progress-ring-circle" stroke="#D4AF37" stroke-width="2" fill="transparent" r="23" cx="25" cy="25"/>
-    </svg>
-  </button>
-
-  <!-- Chat Widget -->
-  <div class="chat-widget">
-    <button class="chat-toggle" id="chatToggle">
-      <div class="chat-icon-wrapper">
-        <i class="fas fa-headset"></i>
-        <span class="chat-badge">1</span>
-      </div>
-      <span class="pulse-ring"></span>
-      <span class="pulse-ring" style="animation-delay:.5s"></span>
-      <span class="pulse-ring" style="animation-delay:1s"></span>
-    </button>
-    <div class="chat-box" id="chatBox">
-      <div class="chat-header">
-        <div class="chat-header-info">
-          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=120&q=70&auto=format&fit=crop" alt="Support">
-          <div>
-            <h4>پشتیبانی آنلاین</h4>
-            <span class="chat-status"><i class="fas fa-circle"></i> آنلاین</span>
-          </div>
-        </div>
-        <button class="chat-close" id="chatClose"><i class="fas fa-times"></i></button>
-      </div>
-      <!-- فرم شروع چت (نام + تلفن) -->
-      <div class="chat-onboard" id="chatOnboard" style="position:absolute;inset:0;background:var(--bg-secondary);display:flex;flex-direction:column;gap:10px;justify-content:center;align-items:center;padding:16px;border-top:1px solid var(--border-color);z-index:5;">
-        <h4 style="color:var(--gold);margin-bottom:4px;">شروع گفتگو</h4>
-        <input id="obName" type="text" placeholder="نام و نام خانوادگی" required style="width:90%;padding:10px;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-primary);color:var(--text-primary);">
-        <input id="obPhone" type="tel" placeholder="شماره تماس" required inputmode="tel" style="width:90%;padding:10px;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-primary);color:var(--text-primary);">
-        <button id="obStart" class="btn btn-primary" style="padding:10px 20px;border-radius:20px;cursor:pointer;">شروع گفتگو</button>
-        <small style="color:var(--text-secondary)">اطلاعات شما فقط برای شروع پشتیبانی استفاده می‌شود.</small>
-      </div>
-      <div class="chat-messages" id="chatMessages" style="position:relative;">
-        <div class="chat-message bot animate-message">
-          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&q=70&auto=format&fit=crop" alt="bot">
-          <div class="message-content">
-            <p>سلام! 👋</p>
-            <p>چطور می‌تونم کمکتون کنم؟</p>
-            <span class="message-time">14:30</span>
-          </div>
-        </div>
-      </div>
-      <div class="chat-quick-replies">
-        <button class="quick-reply">قیمت‌ها</button>
-        <button class="quick-reply">زمان دوخت</button>
-        <button class="quick-reply">آموزش</button>
-      </div>
-      <div class="chat-input">
-        <button class="chat-attach"><i class="fas fa-paperclip"></i></button>
-        <input type="text" id="chatInput" placeholder="پیام خود را بنویسید..." disabled>
-        <button class="chat-emoji"><i class="far fa-smile"></i></button>
-        <button id="chatSend" disabled><i class="fas fa-paper-plane"></i></button>
-      </div>
-    </div>
-  </div>
-
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
   <script src="js/main.js" defer></script>
-  
-  <!-- اسکریپت کوچک فعال‌سازی چت بعد از دریافت نام/تلفن -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function(){
-      const ob = document.getElementById('chatOnboard');
-      if(!ob) return;
-      const nameI = document.getElementById('obName');
-      const phoneI = document.getElementById('obPhone');
-      const startBtn = document.getElementById('obStart');
-      const input = document.getElementById('chatInput');
-      const send = document.getElementById('chatSend');
-      function validPhone(v){
-        const digits = (v||'').replace(/\D/g,'');
-        return /^[\d\s\-\+KATEX_INLINE_OPENKATEX_INLINE_CLOSE]+$/.test(v||'') && digits.length >= 10;
-      }
-      function enableChat(){
-        input?.removeAttribute('disabled');
-        send?.removeAttribute('disabled');
-        ob.style.display = 'none';
-      }
-      try{
-        const n = localStorage.getItem('support_name');
-        const p = localStorage.getItem('support_phone');
-        if(n && p){ enableChat(); }
-      }catch(e){}
-      startBtn?.addEventListener('click', ()=>{
-        const n = (nameI.value||'').trim();
-        const p = (phoneI.value||'').trim();
-        if(!n){ nameI.focus(); return; }
-        if(!validPhone(p)){ phoneI.focus(); phoneI.select?.(); return; }
-        try{
-          localStorage.setItem('support_name', n);
-          localStorage.setItem('support_phone', p);
-        }catch(e){}
-        enableChat();
-      });
-    });
-  </script>
+  <script src="js/chat.js" defer></script>
+  <script src="js/academy.js" defer></script>
+  <link rel="stylesheet" href="css/fixes.css">
+<script src="js/auth-ui.js" defer></script>
 </body>
 </html>

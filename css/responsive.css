@@ -1369,3 +1369,16 @@
     display: none;
   }
 }
+@media (max-width: 768px){
+input, textarea, select { font-size: 16px !important; }
+}
+:root{ --kb: 0px; }
+@media (max-width: 768px){
+.chat-widget{ bottom: calc(20px + var(--kb)); }
+.chat-box{ height: min(450px, 75dvh); }
+}
+body.kb-open .particles,
+body.kb-open .scroll-indicator{
+display: none !important;
+}
+.hero-section{ min-height: calc(var(--vh, 1vh) * 100); }

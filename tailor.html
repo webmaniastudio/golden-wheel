@@ -1,5 +1,4 @@
-<!doctype html>
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fa" dir="rtl" data-theme="dark">
 <head>
 <meta property="og:type" content="website">
@@ -13,7 +12,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#D4AF37">
-  <title>تماس با ما | چرخ طلایی</title>
+  <title>دوخت اختصاصی | چرخ طلایی</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -21,7 +20,7 @@
 
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/fixes.css">
-  <link rel="stylesheet" href="css/contact.css">
+  <link rel="stylesheet" href="css/tailor.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ClothingStore", "name": "مزون لباس", "image": "/og-image.jpg", "url": "/", "address": {"@type": "PostalAddress", "addressLocality": "تهران", "addressCountry": "IR"}, "openingHours": ["Sa-Thu 10:00-20:00"]}</script>
 </head>
 <body>
@@ -41,7 +40,7 @@
           <li><a href="shop.html" class="nav-link" data-text="فروشگاه">فروشگاه</a></li>
           <li><a href="academy.html" class="nav-link" data-text="آکادمی">آکادمی</a></li>
           <li><a href="blog.html" class="nav-link" data-text="وبلاگ">وبلاگ</a></li>
-          <li><a href="contact.html" class="nav-link active" data-text="تماس با ما">تماس با ما</a></li>
+          <li><a href="contact.html" class="nav-link" data-text="تماس با ما">تماس با ما</a></li>
         </ul>
         <div class="nav-actions">
           <a href="auth.html" class="auth-btn"><i class="fas fa-user"></i><b class="auth-label" style="font-weight:600;">ورود / ثبت‌نام</b></a>
@@ -53,36 +52,56 @@
     </nav>
   </header>
 
-  <section class="contact-hero">
+  <section class="tailor-hero">
     <div class="container">
-      <h1 class="page-title">تماس با ما</h1>
-      <p class="subtitle">پرسش، پیشنهاد یا همکاری؟ خوشحال می‌شویم بشنویم.</p>
+      <h1 class="page-title">دوخت اختصاصی</h1>
+      <p class="subtitle">فرم زیر را تکمیل کنید تا طرح و اندازه دلخواه شما را آماده کنیم</p>
     </div>
   </section>
 
-  <section class="contact-section">
+  <section class="tailor-section">
     <div class="container">
-      <div class="contact-grid">
-        <form id="contactForm" class="contact-form">
+      <form id="tailorForm" class="tailor-form">
+        <div class="step active" data-step="1">
+          <h3>۱) اطلاعات تماس</h3>
           <div class="form-row">
-            <div class="form-group"><label>نام و نام خانوادگی</label><input type="text" id="cName" required aria-label="text"></div>
-            <div class="form-group"><label>ایمیل (اختیاری)</label><input type="email" id="cEmail" aria-label="email"></div>
+            <div class="form-group"><label>نام و نام خانوادگی</label><input type="text" id="tName" required aria-label="text"></div>
+            <div class="form-group"><label>موبایل</label><input type="tel" id="tPhone" inputmode="tel" dir="ltr" required aria-label="tel"></div>
           </div>
-          <div class="form-row">
-            <div class="form-group"><label>موبایل</label><input type="tel" id="cPhone" inputmode="tel" dir="ltr" required aria-label="tel"></div>
-            <div class="form-group"><label>موضوع</label><input type="text" id="cSubject" required aria-label="text"></div>
-          </div>
-          <div class="form-group"><label>پیام</label><textarea id="cMessage" rows="5" required></textarea></div>
-          <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-paper-plane"></i> ارسال پیام</button>
-        </form>
+          <div class="form-group"><label>ایمیل (اختیاری)</label><input type="email" id="tEmail" aria-label="email"></div>
+          <div class="actions"><button type="button" class="btn btn-primary" id="next1">بعدی</button></div>
+        </div>
 
-        <aside class="contact-info">
-          <div class="info-row"><i class="fas fa-map-marker-alt"></i><div><b>آدرس</b><p>تهران، خیابان ولیعصر، پلاک ۱۲۳</p></div></div>
-          <div class="info-row"><i class="fas fa-phone"></i><div><b>تماس</b><p><a href="tel:02112345678">۰۲۱-۱۲۳۴۵۶۷۸</a></p><p><a href="tel:09121234567">۰۹۱۲-۱۲۳۴۵۶۷</a></p></div></div>
-          <div class="info-row"><i class="fas fa-envelope"></i><div><b>ایمیل</b><p><a href="mailto:info@goldenwheel.ir">info@goldenwheel.ir</a></p></div></div>
-          <div class="map-embed"><iframe src="https://maps.google.com/maps?q=valiasr%20st%20tehran&t=&z=13&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe></div>
-        </aside>
-      </div>
+        <div class="step" data-step="2">
+          <h3>۲) مشخصات سفارش</h3>
+          <div class="form-row">
+            <div class="form-group"><label>نوع لباس</label><select id="tType"><option>مانتو</option><option>پیراهن</option><option>کت و دامن</option><option>کت و شلوار</option><option>لباس سنتی</option></select></div>
+            <div class="form-group"><label>سایز تقریبی</label><select id="tSize"><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option></select></div>
+          </div>
+          <div class="form-group"><label>رنگ/پارچه موردنظر</label><input type="text" id="tFabric" placeholder="مثلاً: مشکی، کتان" aria-label="مثلاً: مشکی، کتان"></div>
+          <div class="form-group"><label>توضیحات تکمیلی</label><textarea id="tDesc" rows="4" placeholder="جزئیات دلخواه..."></textarea></div>
+          <div class="actions">
+            <button type="button" class="btn btn-secondary" id="prev2">قبلی</button>
+            <button type="button" class="btn btn-primary" id="next2">بعدی</button>
+          </div>
+        </div>
+
+        <div class="step" data-step="3">
+          <h3>۳) اندازه‌ها (اختیاری)</h3>
+          <div class="form-row">
+            <div class="form-group"><label>قد (cm)</label><input type="number" id="tHeight" min="100" max="230" aria-label="number"></div>
+            <div class="form-group"><label>وزن (kg)</label><input type="number" id="tWeight" min="30" max="200" aria-label="number"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>دور سینه (cm)</label><input type="number" id="tBust" min="60" max="150" aria-label="number"></div>
+            <div class="form-group"><label>دور کمر (cm)</label><input type="number" id="tWaist" min="50" max="150" aria-label="number"></div>
+          </div>
+          <div class="actions">
+            <button type="button" class="btn btn-secondary" id="prev3">قبلی</button>
+            <button type="submit" class="btn btn-primary">ثبت درخواست</button>
+          </div>
+        </div>
+      </form>
     </div>
   </section>
 
@@ -93,6 +112,6 @@
   <script src="js/main.js" defer></script>
   <script src="js/chat.js" defer></script>
   <script src="js/api.js" defer></script>
-  <script src="js/contact.js" defer></script>
+  <script src="js/tailor.js" defer></script>
 </body>
 </html>

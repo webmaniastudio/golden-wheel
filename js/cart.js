@@ -1,336 +1,100 @@
-﻿// ========== متغیرهای سراسری ==========
-let cart = [];
-let couponCode = '';
-let discount = 0;
-let shipping = 50000; // هزینه ارسال ثابت
+﻿// js/cart.js
+(() => {
+  'use strict';
+  const $ = s => document.querySelector(s);
+  const $$ = s => Array.from(document.querySelectorAll(s));
 
-// ========== اجرای اولیه ==========
-document.addEventListener('DOMContentLoaded', function() {
-  initCart();
-  initCoupon();
-  initCheckout();
-  initQuantityControls();
-  initRemoveItem();
-  initContinueShopping();
-  
-  // Initialize AOS
-  if (typeof AOS !== 'undefined') {
-    AOS.init({
-      duration: 1000,
-      once: true,
-      offset: 50,
-      disable: 'mobile'
-    });
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+
+  function init(){
+    render();
+    $('#applyCoupon')?.addEventListener('click', applyCoupon);
   }
-});
 
-// ========== توابع اصلی ==========
-function initCart() {
-  // دریافت سبد خرید از localStorage
-  const savedCart = localStorage.getItem('cart');
-  if (savedCart) {
-    cart = JSON.parse(savedCart);
-  }
-  
-  // نمایش سبد خرید
-  displayCart();
-  
-  // به‌روزرسانی خلاصه سفارش
-  updateOrderSummary();
-}
-
-function displayCart() {
-  const cartContainer = document.getElementById('cartContainer');
-  const emptyCart = document.getElementById('emptyCart');
-  const cartContent = document.getElementById('cartContent');
-  
-  if (!cartContainer) return;
-  
-  // پاک کردن محتوا
-  cartContainer.innerHTML = '';
-  
-  if (cart.length === 0) {
-    if (emptyCart) emptyCart.style.display = 'block';
-    if (cartContent) cartContent.style.display = 'none';
-    return;
-  }
-  
-  if (emptyCart) emptyCart.style.display = 'none';
-  if (cartContent) cartContent.style.display = 'block';
-  
-  // نمایش محصولات سبد خرید
-  cart.forEach((item, index) => {
-    const cartItem = createCartItem(item, index);
-    cartContainer.appendChild(cartItem);
-  });
-  
-  // راه‌اندازی انیمیشن‌ها
-  if (typeof AOS !== 'undefined') {
-    AOS.refresh();
-  }
-}
-
-function createCartItem(item, index) {
-  const cartItem = document.createElement('div');
-  cartItem.className = 'cart-item animate-fadeInUp';
-  cartItem.setAttribute('data-aos', 'fade-up');
-  cartItem.setAttribute('data-aos-delay', index * 100);
-  
-  cartItem.innerHTML = `
-    <div class="cart-item-image">
-      <img src="${item.image}" alt="${item.name}">
-    </div>
-    <div class="cart-item-info">
-      <h3 class="cart-item-name">${item.name}</h3>
-      <div class="cart-item-details">
-        ${item.size ? `<span class="cart-item-size">سایز: ${item.size}</span>` : ''}
-        ${item.color ? `<span class="cart-item-color">رنگ: ${item.color}</span>` : ''}
-      </div>
-      <div class="cart-item-price">
-        <span class="current-price">${toPersianNumber(item.price.toLocaleString())} تومان</span>
-      </div>
-    </div>
-    <div class="cart-item-actions">
-      <div class="quantity-control">
-        <button class="quantity-btn minus" data-index="${index}">-</button>
-        <input type="number" value="${item.quantity}" min="1" max="10" class="quantity-input" data-index="${index}">
-        <button class="quantity-btn plus" data-index="${index}">+</button>
-      </div>
-      <div class="cart-item-total">
-        ${toPersianNumber((item.price * item.quantity).toLocaleString())} تومان
-      </div>
-      <button class="remove-item" data-index="${index}">
-        <i class="fas fa-trash"></i>
-      </button>
-    </div>
-  `;
-  
-  return cartItem;
-}
-
-function updateOrderSummary() {
-  const subtotalElement = document.getElementById('subtotal');
-  const discountElement = document.getElementById('discount');
-  const shippingElement = document.getElementById('shipping');
-  const totalElement = document.getElementById('total');
-  
-  // محاسبه subtotal
-  const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
-  
-  // محاسبه تخفیف
-  const discountAmount = subtotal * (discount / 100);
-  
-  // محاسره مجموع
-  const total = subtotal - discountAmount + shipping;
-  
-  // به‌روزرسانی عناصر
-  if (subtotalElement) subtotalElement.textContent = toPersianNumber(subtotal.toLocaleString()) + ' تومان';
-  if (discountElement) discountElement.textContent = toPersianNumber(discountAmount.toLocaleString()) + ' تومان';
-  if (shippingElement) shippingElement.textContent = toPersianNumber(shipping.toLocaleString()) + ' تومان';
-  if (totalElement) totalElement.textContent = toPersianNumber(total.toLocaleString()) + ' تومان';
-}
-
-function initCoupon() {
-  const couponInput = document.getElementById('couponInput');
-  const applyCouponBtn = document.getElementById('applyCoupon');
-  
-  if (applyCouponBtn) {
-    applyCouponBtn.addEventListener('click', function() {
-      const code = couponInput ? couponInput.value.trim() : '';
-      
-      if (!code) {
-        showNotification('لطفاً کد تخفیف را وارد کنید', 'error');
-        return;
-      }
-      
-      // شبیه‌سازی اعتبارسنجی کد تخفیف
-      if (validateCoupon(code)) {
-        couponCode = code;
-        discount = getCouponDiscount(code);
-        showNotification('کد تخفیف با موفقیت اعمال شد', 'success');
-        updateOrderSummary();
-      } else {
-        showNotification('کد تخفیف معتبر نیست', 'error');
-      }
-    });
-  }
-}
-
-function validateCoupon(code) {
-  // کدهای تخفیف معتبر
-  const validCoupons = ['GOLDEN10', 'WELCOME20', 'SPECIAL15'];
-  return validCoupons.includes(code.toUpperCase());
-}
-
-function getCouponDiscount(code) {
-  // درصدهای تخفیف برای هر کد
-  const discounts = {
-    'GOLDEN10': 10,
-    'WELCOME20': 20,
-    'SPECIAL15': 15
-  };
-  
-  return discounts[code.toUpperCase()] || 0;
-}
-
-function initCheckout() {
-  const checkoutBtn = document.getElementById('checkoutBtn');
-  
-  if (checkoutBtn) {
-    checkoutBtn.addEventListener('click', function() {
-      if (cart.length === 0) {
-        showNotification('سبد خرید شما خالی است', 'error');
-        return;
-      }
-      
-      // ذخیره سبد خرید در localStorage
-      localStorage.setItem('cart', JSON.stringify(cart));
-      
-      // رفتن به صفحه پرداخت
-      window.location.href = 'checkout.html';
-    });
-  }
-}
-
-function initQuantityControls() {
-  document.addEventListener('click', function(e) {
-    if (e.target.classList.contains('minus') || e.target.classList.contains('plus')) {
-      const index = parseInt(e.target.dataset.index);
-      const input = document.querySelector(`.quantity-input[data-index="${index}"]`);
-      
-      if (e.target.classList.contains('minus')) {
-        // کاهش تعداد
-        if (cart[index].quantity > 1) {
-          cart[index].quantity--;
-        }
-      } else {
-        // افزایش تعداد
-        if (cart[index].quantity < 10) {
-          cart[index].quantity++;
-        }
-      }
-      
-      // به‌روزرسانی input
-      input.value = cart[index].quantity;
-      
-      // به‌روزرسانی مجموع
-      const totalElement = e.target.closest('.cart-item').querySelector('.cart-item-total');
-      if (totalElement) {
-        totalElement.textContent = toPersianNumber((cart[index].price * cart[index].quantity).toLocaleString()) + ' تومان';
-      }
-      
-      // ذخیره در localStorage
-      localStorage.setItem('cart', JSON.stringify(cart));
-      
-      // به‌روزرسانی خلاصه سفارش
-      updateOrderSummary();
+  function render(){
+    const list = $('#cartList');
+    const empty = $('#emptyCart');
+    const cart = API.cart.get();
+    if (!cart.length){
+      list.innerHTML = '';
+      empty.hidden = false;
+      updateSummary(cart);
+      return;
     }
-  });
-  
-  document.addEventListener('change', function(e) {
-    if (e.target.classList.contains('quantity-input')) {
-      const index = parseInt(e.target.dataset.index);
-      const value = parseInt(e.target.value);
-      
-      // اعتبارسنجی مقدار
-      if (value >= 1 && value <= 10) {
-        cart[index].quantity = value;
-        
-        // به‌روزرسانی مجموع
-        const totalElement = e.target.closest('.cart-item').querySelector('.cart-item-total');
-        if (totalElement) {
-          totalElement.textContent = toPersianNumber((cart[index].price * cart[index].quantity).toLocaleString()) + ' تومان';
-        }
-        
-        // ذخیره در localStorage
-        localStorage.setItem('cart', JSON.stringify(cart));
-        
-        // به‌روزرسانی خلاصه سفارش
-        updateOrderSummary();
-      } else {
-        // بازگرداندن مقدار قبلی
-        e.target.value = cart[index].quantity;
-      }
-    }
-  });
-}
-
-function initRemoveItem() {
-  document.addEventListener('click', function(e) {
-    if (e.target.closest('.remove-item')) {
-      const index = parseInt(e.target.closest('.remove-item').dataset.index);
-      
-      // حذف آیتم از سبد خرید
-      cart.splice(index, 1);
-      
-      // ذخیره در localStorage
-      localStorage.setItem('cart', JSON.stringify(cart));
-      
-      // نمایش مجدد سبد خرید
-      displayCart();
-      
-      // به‌روزرسانی خلاصه سفارش
-      updateOrderSummary();
-      
-      // به‌روزرسانی تعداد سبد خرید در هدر
-      updateCartCount();
-      
-      // نمایش اعلان
-      showNotification('محصول از سبد خرید حذف شد', 'info');
-    }
-  });
-}
-
-function updateCartCount() {
-  const cartCount = document.querySelector('.cart-count');
-  if (cartCount) {
-    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
-    cartCount.textContent = totalItems;
-    
-    if (totalItems > 0) {
-      cartCount.style.display = 'flex';
-    } else {
-      cartCount.style.display = 'none';
-    }
+    empty.hidden = true;
+    const frag = document.createDocumentFragment();
+    cart.forEach((it, idx) => frag.appendChild(itemView(it, idx)));
+    list.innerHTML = ''; list.appendChild(frag);
+    updateSummary(cart);
   }
-}
 
-function initContinueShopping() {
-  const continueBtn = document.getElementById('continueShopping');
-  
-  if (continueBtn) {
-    continueBtn.addEventListener('click', function() {
-      window.location.href = 'shop.html';
-    });
+  function itemView(it, idx){
+    const el = document.createElement('div');
+    el.className = 'cart-item';
+    el.innerHTML = `
+      <img src="${it.image}" alt="">
+      <div>
+        <div class="cart-title">${escapeHTML(it.title)}</div>
+        <div class="cart-meta">${variantText(it.variant)}</div>
+        <div class="cart-qty">
+          <button data-act="dec">-</button>
+          <b>${toFa(it.qty||1)}</b>
+          <button data-act="inc">+</button>
+        </div>
+      </div>
+      <div>
+        <div class="cart-price">${formatPrice(it.price||0)}</div>
+        <button class="cart-remove" title="حذف"><i class="fas fa-trash"></i></button>
+      </div>
+    `;
+    el.querySelector('[data-act="inc"]').addEventListener('click', ()=> changeQty(idx, +1));
+    el.querySelector('[data-act="dec"]').addEventListener('click', ()=> changeQty(idx, -1));
+    el.querySelector('.cart-remove').addEventListener('click', ()=> removeItem(idx));
+    return el;
   }
-}
 
-// ========== توابع کمکی ==========
-function toPersianNumber(str) {
-  const persianNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
-  return str.toString().replace(/[0-9]/g, x => persianNumbers[x]);
-}
+  function changeQty(idx, d){
+    const cart = API.cart.get();
+    const it = cart[idx]; if (!it) return;
+    it.qty = Math.max(1, (it.qty||1) + d);
+    API.cart.save(cart); render();
+  }
+  function removeItem(idx){
+    const cart = API.cart.get();
+    cart.splice(idx, 1);
+    API.cart.save(cart); render();
+  }
 
-function showNotification(message, type = 'info') {
-  const notification = document.createElement('div');
-  notification.className = `notification notification-${type}`;
-  notification.innerHTML = `
-    <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
-    <span>${message}</span>
-  `;
-  
-  document.body.appendChild(notification);
-  
-  setTimeout(() => {
-    notification.classList.add('show');
-  }, 100);
-  
-  setTimeout(() => {
-    notification.classList.remove('show');
-    setTimeout(() => {
-      notification.remove();
-    }, 300);
-  }, 3000);
-}
+  function updateSummary(cart){
+    const count = cart.reduce((s,it)=> s + (it.qty||1), 0);
+    const subtotal = cart.reduce((s,it)=> s + (it.price||0) * (it.qty||1), 0);
+    const discount = Number(localStorage.getItem('gw_coupon_off')||0);
+    const total = Math.max(0, subtotal - discount);
 
-console.log('🛒 سبد خرید آماده است!');
+    $('#sumCount').textContent = toFa(count);
+    $('#sumSubtotal').textContent = formatPrice(subtotal);
+    $('#sumDiscount').textContent = formatPrice(discount);
+    $('#sumTotal').textContent = formatPrice(total);
+  }
+
+  function applyCoupon(){
+    const code = ($('#couponInput').value||'').trim().toUpperCase();
+    // Demo: GW10 => 10% ، GW200 => 200,000
+    const cart = API.cart.get();
+    const subtotal = cart.reduce((s,it)=> s + (it.price||0) * (it.qty||1), 0);
+    let off = 0;
+    if (code === 'GW10') off = Math.floor(subtotal * 0.10);
+    else if (code === 'GW200') off = 200000;
+    else return notify('کد معتبر نیست','error');
+    localStorage.setItem('gw_coupon_off', String(off));
+    notify('کد اعمال شد','success');
+    updateSummary(cart);
+  }
+
+  function notify(msg,type='info'){ if(window.showNotification) showNotification(msg,type); else alert(msg); }
+  function escapeHTML(s=''){ return s.replace(/[&<>"']/g, m=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;', "'":'&#039;' }[m])); }
+  function toFa(n){ const map='۰۱۲۳۴۵۶۷۸۹'; return String(n).replace(/\d/g,d=>map[d]); }
+  function formatPrice(n){ return toFa((n||0).toLocaleString()) + ' تومان'; }
+  function variantText(v){ if(!v) return ''; const arr=[]; if(v.size) arr.push('سایز: '+v.size); if(v.color) arr.push('رنگ: '+v.color); if(v.course) arr.push('دوره'); return arr.join(' | '); }
+})();

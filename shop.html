@@ -1,99 +1,119 @@
+<!doctype html>
 ﻿<!DOCTYPE html>
 <html lang="fa" dir="rtl" data-theme="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#D4AF37" />
-  <title>فروشگاه | چرخ طلایی</title>
-  <meta name="description" content="فروشگاه چرخ طلایی | کالکشن‌های خاص، تخفیفات، محصولات مزون و دوخت اختصاصی با طراحی ایرانی" />
+<meta property="og:type" content="website">
+<meta property="og:title" content="مزون لباس">
+<meta property="og:description" content="خیاطی و مزون لباس شب و مجلسی">
+<meta property="og:url" content="/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="/">
+<meta name="description" content="مزون لباس | خرید و سفارش دوخت لباس شب و مجلسی با کیفیت عالی">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#D4AF37">
+  <title>چرخ طلایی | فروشگاه</title>
 
   <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
-    @font-face { font-family: 'IranNastaliq'; src: url('https://cdn.jsdelivr.net/gh/rastikerdar/iran-nastaliq@v3.4.0/dist/IranNastaliq.woff2') format('woff2'); font-display: swap; }
+    /* IranNastaliq با فالبک امن */
+    @font-face{
+      font-family:'IranNastaliq';
+      src:
+        url('https://cdn.jsdelivr.net/gh/rastikerdar/iran-nastaliq/dist/IranNastaliq.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/rastikerdar/iran-nastaliq@v3.2.2/dist/IranNastaliq.woff2') format('woff2'),
+        url('https://raw.githubusercontent.com/rastikerdar/iran-nastaliq/v3.4.0/dist/IranNastaliq.woff2') format('woff2');
+      font-display: swap;
+    }
   </style>
 
-  <!-- Icons + AOS + Swiper -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <!-- Icons + AOS + Swiper CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="css/main.css" />
-  <link rel="stylesheet" href="css/animations.css" />
-  <link rel="stylesheet" href="css/responsive.css" />
-  <link rel="stylesheet" href="css/shop.css" />
+  <!-- Project Styles -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/shop.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ClothingStore", "name": "مزون لباس", "image": "/og-image.jpg", "url": "/", "address": {"@type": "PostalAddress", "addressLocality": "تهران", "addressCountry": "IR"}, "openingHours": ["Sa-Thu 10:00-20:00"]}</script>
 </head>
 <body>
+
   <!-- Loader -->
   <div id="loader" class="loader">
     <div class="golden-wheel">
       <div class="wheel-container">
         <div class="wheel-spin"></div>
         <div class="wheel-inner"></div>
-        <div class="wheel-dots"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="wheel-dots">
+          <span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span>
+        </div>
       </div>
       <span class="loader-text">چرخ طلایی</span>
       <div class="loader-progress"><div class="loader-progress-bar"></div></div>
     </div>
   </div>
 
-  <!-- Theme Toggle -->
-  <div class="theme-toggle-container">
-    <button id="themeToggle" class="theme-toggle" aria-label="تغییر تم" aria-pressed="false">
-      <div class="toggle-icon"><i class="fas fa-sun sun-icon"></i><i class="fas fa-moon moon-icon"></i></div>
-      <div class="toggle-bg"></div>
-    </button>
-  </div>
-
-  <!-- Scroll Top -->
-  <button id="scrollTop" class="scroll-top" aria-label="برو بالا">
-    <i class="fas fa-chevron-up"></i>
-    <svg class="progress-ring" width="50" height="50">
-      <circle class="progress-ring-circle" stroke="#D4AF37" stroke-width="2" fill="transparent" r="23" cx="25" cy="25"/>
-    </svg>
-  </button>
-
-  <!-- Chat Widget -->
+  <!-- Chat + Mini-cart (پایین-چپ) -->
   <div class="chat-widget">
     <button class="chat-toggle" id="chatToggle" aria-label="پشتیبانی آنلاین">
-      <div class="chat-icon-wrapper"><i class="fas fa-headset"></i><span class="chat-badge">1</span></div>
+      <div class="chat-icon-wrapper">
+        <i class="fas fa-headset"></i>
+        <span class="chat-badge">1</span>
+      </div>
       <span class="pulse-ring"></span><span class="pulse-ring" style="animation-delay:.5s"></span><span class="pulse-ring" style="animation-delay:1s"></span>
     </button>
-    <div class="chat-box" id="chatBox" role="dialog" aria-modal="true" aria-labelledby="chatTitle">
+
+    <!-- خلاصه سبد پایین-چپ -->
+    <button id="miniCartPill" class="mini-cart-pill" title="سبد خرید">
+      <i class="fas fa-shopping-bag"></i>
+      <span id="miniCartCount">۰</span>
+      <span id="miniCartTotal">۰ تومان</span>
+    </button>
+
+    <div class="chat-box" id="chatBox">
       <div class="chat-header">
         <div class="chat-header-info">
-          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=120&q=70&auto=format&fit=crop" alt="پشتیبانی">
-          <div><h4 id="chatTitle">پشتیبانی آنلاین</h4><span class="chat-status"><i class="fas fa-circle"></i> آنلاین</span></div>
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=120&q=70&auto=format&fit=crop" alt="Support">
+          <div>
+            <h4>پشتیبانی آنلاین</h4>
+            <span class="chat-status"><i class="fas fa-circle"></i> آنلاین</span>
+          </div>
         </div>
-        <button class="chat-close" id="chatClose" aria-label="بستن"><i class="fas fa-times"></i></button>
+        <button class="chat-close" id="chatClose" aria-label="بستن چت"><i class="fas fa-times"></i></button>
       </div>
+
+      <!-- Onboard -->
       <div class="chat-onboard" id="chatOnboard" style="position:absolute;inset:0;background:var(--bg-secondary);display:flex;flex-direction:column;gap:10px;justify-content:center;align-items:center;padding:16px;border-top:1px solid var(--border-color);z-index:5;">
         <h4 style="color:var(--gold);margin-bottom:4px;">شروع گفتگو</h4>
-        <input id="obName" type="text" placeholder="نام و نام خانوادگی" required style="width:90%;padding:10px;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-primary);color:var(--text-primary);" autocomplete="name">
-        <input id="obPhone" type="tel" placeholder="شماره تماس" required inputmode="tel" style="width:90%;padding:10px;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-primary);color:var(--text-primary);" autocomplete="tel">
+        <input id="obName" type="text" placeholder="نام و نام خانوادگی" required style="width:90%;padding:10px;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-primary);color:var(--text-primary);" aria-label="نام و نام خانوادگی">
+        <input id="obPhone" type="tel" placeholder="شماره تماس" required inputmode="tel" autocomplete="tel" dir="ltr" style="width:90%;padding:10px;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-primary);color:var(--text-primary);" aria-label="شماره تماس">
         <button id="obStart" class="btn btn-primary" style="padding:10px 20px;border-radius:20px;cursor:pointer;">شروع گفتگو</button>
         <small style="color:var(--text-secondary)">اطلاعات شما فقط برای شروع پشتیبانی استفاده می‌شود.</small>
       </div>
-      <div class="chat-messages" id="chatMessages" style="position:relative;">
-        <div class="chat-message bot animate-message">
-          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&q=70&auto=format&fit=crop" alt="bot">
-          <div class="message-content"><p>سلام! 👋</p><p>چطور می‌تونم کمکتون کنم؟</p><span class="message-time">14:30</span></div>
-        </div>
+
+      <div class="chat-messages" id="chatMessages" aria-live="polite" style="position:relative;"></div>
+
+      <div class="chat-quick-replies">
+        <button class="quick-reply">قیمت‌ها</button>
+        <button class="quick-reply">زمان دوخت</button>
+        <button class="quick-reply">آموزش</button>
       </div>
-      <div class="chat-quick-replies"><button class="quick-reply">قیمت‌ها</button><button class="quick-reply">زمان دوخت</button><button class="quick-reply">آموزش</button></div>
       <div class="chat-input">
-        <button class="chat-attach" aria-label="پیوست"><i class="fas fa-paperclip"></i></button>
-        <input type="text" id="chatInput" placeholder="پیام خود را بنویسید..." disabled>
+        <button class="chat-attach" aria-label="ضمیمه"><i class="fas fa-paperclip"></i></button>
+        <input type="text" id="chatInput" placeholder="پیام خود را بنویسید..." disabled aria-label="پیام خود را بنویسید...">
         <button class="chat-emoji" aria-label="ایموجی"><i class="far fa-smile"></i></button>
         <button id="chatSend" disabled aria-label="ارسال"><i class="fas fa-paper-plane"></i></button>
       </div>
     </div>
   </div>
 
-  <!-- Header (from index.html) -->
+  <!-- Header (مثل صفحه اصلی) + دکمه تم داخل هدر -->
   <header class="main-header">
     <nav class="navbar">
       <div class="nav-container">
@@ -113,7 +133,8 @@
               <li><a href="shop.html?category=women"><i class="fas fa-female"></i> زنانه</a></li>
               <li><a href="shop.html?category=men"><i class="fas fa-male"></i> مردانه</a></li>
               <li><a href="shop.html?category=kids"><i class="fas fa-child"></i> بچگانه</a></li>
-              <li><a href="shop.html?category=accessories"><i class="fas fa-gem"></i> اکسسوری</a></li>
+              <li><a href="shop.html?category=accessories"><i class="fas fa-ring"></i> اکسسوری</a></li>
+              <li><a href="shop.html?category=traditional"><i class="fas fa-star"></i> سنتی</a></li>
             </ul>
           </li>
           <li class="dropdown">
@@ -131,42 +152,56 @@
         </ul>
 
         <div class="nav-actions">
-          <button class="search-btn" id="searchBtn" aria-label="جستجو"><i class="fas fa-search"></i></button>
-          <a href="cart.html" class="cart-btn" aria-label="سبد خرید"><i class="fas fa-shopping-cart"></i><span class="cart-count" style="display:none">0</span></a>
-          <a href="auth.html" class="auth-btn"><i class="fas fa-user"></i><b class="auth-label" style="font-weight:600;">ورود / ثبت‌نام</b></a>
+          <button id="themeToggle" class="nav-theme-btn" aria-label="تغییر تم">
+            <i class="fas fa-sun sun-icon"></i>
+            <i class="fas fa-moon moon-icon"></i>
+          </button>
+          <a href="auth.html" class="auth-btn">
+            <i class="fas fa-user"></i>
+            <b class="auth-label" style="font-weight:600;">ورود / ثبت‌نام</b>
+          </a>
         </div>
 
-        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="منوی موبایل"><div class="hamburger"><span></span><span></span><span></span></div></button>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="باز کردن منوی موبایل">
+          <div class="hamburger"><span></span><span></span><span></span></div>
+        </button>
       </div>
     </nav>
   </header>
 
-  <!-- Mobile Menu -->
+  <!-- Mobile Menu (اسلاید سالم) -->
   <div class="mobile-menu" id="mobileMenu">
     <div class="mobile-menu-header">
-      <div class="mobile-menu-logo"><img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=80&q=60&auto=format&fit=crop" alt="چرخ طلایی"><span>چرخ طلایی</span></div>
-      <button class="mobile-menu-close" id="mobileMenuClose" aria-label="بستن"><i class="fas fa-times"></i></button>
+      <div class="mobile-menu-logo">
+        <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=80&q=60&auto=format&fit=crop" alt="چرخ طلایی">
+        <span>چرخ طلایی</span>
+      </div>
+      <button class="mobile-menu-close" id="mobileMenuClose" aria-label="بستن منوی موبایل"><i class="fas fa-times"></i></button>
     </div>
     <div class="mobile-menu-body">
-      <div class="mobile-search"><input type="text" placeholder="جستجو..."><button id="searchBtn"><i class="fas fa-search"></i></button></div>
+      <div class="mobile-search">
+        <input type="text" placeholder="جستجو..." aria-label="جستجو...">
+        <button id="searchBtn"><i class="fas fa-search"></i></button>
+      </div>
       <ul class="mobile-nav">
         <li><a href="index.html"><i class="fas fa-home"></i> صفحه اصلی</a></li>
         <li class="has-submenu">
-          <a href="shop.html"><span><i class="fas fa-shopping-bag"></i> فروشگاه</span> <i class="fas fa-chevron-down"></i></a>
+          <a href="shop.html" class="active"><span><i class="fas fa-shopping-bag"></i> فروشگاه</span> <i class="fas fa-chevron-down"></i></a>
           <ul class="mobile-submenu">
             <li><a href="shop.html?category=women">زنانه</a></li>
             <li><a href="shop.html?category=men">مردانه</a></li>
             <li><a href="shop.html?category=kids">بچگانه</a></li>
             <li><a href="shop.html?category=accessories">اکسسوری</a></li>
+            <li><a href="shop.html?category=traditional">سنتی</a></li>
           </ul>
         </li>
         <li class="has-submenu">
           <a href="academy.html"><span><i class="fas fa-graduation-cap"></i> آکادمی</span> <i class="fas fa-chevron-down"></i></a>
           <ul class="mobile-submenu">
-            <li><a href="academy.html?type=basic">دوره‌های مقدماتی</a></li>
-            <li><a href="academy.html?type=advanced">دوره‌های پیشرفته</a></li>
-            <li><a href="academy.html?type=professional">دوره‌های حرفه‌ای</a></li>
-            <li><a href="academy.html?type=online">آموزش آنلاین</a></li>
+            <li><a href="academy.html?type=basic">مقدماتی</a></li>
+            <li><a href="academy.html?type=advanced">پیشرفته</a></li>
+            <li><a href="academy.html?type=professional">حرفه‌ای</a></li>
+            <li><a href="academy.html?type=online">آنلاین</a></li>
           </ul>
         </li>
         <li><a href="blog.html"><i class="fas fa-blog"></i> وبلاگ</a></li>
@@ -174,6 +209,7 @@
         <li><a href="contact.html"><i class="fas fa-phone"></i> تماس با ما</a></li>
         <li><a href="auth.html"><i class="fas fa-user-lock"></i> ورود / ثبت‌نام</a></li>
       </ul>
+
       <div class="mobile-menu-footer">
         <a href="auth.html" class="mobile-auth-btn"><i class="fas fa-user"></i><span>ورود / ثبت‌نام</span></a>
         <div class="mobile-social">
@@ -187,469 +223,228 @@
   </div>
 
   <!-- Search Overlay -->
-  <div class="search-overlay" id="searchOverlay" role="dialog" aria-modal="true">
-    <button class="search-close" id="searchClose" aria-label="بستن"><i class="fas fa-times"></i></button>
+  <div class="search-overlay" id="searchOverlay">
+    <button class="search-close" id="searchClose" aria-label="بستن جستجو"><i class="fas fa-times"></i></button>
     <div class="search-wrapper">
-      <div class="search-container"><input type="text" id="searchInput" placeholder="جستجو در محصولات، دوره‌ها و مقالات..." autocomplete="off" /><button class="search-submit" aria-label="جستجو"><i class="fas fa-search"></i></button></div>
-      <div class="search-suggestions"><h4>پرجستجوترین‌ها</h4><div class="suggestion-tags"><span>لباس مجلسی</span><span>کالکشن ویژه</span><span>پارچه</span><span>الگو</span></div></div>
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="جستجو در محصولات، دوره‌ها و مقالات..." autocomplete="off" aria-label="جستجو در محصولات، دوره‌ها و مقالات...">
+        <button class="search-submit"><i class="fas fa-search"></i></button>
+      </div>
+      <div class="search-suggestions">
+        <h4>پرجستجوترین‌ها</h4>
+        <div class="suggestion-tags">
+          <span>لباس مجلسی</span>
+          <span>پارچه</span>
+          <span>کت و شلوار</span>
+          <span>اکسسوری</span>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- Big Hero -->
-  <section class="shop-hero big-hero">
+  <!-- Shop Hero -->
+  <section class="shop-hero">
     <div class="shop-hero-bg">
-      <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=1920&q=70&auto=format&fit=crop" alt="فروشگاه چرخ طلایی" fetchpriority="high" />
-      <div class="hero-overlay-blur"></div>
-      <div class="floating-shape s1"></div><div class="floating-shape s2"></div><div class="floating-shape s3"></div>
+      <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=1920&q=60&auto=format&fit=crop" alt="فروشگاه چرخ طلایی" />
+      <div class="shop-hero-overlay"></div>
     </div>
     <div class="container">
       <div class="shop-hero-content" data-aos="fade-up">
-        <h1 class="shop-hero-title">کالکشن‌های خاص چرخ طلایی</h1>
-        <p class="shop-hero-description">منتخب‌های شیک و اصیل ایرانی برای هر سلیقه‌ای. با فیلترهای حرفه‌ای دقیق‌تر انتخاب کن.</p>
-        <div class="category-chips" data-aos="zoom-in" data-aos-delay="150">
-          <a href="shop.html?category=women" class="chip"><i class="fas fa-female"></i> زنانه</a>
-          <a href="shop.html?category=men" class="chip"><i class="fas fa-male"></i> مردانه</a>
-          <a href="shop.html?category=kids" class="chip"><i class="fas fa-child"></i> بچگانه</a>
-          <a href="shop.html?category=accessories" class="chip"><i class="fas fa-gem"></i> اکسسوری</a>
-          <span class="chip ghost"><i class="fas fa-bolt"></i> ویژه</span>
-          <span class="chip ghost"><i class="fas fa-percent"></i> تخفیف‌ها</span>
-        </div>
+        <span class="section-badge">فروشگاه</span>
+        <h1 class="shop-title">کلکسیون منتخب</h1>
+        <p class="shop-subtitle">جدیدترین طرح‌ها با کیفیت ممتاز</p>
       </div>
     </div>
   </section>
 
-  <!-- DISCOUNTS: Flash Sale + Coupons -->
-  <section class="discounts-section" id="discounts">
+  <!-- Toolbar -->
+  <section class="shop-toolbar">
     <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <span class="section-badge">تخفیفات</span>
-        <h2 class="section-title">فلش‌سیل امروز</h2>
-        <p class="section-subtitle">تا پایان زمان باقی‌مانده خرید کن</p>
-      </div>
-
-      <!-- Flash Sale Slider -->
-      <div class="flash-sale" data-aos="fade-up">
-        <div class="swiper flash-swiper" style="direction: rtl;">
-          <div class="swiper-wrapper" id="flashSaleSlides">
-            <!-- اسلایدهای فلش‌سیل داینامیک از js/shop.js -->
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-      </div>
-
-      <!-- Coupon Row -->
-      <div class="coupon-row" data-aos="fade-up">
-        <div class="coupon-card">
-          <i class="fas fa-ticket"></i>
-          <div><h4>کد تخفیف 15٪</h4><p>GW15OFF</p></div>
-          <button class="btn btn-secondary copy-coupon" data-code="GW15OFF"><i class="fas fa-copy"></i> کپی</button>
-        </div>
-        <div class="coupon-card">
-          <i class="fas fa-ticket"></i>
-          <div><h4>ارسال رایگان</h4><p>FREESHIP</p></div>
-          <button class="btn btn-secondary copy-coupon" data-code="FREESHIP"><i class="fas fa-copy"></i> کپی</button>
-        </div>
-        <div class="coupon-card">
-          <i class="fas fa-ticket"></i>
-          <div><h4>5٪ اولین خرید</h4><p>WELCOME5</p></div>
-          <button class="btn btn-secondary copy-coupon" data-code="WELCOME5"><i class="fas fa-copy"></i> کپی</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Featured Collections -->
-  <section class="featured-collections">
-    <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <span class="section-badge">ویژه</span>
-        <h2 class="section-title">کالکشن‌های پیشنهادی</h2>
-      </div>
-      <div class="swiper featured-swiper" data-aos="fade-up" style="direction: rtl;">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide collection-slide">
-            <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=1400&q=70&auto=format&fit=crop" alt="کالکشن طراحی" />
-            <div class="slide-overlay"><h3>کالکشن طراحی</h3><p>الهام گرفته از هنر ایرانی</p><a href="#shop" class="btn btn-secondary">مشاهده</a></div>
-          </div>
-          <div class="swiper-slide collection-slide">
-            <img src="https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=1400&q=70&auto=format&fit=crop" alt="کالکشن دوخت" />
-            <div class="slide-overlay"><h3>کالکشن دوخت</h3><p>کیفیت مثال‌زدنی</p><a href="#shop" class="btn btn-secondary">مشاهده</a></div>
-          </div>
-          <div class="swiper-slide collection-slide">
-            <img src="https://images.unsplash.com/photo-1536924940846-227afb31e2a5?w=1400&q=70&auto=format&fit=crop" alt="کالکشن آنلاین" />
-            <div class="slide-overlay"><h3>کالکشن آنلاین</h3><p>در دسترس و همیشه آماده</p><a href="#shop" class="btn btn-secondary">مشاهده</a></div>
-          </div>
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Category Grid -->
-  <section class="category-grid-section">
-    <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <span class="section-badge">دسته‌بندی‌ها</span>
-        <h2 class="section-title">برای هر سلیقه یک انتخاب</h2>
-      </div>
-      <div class="category-grid" data-aos="fade-up">
-        <a href="shop.html?category=women" class="cat-card">
-          <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1200&q=70&auto=format&fit=crop" alt="زنانه">
-          <div class="cat-overlay"><h3><i class="fas fa-female"></i> زنانه</h3></div>
-        </a>
-        <a href="shop.html?category=men" class="cat-card">
-          <img src="https://images.unsplash.com/photo-1511556670410-f76353ae45fb?w=1200&q=70&auto=format&fit=crop" alt="مردانه">
-          <div class="cat-overlay"><h3><i class="fas fa-male"></i> مردانه</h3></div>
-        </a>
-        <a href="shop.html?category=kids" class="cat-card">
-          <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=1200&q=70&auto=format&fit=crop" alt="بچگانه">
-          <div class="cat-overlay"><h3><i class="fas fa-child"></i> بچگانه</h3></div>
-        </a>
-        <a href="shop.html?category=accessories" class="cat-card">
-          <img src="https://images.unsplash.com/photo-1541781286675-8c29bfa357e5?w=1200&q=70&auto=format&fit=crop" alt="اکسسوری">
-          <div class="cat-overlay"><h3><i class="fas fa-gem"></i> اکسسوری</h3></div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Main Content -->
-  <main id="shop" class="container">
-    <!-- Toolbar sticky -->
-    <div class="shop-toolbar sticky" data-aos="fade-up">
-      <div class="shop-results">نمایش <strong id="productCount">0</strong> محصول</div>
-      <div class="active-chips" id="activeChips"></div>
-      <div class="shop-actions">
-        <button class="filter-toggle-btn" id="filterToggleBtn"><i class="fas fa-filter"></i> فیلترها</button>
-        <div class="view-mode">
-          <button class="view-btn" id="gridView" title="نمایش شبکه‌ای" aria-pressed="false"><i class="fas fa-th"></i></button>
-          <button class="view-btn" id="listView" title="نمایش لیستی" aria-pressed="false"><i class="fas fa-list"></i></button>
-        </div>
-        <select class="shop-sort" id="sortProducts" aria-label="مرتب‌سازی">
-          <option value="newest">جدیدترین</option>
-          <option value="price-asc">ارزان‌ترین</option>
-          <option value="price-desc">گران‌ترین</option>
-          <option value="rating">بیشترین امتیاز</option>
-          <option value="popular">پرفروش‌ترین</option>
-        </select>
-        <div class="shop-search"><input type="text" id="shopSearch" placeholder="جستجو در محصولات..." /><button aria-label="جستجو"><i class="fas fa-search"></i></button></div>
-      </div>
-    </div>
-
-    <div class="shop-container">
-      <!-- Filters -->
-      <aside class="filters-sidebar" id="filtersSidebar" data-aos="fade-up">
-        <div class="filters-header"><h3 class="filters-title"><i class="fas fa-filter"></i> فیلتر محصولات</h3><button class="reset-filters" id="resetFilters">ریست فیلترها</button></div>
-
-        <!-- دسته‌بندی -->
-        <div class="filter-section">
-          <div class="filter-header"><h4 class="filter-title"><i class="fas fa-tag"></i> دسته‌بندی</h4><div class="filter-toggle"><i class="fas fa-chevron-up"></i></div></div>
-          <div class="filter-content">
-            <div class="category-filters">
-              <label class="category-filter"><input type="radio" name="category" value="all" checked><span>همه محصولات</span><span class="category-count">—</span></label>
-              <label class="category-filter"><input type="radio" name="category" value="women"><span>زنانه</span><span class="category-count">—</span></label>
-              <label class="category-filter"><input type="radio" name="category" value="men"><span>مردانه</span><span class="category-count">—</span></label>
-              <label class="category-filter"><input type="radio" name="category" value="kids"><span>بچگانه</span><span class="category-count">—</span></label>
-              <label class="category-filter"><input type="radio" name="category" value="accessories"><span>اکسسوری</span><span class="category-count">—</span></label>
-            </div>
-          </div>
+      <div class="toolbar-row">
+        <div class="toolbar-search">
+          <i class="fas fa-search"></i>
+          <input id="shopSearch" type="text" placeholder="جستجو در محصولات..." autocomplete="off" aria-label="جستجو در محصولات...">
+          <button id="clearSearch" title="پاک کردن"><i class="fas fa-times"></i></button>
         </div>
 
-        <!-- محدوده قیمت -->
-        <div class="filter-section">
-          <div class="filter-header"><h4 class="filter-title"><i class="fas fa-money-bill-wave"></i> محدوده قیمت</h4><div class="filter-toggle"><i class="fas fa-chevron-up"></i></div></div>
-          <div class="filter-content">
-            <div class="price-range-container">
-              <div class="price-slider">
-                <div class="price-slider-track" id="priceTrack"></div>
-                <input type="range" id="minPriceRange" min="0" max="10000000" value="0" step="100000">
-                <input type="range" id="maxPriceRange" min="0" max="10000000" value="10000000" step="100000">
-              </div>
-              <div class="price-inputs">
-                <div class="price-input-group"><span>از</span><input type="text" class="price-input" id="minPriceInput" value="۰"></div>
-                <div class="price-input-group"><span>تا</span><input type="text" class="price-input" id="maxPriceInput" value="۱۰,۰۰۰,۰۰۰"></div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="toolbar-actions">
+          <button id="openFilters" class="btn btn-secondary btn-sm">
+            <i class="fas fa-sliders-h"></i><span>فیلترها</span>
+          </button>
 
-        <!-- سایز -->
-        <div class="filter-section">
-          <div class="filter-header"><h4 class="filter-title"><i class="fas fa-ruler"></i> سایز</h4><div class="filter-toggle"><i class="fas fa-chevron-up"></i></div></div>
-          <div class="filter-content">
-            <div class="size-filters">
-              <div class="size-filter"><input type="checkbox" id="size-xs" value="XS"><label for="size-xs">XS</label><span class="size-count">—</span></div>
-              <div class="size-filter"><input type="checkbox" id="size-s" value="S"><label for="size-s">S</label><span class="size-count">—</span></div>
-              <div class="size-filter"><input type="checkbox" id="size-m" value="M"><label for="size-m">M</label><span class="size-count">—</span></div>
-              <div class="size-filter"><input type="checkbox" id="size-l" value="L"><label for="size-l">L</label><span class="size-count">—</span></div>
-              <div class="size-filter"><input type="checkbox" id="size-xl" value="XL"><label for="size-xl">XL</label><span class="size-count">—</span></div>
-              <div class="size-filter"><input type="checkbox" id="size-xxl" value="XXL"><label for="size-xxl">XXL</label><span class="size-count">—</span></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- رنگ -->
-        <div class="filter-section">
-          <div class="filter-header"><h4 class="filter-title"><i class="fas fa-palette"></i> رنگ</h4><div class="filter-toggle"><i class="fas fa-chevron-up"></i></div></div>
-          <div class="filter-content">
-            <div class="color-filters">
-              <div class="color-filter"><input type="checkbox" id="color-black" value="#000000"><label for="color-black" style="background-color:#000000"></label><span class="color-count">—</span></div>
-              <div class="color-filter"><input type="checkbox" id="color-white" value="#ffffff"><label for="color-white" style="background-color:#ffffff;border:1px solid #ddd"></label><span class="color-count">—</span></div>
-              <div class="color-filter"><input type="checkbox" id="color-red" value="#ff0000"><label for="color-red" style="background-color:#ff0000"></label><span class="color-count">—</span></div>
-              <div class="color-filter"><input type="checkbox" id="color-blue" value="#0000ff"><label for="color-blue" style="background-color:#0000ff"></label><span class="color-count">—</span></div>
-              <div class="color-filter"><input type="checkbox" id="color-green" value="#008000"><label for="color-green" style="background-color:#008000"></label><span class="color-count">—</span></div>
-              <div class="color-filter"><input type="checkbox" id="color-pink" value="#ff69b4"><label for="color-pink" style="background-color:#ff69b4"></label><span class="color-count">—</span></div>
-              <div class="color-filter"><input type="checkbox" id="color-purple" value="#800080"><label for="color-purple" style="background-color:#800080"></label><span class="color-count">—</span></div>
-              <div class="color-filter"><input type="checkbox" id="color-brown" value="#8B4513"><label for="color-brown" style="background-color:#8B4513"></label><span class="color-count">—</span></div>
-            </div>
-          </div>
-        </div>
-      </aside>
-
-      <!-- Overlay for mobile filters -->
-      <div class="filters-overlay" id="filtersOverlay"></div>
-
-      <!-- Content -->
-      <div class="shop-content">
-        <!-- Toolbar (small inside content on small screens) -->
-        <div class="shop-toolbar" data-aos="fade-up">
-          <div class="shop-results sub">نمایش <strong id="productCountSub">0</strong> محصول</div>
-          <div class="shop-actions">
-            <select class="shop-sort" id="sortProductsSub" aria-label="مرتب‌سازی">
+          <div class="sort-select">
+            <i class="fas fa-sort-amount-down"></i>
+            <select id="sortSelect" aria-label="مرتب‌سازی">
+              <option value="popular">پربازدید</option>
               <option value="newest">جدیدترین</option>
               <option value="price-asc">ارزان‌ترین</option>
               <option value="price-desc">گران‌ترین</option>
-              <option value="rating">بیشترین امتیاز</option>
-              <option value="popular">پرفروش‌ترین</option>
+              <option value="discount">بیشترین تخفیف</option>
             </select>
-            <div class="shop-search"><input type="text" id="shopSearchSub" placeholder="جستجو..." /><button aria-label="جستجو"><i class="fas fa-search"></i></button></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category Chips -->
+      <div class="chips-row" id="categoryChips" data-aos="fade-up">
+        <button class="chip active" data-cat="all"><i class="fas fa-layer-group"></i> همه</button>
+        <button class="chip" data-cat="women"><i class="fas fa-female"></i> زنانه</button>
+        <button class="chip" data-cat="men"><i class="fas fa-male"></i> مردانه</button>
+        <button class="chip" data-cat="kids"><i class="fas fa-child"></i> بچگانه</button>
+        <button class="chip" data-cat="traditional"><i class="fas fa-star"></i> سنتی</button>
+        <button class="chip" data-cat="accessories"><i class="fas fa-ring"></i> اکسسوری</button>
+        <button class="chip" data-cat="sale"><i class="fas fa-bolt"></i> حراج</button>
+        <button class="chip" data-cat="new"><i class="fas fa-certificate"></i> جدید</button>
+      </div>
+
+      <!-- Results -->
+      <div class="results-row">
+        <span id="resultsCount">۰ نتیجه</span>
+        <button id="resetAll" class="link-reset"><i class="fas fa-undo"></i> حذف همه فیلترها</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Grid -->
+  <section class="shop-grid-section">
+    <div class="container">
+      <div id="productsGrid" class="products-grid">
+        <div class="card-skeleton"></div><div class="card-skeleton"></div><div class="card-skeleton"></div>
+        <div class="card-skeleton"></div><div class="card-skeleton"></div><div class="card-skeleton"></div>
+      </div>
+
+      <div class="grid-actions">
+        <button id="loadMore" class="btn btn-secondary"><i class="fas fa-spinner"></i> بارگذاری بیشتر</button>
+      </div>
+
+      <div id="emptyState" class="empty-state" hidden>
+        <div class="empty-illustration"><i class="far fa-frown"></i></div>
+        <h4>نتیجه‌ای پیدا نشد</h4>
+        <p>فیلترها را تغییر دهید یا دسته دیگری را انتخاب کنید.</p>
+        <button id="emptyReset" class="btn btn-primary"><i class="fas fa-undo"></i> بازنشانی فیلترها</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filters Drawer -->
+  <div id="filterDrawer" class="filter-drawer" aria-hidden="true">
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <div class="drawer-panel" role="dialog" aria-labelledby="filterTitle">
+      <div class="drawer-header">
+        <h3 id="filterTitle"><i class="fas fa-sliders-h"></i> فیلترها</h3>
+        <button id="closeFilters" class="drawer-close"><i class="fas fa-times"></i></button>
+      </div>
+
+      <div class="drawer-body">
+        <div class="filter-block">
+          <div class="filter-title"><i class="fas fa-money-bill-wave"></i> قیمت</div>
+          <div class="price-range">
+            <div class="range-row">
+              <input id="priceMin" type="range" min="100000" max="10000000" step="50000" value="100000" aria-label="range">
+              <input id="priceMax" type="range" min="100000" max="10000000" step="50000" value="10000000" aria-label="range">
+              <div class="range-track"></div>
+            </div>
+            <div class="range-values">
+              <span>از <b id="priceMinLabel">۰</b></span>
+              <span>تا <b id="priceMaxLabel">۰</b></span>
+            </div>
           </div>
         </div>
 
-        <!-- Product tabs -->
-        <div class="product-tabs" data-aos="fade-up">
-          <button class="tab-btn active" data-special="all"><i class="fas fa-layer-group"></i> همه</button>
-          <button class="tab-btn" data-special="new"><i class="fas fa-bolt"></i> جدیدها</button>
-          <button class="tab-btn" data-special="sale"><i class="fas fa-percent"></i> تخفیف‌دار</button>
-          <button class="tab-btn" data-special="featured"><i class="fas fa-star"></i> ویژه</button>
-          <button class="tab-btn" data-special="popular"><i class="fas fa-fire"></i> پرفروش</button>
-        </div>
-
-        <!-- Products -->
-        <div class="products-container" id="productsContainer" data-aos="fade-up">
-          <div class="products-loading" id="productsLoading"><div class="loading-spinner"></div></div>
-        </div>
-        <div id="infiniteSentinel" style="height:1px"></div>
-
-        <!-- No Products -->
-        <div class="no-products" id="noProducts">
-          <div class="no-products-icon"><i class="fas fa-search"></i></div>
-          <h3>محصولی یافت نشد</h3>
-          <p>متأسفانه هیچ محصولی با فیلترهای انتخاب شده یافت نشد.</p>
-          <button class="btn btn-primary" onclick="document.getElementById('resetFilters').click()">ریست فیلترها</button>
-        </div>
-
-        <!-- Pagination -->
-        <div class="shop-pagination">
-          <button class="pagination-btn" id="prevPage" aria-label="صفحه قبل"><i class="fas fa-chevron-right"></i></button>
-          <div class="page-info" id="pageInfo">۱ از ۱</div>
-          <button class="pagination-btn" id="nextPage" aria-label="صفحه بعد"><i class="fas fa-chevron-left"></i></button>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <!-- Custom Tailoring (دوخت اختصاصی) -->
-  <section class="tailor-section" id="tailor">
-    <div class="container">
-      <div class="section-header" data-aos="fade-up">
-        <span class="section-badge">دوخت اختصاصی</span>
-        <h2 class="section-title">سفارش لباس کاملاً اختصاصی</h2>
-        <p class="section-subtitle">از ایده تا تحویل؛ همراه شما هستیم</p>
-      </div>
-      <div class="tailor-grid">
-        <div class="tailor-info" data-aos="fade-right">
-          <div class="process-steps">
-            <div class="step"><i class="fas fa-comments"></i><h4>مشاوره</h4><p>نیازها و سلیقه‌تان را می‌شنویم</p></div>
-            <div class="step"><i class="fas fa-pencil-ruler"></i><h4>طراحی</h4><p>اسکچ و انتخاب پارچه/الگو</p></div>
-            <div class="step"><i class="fas fa-ruler-combined"></i><h4>پرو</h4><p>اندازه‌گیری و پروهای لازم</p></div>
-            <div class="step"><i class="fas fa-scissors"></i><h4>دوخت</h4><p>دوخت حرفه‌ای و تحویل</p></div>
-          </div>
-          <div class="why-us">
-            <h3><i class="fas fa-crown"></i> چرا چرخ طلایی؟</h3>
-            <ul>
-              <li><i class="fas fa-check-circle"></i> پارچه‌های ممتاز و اصل</li>
-              <li><i class="fas fa-check-circle"></i> تضمین دوخت و fitting</li>
-              <li><i class="fas fa-check-circle"></i> طراحان متخصص مزون</li>
-              <li><i class="fas fa-check-circle"></i> تحویل به‌موقع</li>
-            </ul>
-          </div>
-          <div class="tailor-gallery">
-            <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=900&q=70&auto=format&fit=crop" alt="کارگاه">
-            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=900&q=70&auto=format&fit=crop" alt="طراحی">
-            <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=900&q=70&auto=format&fit=crop" alt="پارچه‌ها">
+        <div class="filter-block">
+          <div class="filter-title"><i class="fas fa-palette"></i> رنگ</div>
+          <div class="color-swatches" id="colorSwatches">
+            <button class="swatch" data-color="#000000" style="--c:#000000"></button>
+            <button class="swatch" data-color="#FFFFFF" style="--c:#FFFFFF"></button>
+            <button class="swatch" data-color="#D4AF37" style="--c:#D4AF37"></button>
+            <button class="swatch" data-color="#B22222" style="--c:#B22222"></button>
+            <button class="swatch" data-color="#1E90FF" style="--c:#1E90FF"></button>
+            <button class="swatch" data-color="#2E8B57" style="--c:#2E8B57"></button>
           </div>
         </div>
-        <div class="tailor-form-wrapper" data-aos="fade-left">
-          <form id="tailorForm" class="tailor-form" novalidate>
-            <h3><i class="fas fa-scissors"></i> فرم درخواست دوخت اختصاصی</h3>
-            <div class="form-row">
-              <div class="form-group"><label>نام و نام خانوادگی</label><input type="text" name="name" required autocomplete="name" placeholder="مثلاً: نازنین رضایی"></div>
-              <div class="form-group"><label>شماره تماس</label><input type="tel" name="phone" required inputmode="tel" placeholder="09xx..." autocomplete="tel"></div>
-            </div>
-            <div class="form-row">
-              <div class="form-group"><label>ایمیل (اختیاری)</label><input type="email" name="email" autocomplete="email" placeholder="you@example.com"></div>
-              <div class="form-group"><label>نوع سفارش</label>
-                <select name="type" required>
-                  <option value="">انتخاب کنید</option>
-                  <option>لباس مجلسی</option>
-                  <option>کت و شلوار</option>
-                  <option>مانتو</option>
-                  <option>روسری/شال</option>
-                  <option>کودک</option>
-                  <option>سایر</option>
-                </select>
-              </div>
-            </div>
 
-            <div class="form-group">
-              <label>انتخاب پارچه (نمونه)</label>
-              <div class="fabric-choices">
-                <label><input type="radio" name="fabric" value="ابریشم" required><span class="fabric-chip">ابریشم</span></label>
-                <label><input type="radio" name="fabric" value="کرپ"><span class="fabric-chip">کرپ</span></label>
-                <label><input type="radio" name="fabric" value="نخ"><span class="fabric-chip">نخ</span></label>
-                <label><input type="radio" name="fabric" value="پشم"><span class="fabric-chip">پشم</span></label>
-              </div>
-            </div>
+        <div class="filter-block">
+          <div class="filter-title"><i class="fas fa-ruler"></i> سایز</div>
+          <div class="size-chips" id="sizeChips">
+            <button class="size-chip" data-size="XS">XS</button>
+            <button class="size-chip" data-size="S">S</button>
+            <button class="size-chip" data-size="M">M</button>
+            <button class="size-chip" data-size="L">L</button>
+            <button class="size-chip" data-size="XL">XL</button>
+          </div>
+        </div>
 
-            <div class="form-group">
-              <label>سبک/استایل مدنظر</label>
-              <div class="style-tags">
-                <label><input type="checkbox" value="کلاسیک"><span>کلاسیک</span></label>
-                <label><input type="checkbox" value="مینیمال"><span>مینیمال</span></label>
-                <label><input type="checkbox" value="سنتی"><span>سنتی</span></label>
-                <label><input type="checkbox" value="مدرن"><span>مدرن</span></label>
-                <label><input type="checkbox" value="شبانه"><span>شبانه</span></label>
-              </div>
-            </div>
+        <div class="filter-block">
+          <div class="filter-title"><i class="fas fa-star"></i> امتیاز</div>
+          <div class="rating-rows" id="ratingRows">
+            <label><input type="radio" name="rating" value="4" aria-label="rating"> ۴★ به بالا</label>
+            <label><input type="radio" name="rating" value="3" aria-label="rating"> ۳★ به بالا</label>
+            <label><input type="radio" name="rating" value="2" aria-label="rating"> ۲★ به بالا</label>
+            <label><input type="radio" name="rating" value="0" checked aria-label="rating"> بدون محدودیت</label>
+          </div>
+        </div>
 
-            <div class="form-row">
-              <div class="form-group budget">
-                <label>بودجه حدودی</label>
-                <div class="budget-row"><input type="range" id="budgetRange" min="500000" max="20000000" step="500000" value="3000000"><span id="budgetValue">۳,۰۰۰,۰۰۰ تومان</span></div>
-              </div>
-              <div class="form-group">
-                <label>زمان پیشنهادی تحویل</label>
-                <input type="date" name="date" required>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label>ارسال تصاویر/الهام‌بخش (اختیاری)</label>
-              <input type="file" id="tailorFiles" accept="image/*" multiple />
-              <div class="file-previews" id="filePreviews"></div>
-            </div>
-
-            <div class="form-row">
-              <div class="form-group">
-                <label>نیاز به اندازه‌گیری حضوری دارید؟</label>
-                <div class="toggle-row"><label><input type="radio" name="measure" value="بله" required><span>بله</span></label><label><input type="radio" name="measure" value="خیر"><span>خیر</span></label></div>
-              </div>
-              <div class="form-group"><label>ساعت تماس</label><input type="time" name="time" required></div>
-            </div>
-
-            <div class="form-group"><label>توضیحات</label><textarea name="desc" rows="4" placeholder="جزئیات بیشتر درباره طرح/الگو/رنگ..."></textarea></div>
-
-            <div class="form-agree"><label><input type="checkbox" id="agree" required> <span>با قوانین و شرایط مزون موافقم</span></label><a href="#faq">مشاهده قوانین</a></div>
-
-            <button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-paper-plane"></i> ثبت درخواست</button>
-            <small class="form-note">پس از ارسال، کارشناسان ما برای هماهنگی با شما تماس می‌گیرند.</small>
-          </form>
+        <div class="filter-block">
+          <div class="filter-title"><i class="fas fa-tag"></i> برند</div>
+          <div class="brand-list" id="brandList"></div>
         </div>
       </div>
-    </div>
 
-    <!-- Success modal -->
-    <div class="tailor-success" id="tailorSuccess" aria-hidden="true" role="dialog">
-      <div class="ts-backdrop"></div>
-      <div class="ts-content">
-        <i class="fas fa-check-circle"></i>
-        <h3>درخواست شما ثبت شد</h3>
-        <p>کد پیگیری: <b id="tsId">—</b></p>
-        <a href="contact.html" class="btn btn-secondary"><i class="fas fa-phone"></i> تماس با ما</a>
-        <button class="btn" id="tsClose"><i class="fas fa-times"></i> بستن</button>
+      <div class="drawer-footer">
+        <button id="resetFilters" class="btn btn-secondary"><i class="fas fa-undo"></i> ریست</button>
+        <button id="applyFilters" class="btn btn-primary"><i class="fas fa-check"></i> اعمال</button>
       </div>
     </div>
-  </section>
-
-  <!-- Brands -->
-  <section class="brands-section">
-    <div class="container">
-      <div class="section-header" data-aos="fade-up"><span class="section-badge">همکاران</span><h2 class="section-title">برندهای همکار</h2></div>
-      <div class="swiper brands-swiper" data-aos="fade-up" style="direction: rtl;">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide brand-slide"><img src="https://dummyimage.com/180x70/ffffff/000.png&text=Brand+1" alt="Brand1"></div>
-          <div class="swiper-slide brand-slide"><img src="https://dummyimage.com/180x70/ffffff/000.png&text=Brand+2" alt="Brand2"></div>
-          <div class="swiper-slide brand-slide"><img src="https://dummyimage.com/180x70/ffffff/000.png&text=Brand+3" alt="Brand3"></div>
-          <div class="swiper-slide brand-slide"><img src="https://dummyimage.com/180x70/ffffff/000.png&text=Brand+4" alt="Brand4"></div>
-          <div class="swiper-slide brand-slide"><img src="https://dummyimage.com/180x70/ffffff/000.png&text=Brand+5" alt="Brand5"></div>
-          <div class="swiper-slide brand-slide"><img src="https://dummyimage.com/180x70/ffffff/000.png&text=Brand+6" alt="Brand6"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="faq-section" id="faq">
-    <div class="container">
-      <div class="section-header" data-aos="fade-up"><span class="section-badge">سوالات پرتکرار</span><h2 class="section-title">سوالات مربوط به فروشگاه و مزون</h2></div>
-      <div class="faq-list" data-aos="fade-up">
-        <div class="faq-item"><button class="faq-q"><i class="fas fa-question-circle"></i> زمان دوخت سفارش اختصاصی چقدر است؟</button><div class="faq-a"><p>بسته به نوع سفارش ۷ تا ۱۴ روز کاری؛ موارد خاص با هماهنگی امکان‌پذیر است.</p></div></div>
-        <div class="faq-item"><button class="faq-q"><i class="fas fa-truck"></i> ارسال محصولات چگونه انجام می‌شود؟</button><div class="faq-a"><p>ارسال به سراسر کشور با پست/تیپاکس، و در تهران پیک ویژه مزون.</p></div></div>
-        <div class="faq-item"><button class="faq-q"><i class="fas fa-rotate-left"></i> امکان مرجوعی وجود دارد؟</button><div class="faq-a"><p>محصولات آماده تا ۷ روز در صورت پلمپ بودن؛ سفارش اختصاصی مرجوعی ندارد مگر ایراد فنی.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Instagram -->
-  <section class="insta-section">
-    <div class="container">
-      <div class="section-header" data-aos="fade-up"><span class="section-badge">اینستاگرام</span><h2 class="section-title">از مزون بیشتر ببین</h2></div>
-      <div class="insta-grid" data-aos="fade-up">
-        <a href="#" class="insta-item"><img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&q=70&auto=format&fit=crop" alt="insta"></a>
-        <a href="#" class="insta-item"><img src="https://images.unsplash.com/photo-1539533018447-63fcce2678e3?w=600&q=70&auto=format&fit=crop" alt="insta"></a>
-        <a href="#" class="insta-item"><img src="https://images.unsplash.com/photo-1536924940846-227afb31e2a5?w=600&q=70&auto=format&fit=crop" alt="insta"></a>
-        <a href="#" class="insta-item"><img src="https://images.unsplash.com/photo-1541781286675-8c29bfa357e5?w=600&q=70&auto=format&fit=crop" alt="insta"></a>
-        <a href="#" class="insta-item"><img src="https://images.unsplash.com/photo-1511556670410-f76353ae45fb?w=600&q=70&auto=format&fit=crop" alt="insta"></a>
-        <a href="#" class="insta-item"><img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=600&q=70&auto=format&fit=crop" alt="insta"></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Big CTA -->
-  <section class="cta-wide">
-    <div class="cta-bg"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1920&q=70&auto=format&fit=crop" alt="CTA Background"><div class="cta-overlay"></div></div>
-    <div class="container">
-      <div class="cta-inner" data-aos="zoom-in">
-        <div class="cta-icon"><i class="fas fa-crown"></i></div>
-        <h2>طراحی اختصاصی لباس شما</h2>
-        <p>کافیه با ما تماس بگیری. تیم ما طرح اختصاصی‌ات رو می‌سازه.</p>
-        <a href="contact.html" class="btn btn-primary btn-lg"><span>درخواست مشاوره</span><i class="fas fa-arrow-left"></i></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Quick View Modal -->
-  <div id="productModal" class="product-modal" aria-hidden="true" role="dialog">
-    <div class="modal-backdrop"></div>
-    <div class="modal-content" role="document"><button type="button" class="close-modal" aria-label="بستن"><i class="fas fa-times"></i></button></div>
   </div>
 
-  <!-- Bottom mobile toolbar -->
-  <div class="mobile-bottom-toolbar" id="mobileBottomToolbar">
-    <button id="mbFilter"><i class="fas fa-filter"></i><span>فیلتر</span></button>
-    <button id="mbSort"><i class="fas fa-sort-amount-down"></i><span>مرتب‌سازی</span></button>
-    <button id="mbView"><i class="fas fa-th"></i><span>نمایش</span></button>
+  <!-- Quick View -->
+  <div id="quickView" class="quickview" aria-hidden="true">
+    <div class="qv-overlay" id="qvOverlay"></div>
+    <div class="qv-panel" role="dialog" aria-labelledby="qvTitle">
+      <button id="qvClose" class="qv-close" aria-label="بستن"><i class="fas fa-times"></i></button>
+      <div class="qv-body">
+        <div class="qv-gallery">
+          <div class="swiper qv-swiper">
+            <div class="swiper-wrapper" id="qvSlides"></div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+
+        <div class="qv-info">
+          <h3 id="qvTitle">—</h3>
+          <div class="qv-rating" id="qvRating"></div>
+          <div class="qv-price">
+            <span class="price-current" id="qvPrice">—</span>
+            <span class="price-old" id="qvOldPrice"></span>
+            <span class="badge sale" id="qvSaleBadge" hidden>٪</span>
+          </div>
+
+          <div class="qv-variants">
+            <div class="qv-row">
+              <label>رنگ:</label>
+              <div id="qvColors" class="color-swatches small"></div>
+            </div>
+            <div class="qv-row">
+              <label>سایز:</label>
+              <div id="qvSizes" class="size-chips small"></div>
+            </div>
+            <div class="qv-row qty-row">
+              <label>تعداد:</label>
+              <div class="qty-control">
+                <button id="qtyMinus" aria-label="کاهش"><i class="fas fa-minus"></i></button>
+                <input id="qtyInput" type="number" value="1" min="1" inputmode="numeric" aria-label="number">
+                <button id="qtyPlus" aria-label="افزایش"><i class="fas fa-plus"></i></button>
+              </div>
+            </div>
+          </div>
+
+          <div class="qv-actions">
+            <button id="qvAddToCart" class="btn btn-primary btn-block"><i class="fas fa-shopping-bag"></i> افزودن به سبد</button>
+            <button id="qvWishlist" class="btn btn-secondary btn-block"><i class="far fa-heart"></i> علاقه‌مندی</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Footer -->
@@ -658,7 +453,10 @@
       <div class="container">
         <div class="footer-content">
           <div class="footer-about">
-            <div class="footer-logo"><img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=120&q=60&auto=format&fit=crop" alt="چرخ طلایی"><span>چرخ طلایی</span></div>
+            <div class="footer-logo">
+              <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=120&q=60&auto=format&fit=crop" alt="چرخ طلایی">
+              <span>چرخ طلایی</span>
+            </div>
             <p>با بیش از ۳۰ سال تجربه در طراحی و دوخت لباس، بهترین خدمات را ارائه می‌دهیم.</p>
             <div class="footer-social">
               <a href="#" class="social-link instagram"><i class="fab fa-instagram"></i></a>
@@ -668,6 +466,7 @@
               <a href="#" class="social-link youtube"><i class="fab fa-youtube"></i></a>
             </div>
           </div>
+
           <div class="footer-links">
             <h4>دسترسی سریع</h4>
             <ul>
@@ -678,6 +477,7 @@
               <li><a href="about.html"><i class="fas fa-angle-left"></i> درباره ما</a></li>
             </ul>
           </div>
+
           <div class="footer-links">
             <h4>خدمات ما</h4>
             <ul>
@@ -688,35 +488,38 @@
               <li><a href="#"><i class="fas fa-angle-left"></i> آموزش</a></li>
             </ul>
           </div>
+
           <div class="footer-newsletter">
             <h4>خبرنامه</h4>
             <p>برای دریافت آخرین اخبار و تخفیف‌ها عضو شوید</p>
-            <form class="newsletter-form"><div class="form-wrapper"><input type="email" placeholder="ایمیل شما"><button type="submit"><i class="fas fa-paper-plane"></i></button></div></form>
+            <form class="newsletter-form">
+              <div class="form-wrapper">
+                <input type="email" placeholder="ایمیل شما" aria-label="ایمیل شما">
+                <button type="submit"><i class="fas fa-paper-plane"></i></button>
+              </div>
+            </form>
           </div>
+
         </div>
       </div>
     </div>
-    <div class="footer-bottom"><div class="container"><div class="bottom-content"><p>© ۱۴۰۳ چرخ طلایی - تمامی حقوق محفوظ است</p></div></div></div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="bottom-content">
+          <p>© ۱۴۰۳ چرخ طلایی - تمامی حقوق محفوظ است</p>
+        </div>
+      </div>
+    </div>
   </footer>
 
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
   <script src="js/main.js" defer></script>
+  <script src="js/chat.js" defer></script>
   <script src="js/shop.js" defer></script>
-  <script src="js/cart.js" defer></script>
-
-  <!-- فعال‌سازی چت پس از دریافت نام/تلفن -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function(){
-      const ob = document.getElementById('chatOnboard'); if(!ob) return;
-      const nameI = document.getElementById('obName'); const phoneI = document.getElementById('obPhone');
-      const startBtn = document.getElementById('obStart'); const input = document.getElementById('chatInput'); const send = document.getElementById('chatSend');
-      function validPhone(v){ const s=(v||'').trim(); const d=(s.match(/[0-9\u06F0-\u06F9]/g)||[]).length; return /^[\d\u06F0-\u06F9\s\-+()]+$/.test(s)&&d>=10; }
-      function enableChat(){ input?.removeAttribute('disabled'); send?.removeAttribute('disabled'); ob.style.display='none'; }
-      try{ const n=localStorage.getItem('support_name'); const p=localStorage.getItem('support_phone'); if(n&&p){ enableChat(); } }catch(e){}
-      startBtn?.addEventListener('click', ()=>{ const n=(nameI.value||'').trim(); const p=(phoneI.value||'').trim(); if(!n){ nameI.focus(); return; } if(!validPhone(p)){ phoneI.focus(); phoneI.select?.(); return; } try{ localStorage.setItem('support_name',n); localStorage.setItem('support_phone',p);}catch(e){} enableChat(); });
-    });
-  </script>
+  <link rel="stylesheet" href="css/fixes.css">
+<script src="js/auth-ui.js" defer></script>
 </body>
 </html>

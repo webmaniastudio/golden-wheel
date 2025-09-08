@@ -1,591 +1,126 @@
+<!doctype html>
 ﻿<!DOCTYPE html>
 <html lang="fa" dir="rtl" data-theme="dark">
 <head>
+<meta property="og:type" content="website">
+<meta property="og:title" content="مزون لباس">
+<meta property="og:description" content="خیاطی و مزون لباس شب و مجلسی">
+<meta property="og:url" content="/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="/">
+<meta name="description" content="مزون لباس | خرید و سفارش دوخت لباس شب و مجلسی با کیفیت عالی">
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#D4AF37">
-  <title>پرداخت | چرخ طلایی</title>
-  <!-- فونت‌ها -->
+  <title>تکمیل خرید | چرخ طلایی</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <style>
-    @font-face {
-      font-family: 'IranNastaliq';
-      src: url('https://cdn.jsdelivr.net/gh/rastikerdar/iran-nastaliq@v3.4.0/dist/IranNastaliq.woff2') format('woff2');
-    }
-  </style>
-  <!-- آیکون‌ها -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <!-- استایل اصلی پروژه -->
+
   <link rel="stylesheet" href="css/main.css">
-  <!-- استایل‌های اختصاصی پرداخت -->
+  <link rel="stylesheet" href="css/fixes.css">
   <link rel="stylesheet" href="css/checkout.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ClothingStore", "name": "مزون لباس", "image": "/og-image.jpg", "url": "/", "address": {"@type": "PostalAddress", "addressLocality": "تهران", "addressCountry": "IR"}, "openingHours": ["Sa-Thu 10:00-20:00"]}</script>
 </head>
 <body>
-  <!-- Loader -->
-  <div id="loader" class="loader">
-    <div class="golden-wheel">
-      <div class="wheel-container">
-        <div class="wheel-spin"></div>
-        <div class="wheel-inner"></div>
-        <div class="wheel-dots">
-          <span></span><span></span><span></span><span></span>
-          <span></span><span></span><span></span><span></span>
-        </div>
-      </div>
-      <span class="loader-text">چرخ طلایی</span>
-      <div class="loader-progress">
-        <div class="loader-progress-bar"></div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Header -->
   <header class="main-header">
     <nav class="navbar">
       <div class="nav-container">
-        <!-- لوگو -->
-        <div class="logo" data-aos="fade-right">
+        <div class="logo">
           <div class="logo-wrapper" style="border-radius:50%;overflow:hidden;box-shadow:0 0 0 2px var(--gold) inset,0 0 16px rgba(212,175,55,.25)">
-            <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=200&q=60&auto=format&fit=crop" alt="چرخ طلایی" style="width:100%;height:100%;object-fit:cover;animation:none">
+            <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=200&q=60&auto=format&fit=crop" alt="" style="width:100%;height:100%;object-fit:cover;animation:none">
             <div class="logo-shine"></div>
           </div>
           <span class="logo-text">چرخ طلایی</span>
         </div>
-        
-        <!-- منوی دسکتاپ -->
         <ul class="nav-menu">
           <li><a href="index.html" class="nav-link" data-text="صفحه اصلی">صفحه اصلی</a></li>
-          <li class="dropdown">
-            <a href="shop.html" class="nav-link" data-text="فروشگاه">فروشگاه <i class="fas fa-chevron-down"></i></a>
-            <ul class="dropdown-menu">
-              <li><a href="shop.html?category=women"><i class="fas fa-female"></i> زنانه</a></li>
-              <li><a href="shop.html?category=men"><i class="fas fa-male"></i> مردانه</a></li>
-              <li><a href="shop.html?category=kids"><i class="fas fa-child"></i> بچگانه</a></li>
-              <li><a href="shop.html?category=accessories"><i class="fas fa-ring"></i> اکسسوری</a></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="academy.html" class="nav-link" data-text="آکادمی">آکادمی <i class="fas fa-chevron-down"></i></a>
-            <ul class="dropdown-menu">
-              <li><a href="academy.html?type=basic"><i class="fas fa-graduation-cap"></i> مقدماتی</a></li>
-              <li><a href="academy.html?type=advanced"><i class="fas fa-certificate"></i> پیشرفته</a></li>
-              <li><a href="academy.html?type=professional"><i class="fas fa-trophy"></i> حرفه‌ای</a></li>
-              <li><a href="academy.html?type=online"><i class="fas fa-laptop"></i> آنلاین</a></li>
-            </ul>
-          </li>
+          <li><a href="shop.html" class="nav-link" data-text="فروشگاه">فروشگاه</a></li>
+          <li><a href="academy.html" class="nav-link" data-text="آکادمی">آکادمی</a></li>
           <li><a href="blog.html" class="nav-link" data-text="وبلاگ">وبلاگ</a></li>
-          <li><a href="about.html" class="nav-link" data-text="درباره ما">درباره ما</a></li>
           <li><a href="contact.html" class="nav-link" data-text="تماس با ما">تماس با ما</a></li>
         </ul>
-        
-        <!-- اکشن‌ها -->
         <div class="nav-actions">
-          <button class="search-btn" id="searchBtn"><i class="fas fa-search"></i></button>
-          <a href="cart.html" class="cart-btn">
-            <i class="fas fa-shopping-bag"></i>
-            <span class="cart-count">2</span>
-          </a>
-          <a href="auth.html" class="auth-btn">
-            <i class="fas fa-user"></i>
-            <b class="auth-label" style="font-weight:600;">ورود / ثبت‌نام</b>
-          </a>
+          <a href="auth.html" class="auth-btn"><i class="fas fa-user"></i><b class="auth-label" style="font-weight:600;">ورود / ثبت‌نام</b></a>
         </div>
-        
-        <!-- منوی موبایل -->
-        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="باز کردن منوی موبایل">
           <div class="hamburger"><span></span><span></span><span></span></div>
         </button>
       </div>
     </nav>
   </header>
 
-  <!-- منوی موبایل -->
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-menu-header">
-      <div class="mobile-menu-logo">
-        <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=80&q=60&auto=format&fit=crop" alt="چرخ طلایی">
-        <span>چرخ طلایی</span>
-      </div>
-      <button class="mobile-menu-close" id="mobileMenuClose"><i class="fas fa-times"></i></button>
-    </div>
-    <div class="mobile-menu-body">
-      <div class="mobile-search">
-        <input type="text" placeholder="جستجو...">
-        <button id="searchBtn"><i class="fas fa-search"></i></button>
-      </div>
-      <ul class="mobile-nav">
-        <li><a href="index.html"><i class="fas fa-home"></i> صفحه اصلی</a></li>
-        <li class="has-submenu">
-          <a href="shop.html"><span><i class="fas fa-shopping-bag"></i> فروشگاه</span> <i class="fas fa-chevron-down"></i></a>
-          <ul class="mobile-submenu">
-            <li><a href="shop.html?category=women">زنانه</a></li>
-            <li><a href="shop.html?category=men">مردانه</a></li>
-            <li><a href="shop.html?category=kids">بچگانه</a></li>
-            <li><a href="shop.html?category=accessories">اکسسوری</a></li>
-          </ul>
-        </li>
-        <li class="has-submenu">
-          <a href="academy.html"><span><i class="fas fa-graduation-cap"></i> آکادمی</span> <i class="fas fa-chevron-down"></i></a>
-          <ul class="mobile-submenu">
-            <li><a href="academy.html?type=basic">دوره‌های مقدماتی</a></li>
-            <li><a href="academy.html?type=advanced">دوره‌های پیشرفته</a></li>
-            <li><a href="academy.html?type=professional">دوره‌های حرفه‌ای</a></li>
-            <li><a href="academy.html?type=online">آموزش آنلاین</a></li>
-          </ul>
-        </li>
-        <li><a href="blog.html"><i class="fas fa-blog"></i> وبلاگ</a></li>
-        <li><a href="about.html"><i class="fas fa-info-circle"></i> درباره ما</a></li>
-        <li><a href="contact.html"><i class="fas fa-phone"></i> تماس با ما</a></li>
-        <li><a href="auth.html"><i class="fas fa-user-lock"></i> ورود / ثبت‌نام</a></li>
-      </ul>
-      <div class="mobile-menu-footer">
-        <a href="auth.html" class="mobile-auth-btn"><i class="fas fa-user"></i><span>ورود / ثبت‌نام</span></a>
-        <div class="mobile-social">
-          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- اورلی جستجو -->
-  <div class="search-overlay" id="searchOverlay">
-    <button class="search-close" id="searchClose"><i class="fas fa-times"></i></button>
-    <div class="search-wrapper">
-      <div class="search-container">
-        <input type="text" id="searchInput" placeholder="جستجو در محصولات..." autocomplete="off">
-        <button class="search-submit"><i class="fas fa-search"></i></button>
-      </div>
-      <div class="search-suggestions">
-        <h4>پرجستجوترین‌ها</h4>
-        <div class="suggestion-tags">
-          <span>لباس مجلسی</span>
-          <span>مانتو</span>
-          <span>شلوار</span>
-          <span>بلوز</span>
-          <span>اکسسوری</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- محتوای اصلی -->
-  <main class="checkout-main">
+  <section class="checkout-section">
     <div class="container">
-      <div class="checkout-header" data-aos="fade-up">
-        <h1>تکمیل خرید</h1>
-        <div class="breadcrumb">
-          <a href="index.html">صفحه اصلی</a>
-          <i class="fas fa-chevron-left"></i>
-          <a href="cart.html">سبد خرید</a>
-          <i class="fas fa-chevron-left"></i>
-          <span>پرداخت</span>
-        </div>
-      </div>
-      
-      <div class="checkout-content">
-        <!-- فرم اطلاعات -->
-        <div class="checkout-form" data-aos="fade-right">
-          <div class="checkout-steps">
-            <div class="step active">
-              <div class="step-number">1</div>
-              <div class="step-title">اطلاعات ارسال</div>
-            </div>
-            <div class="step">
-              <div class="step-number">2</div>
-              <div class="step-title">روش پرداخت</div>
-            </div>
-            <div class="step">
-              <div class="step-number">3</div>
-              <div class="step-title">تایید نهایی</div>
-            </div>
-          </div>
-          
-          <form id="checkoutForm">
-            <!-- اطلاعات شخصی -->
-            <div class="form-section">
-              <h3>اطلاعات شخصی</h3>
-              <div class="form-row">
-                <div class="form-group">
-                  <label>نام <span class="required">*</span></label>
-                  <input type="text" name="firstName" required>
-                </div>
-                <div class="form-group">
-                  <label>نام خانوادگی <span class="required">*</span></label>
-                  <input type="text" name="lastName" required>
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="form-group">
-                  <label>شماره موبایل <span class="required">*</span></label>
-                  <input type="tel" name="mobile" required inputmode="tel">
-                </div>
-                <div class="form-group">
-                  <label>ایمیل</label>
-                  <input type="email" name="email">
-                </div>
-              </div>
-            </div>
-            
-            <!-- آدرس ارسال -->
-            <div class="form-section">
-              <h3>آدرس ارسال</h3>
-              <div class="form-group">
-                <label>استان <span class="required">*</span></label>
-                <select name="province" required>
-                  <option value="">انتخاب استان</option>
-                  <option value="tehran">تهران</option>
-                  <option value="alborz">البرز</option>
-                  <option value="esfahan">اصفهان</option>
-                  <option value="fars">فارس</option>
-                  <option value="khorasan">خراسان رضوی</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>شهر <span class="required">*</span></label>
-                <select name="city" required>
-                  <option value="">انتخاب شهر</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>آدرس دقیق <span class="required">*</span></label>
-                <textarea name="address" rows="3" required></textarea>
-              </div>
-              <div class="form-row">
-                <div class="form-group">
-                  <label>کد پستی <span class="required">*</span></label>
-                  <input type="text" name="postalCode" required pattern="[0-9]{10}">
-                </div>
-                <div class="form-group">
-                  <label>شماره تماس (اختیاری)</label>
-                  <input type="tel" name="phone" inputmode="tel">
-                </div>
-              </div>
-            </div>
-            
-            <!-- روش ارسال -->
-            <div class="form-section">
-              <h3>روش ارسال</h3>
-              <div class="shipping-methods">
-                <label class="shipping-method">
-                  <input type="radio" name="shipping" value="standard" checked>
-                  <div class="shipping-content">
-                    <div class="shipping-title">ارسال عادی (۳-۵ روز کاری)</div>
-                    <div class="shipping-price">۳۰,۰۰۰ تومان</div>
-                  </div>
-                </label>
-                <label class="shipping-method">
-                  <input type="radio" name="shipping" value="express">
-                  <div class="shipping-content">
-                    <div class="shipping-title">ارسال فوری (۱-۲ روز کاری)</div>
-                    <div class="shipping-price">۶۰,۰۰۰ تومان</div>
-                  </div>
-                </label>
-                <label class="shipping-method">
-                  <input type="radio" name="shipping" value="pickup">
-                  <div class="shipping-content">
-                    <div class="shipping-title">تحویل حضوری</div>
-                    <div class="shipping-price">رایگان</div>
-                  </div>
-                </label>
-              </div>
-            </div>
-            
-            <!-- روش پرداخت -->
-            <div class="form-section">
-              <h3>روش پرداخت</h3>
-              <div class="payment-methods">
-                <label class="payment-method">
-                  <input type="radio" name="payment" value="online" checked>
-                  <div class="payment-content">
-                    <div class="payment-title">پرداخت آنلاین</div>
-                    <div class="payment-desc">پرداخت امن از طریق درگاه بانکی</div>
-                  </div>
-                </label>
-                <label class="payment-method">
-                  <input type="radio" name="payment" value="card">
-                  <div class="payment-content">
-                    <div class="payment-title">کارت به کارت</div>
-                    <div class="payment-desc">پرداخت از طریق کارت بانکی</div>
-                  </div>
-                </label>
-                <label class="payment-method">
-                  <input type="radio" name="payment" value="wallet">
-                  <div class="payment-content">
-                    <div class="payment-title">کیف پول</div>
-                    <div class="payment-desc">پرداخت از طریق موجودی کیف پول</div>
-                  </div>
-                </label>
-              </div>
-            </div>
-            
-            <!-- توضیحات سفارش -->
-            <div class="form-section">
-              <h3>توضیحات سفارش</h3>
-              <div class="form-group">
-                <textarea name="orderNotes" rows="3" placeholder="توضیحات خود را در مورد سفارش وارد کنید..."></textarea>
-              </div>
-            </div>
-            
-            <!-- دکمه‌ها -->
-            <div class="form-actions">
-              <a href="cart.html" class="btn btn-secondary">
-                <i class="fas fa-arrow-right"></i>
-                <span>بازگشت به سبد خرید</span>
-              </a>
-              <button type="submit" class="btn btn-primary">
-                <span>ادامه جهت پرداخت</span>
-                <i class="fas fa-arrow-left"></i>
-              </button>
-            </div>
-          </form>
-        </div>
-        
-        <!-- خلاصه سفارش -->
-        <div class="checkout-summary" data-aos="fade-left">
-          <div class="summary-card">
-            <h3>خلاصه سفارش</h3>
-            
-            <div class="order-items">
-              <h4>محصولات</h4>
-              
-              <div class="order-item">
-                <div class="item-info">
-                  <div class="item-name">لباس مجلسی طرح گل</div>
-                  <div class="item-meta">رنگ: قرمز، سایز: M، تعداد: ۱</div>
-                </div>
-                <div class="item-price">۱,۸۵۰,۰۰۰ تومان</div>
-              </div>
-              
-              <div class="order-item">
-                <div class="item-info">
-                  <div class="item-name">لباس سنتی اصیل</div>
-                  <div class="item-meta">رنگ: طلایی، سایز: L، تعداد: ۱</div>
-                </div>
-                <div class="item-price">۲,۲۰۰,۰۰۰ تومان</div>
-              </div>
-            </div>
-            
-            <div class="order-summary">
-              <div class="summary-row">
-                <span>مجموع قیمت:</span>
-                <span>۴,۰۵۰,۰۰۰ تومان</span>
-              </div>
-              
-              <div class="summary-row">
-                <span>هزینه ارسال:</span>
-                <span>۳۰,۰۰۰ تومان</span>
-              </div>
-              
-              <div class="summary-row discount">
-                <span>تخفیف:</span>
-                <span>-۲۰۰,۰۰۰ تومان</span>
-              </div>
-              
-              <div class="summary-row total">
-                <span>مجموع نهایی:</span>
-                <span>۳,۸۸۰,۰۰۰ تومان</span>
-              </div>
-            </div>
-            
-            <!-- کد تخفیف -->
-            <div class="discount-code">
-              <h4>کد تخفیف</h4>
-              <div class="discount-form">
-                <input type="text" placeholder="کد تخفیف خود را وارد کنید">
-                <button class="btn btn-primary">اعمال</button>
-              </div>
-            </div>
-            
-            <!-- پیام امنیت -->
-            <div class="security-note">
-              <i class="fas fa-shield-alt"></i>
-              <span>اطلاعات شما نزد ما محفوظ و امن است</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
+      <h1 class="page-title">تکمیل خرید</h1>
 
-  <!-- Footer -->
+      <div class="co-grid">
+        <form id="coForm" class="co-form">
+          <h3>مشخصات و آدرس</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label>نام و نام خانوادگی</label>
+              <input type="text" id="coName" required aria-label="text">
+            </div>
+            <div class="form-group">
+              <label>موبایل</label>
+              <input type="tel" id="coPhone" inputmode="tel" dir="ltr" required aria-label="tel">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>آدرس کامل</label>
+            <textarea id="coAddress" rows="3" required></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>شهر</label>
+              <input type="text" id="coCity" required aria-label="text">
+            </div>
+            <div class="form-group">
+              <label>کدپستی</label>
+              <input type="text" id="coZip" inputmode="numeric" dir="ltr" aria-label="text">
+            </div>
+          </div>
+
+          <h3>روش ارسال</h3>
+          <div class="ship-list">
+            <label><input type="radio" name="ship" value="normal" checked aria-label="ship"> پست سفارشی (۳–۵ روز) — رایگان</label>
+            <label><input type="radio" name="ship" value="fast" aria-label="ship"> پست پیشتاز (۱–۲ روز) — ۴۵,۰۰۰ تومان</label>
+            <label><input type="radio" name="ship" value="courier" aria-label="ship"> ارسال با پیک (تهران) — ۶۵,۰۰۰ تومان</label>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-check-circle"></i> ثبت و پرداخت (دمو)</button>
+        </form>
+
+        <aside class="co-summary">
+          <h3>سفارش شما</h3>
+          <div id="coItems"></div>
+          <div class="row"><span>جمع کل</span><b id="coSubtotal">۰ تومان</b></div>
+          <div class="row"><span>هزینه ارسال</span><b id="coShip">۰ تومان</b></div>
+          <div class="row total"><span>قابل پرداخت</span><b id="coTotal">۰ تومان</b></div>
+        </aside>
+      </div>
+
+      <div id="coEmpty" class="empty-state" hidden>
+        <div class="empty-illustration"><i class="far fa-frown"></i></div>
+        <h4>سبد خالی است</h4>
+        <p>ابتدا به فروشگاه بروید و محصولات را به سبد اضافه کنید.</p>
+        <a href="shop.html" class="btn btn-primary"><i class="fas fa-shopping-bag"></i> رفتن به فروشگاه</a>
+      </div>
+    </div>
+  </section>
+
   <footer class="main-footer">
-    <div class="footer-top">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-about">
-            <div class="footer-logo">
-              <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=120&q=60&auto=format&fit=crop" alt="چرخ طلایی">
-              <span>چرخ طلایی</span>
-            </div>
-            <p>با بیش از ۳۰ سال تجربه در طراحی و دوخت لباس، بهترین خدمات را ارائه می‌دهیم.</p>
-            <div class="footer-social">
-              <a href="#" class="social-link instagram"><i class="fab fa-instagram"></i></a>
-              <a href="#" class="social-link telegram"><i class="fab fa-telegram"></i></a>
-              <a href="#" class="social-link whatsapp"><i class="fab fa-whatsapp"></i></a>
-              <a href="#" class="social-link twitter"><i class="fab fa-twitter"></i></a>
-              <a href="#" class="social-link youtube"><i class="fab fa-youtube"></i></a>
-            </div>
-          </div>
-          <div class="footer-links">
-            <h4>دسترسی سریع</h4>
-            <ul>
-              <li><a href="index.html"><i class="fas fa-angle-left"></i> صفحه اصلی</a></li>
-              <li><a href="shop.html"><i class="fas fa-angle-left"></i> فروشگاه</a></li>
-              <li><a href="academy.html"><i class="fas fa-angle-left"></i> آکادمی</a></li>
-              <li><a href="blog.html"><i class="fas fa-angle-left"></i> وبلاگ</a></li>
-              <li><a href="about.html"><i class="fas fa-angle-left"></i> درباره ما</a></li>
-            </ul>
-          </div>
-          <div class="footer-links">
-            <h4>خدمات ما</h4>
-            <ul>
-              <li><a href="#"><i class="fas fa-angle-left"></i> طراحی لباس</a></li>
-              <li><a href="#"><i class="fas fa-angle-left"></i> دوخت سفارشی</a></li>
-              <li><a href="#"><i class="fas fa-angle-left"></i> تعمیرات</a></li>
-              <li><a href="#"><i class="fas fa-angle-left"></i> مشاوره مد</a></li>
-              <li><a href="#"><i class="fas fa-angle-left"></i> آموزش</a></li>
-            </ul>
-          </div>
-          <div class="footer-newsletter">
-            <h4>خبرنامه</h4>
-            <p>برای دریافت آخرین اخبار و تخفیف‌ها عضو شوید</p>
-            <form class="newsletter-form">
-              <div class="form-wrapper">
-                <input type="email" placeholder="ایمیل شما">
-                <button type="submit"><i class="fas fa-paper-plane"></i></button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="container">
-        <div class="bottom-content">
-          <p>© ۱۴۰۳ چرخ طلایی - تمامی حقوق محفوظ است</p>
-        </div>
-      </div>
-    </div>
+    <div class="footer-bottom"><div class="container"><div class="bottom-content"><p>© ۱۴۰۳ چرخ طلایی</p></div></div></div>
   </footer>
 
-  <!-- Theme Toggle -->
-  <div class="theme-toggle-container">
-    <button id="themeToggle" class="theme-toggle">
-      <div class="toggle-icon">
-        <i class="fas fa-sun sun-icon"></i>
-        <i class="fas fa-moon moon-icon"></i>
-      </div>
-      <div class="toggle-bg"></div>
-    </button>
-  </div>
-
-  <!-- Scroll Top -->
-  <button id="scrollTop" class="scroll-top">
-    <i class="fas fa-chevron-up"></i>
-    <svg class="progress-ring" width="50" height="50">
-      <circle class="progress-ring-circle" stroke="#D4AF37" stroke-width="2" fill="transparent" r="23" cx="25" cy="25"/>
-    </svg>
-  </button>
-
-  <!-- Chat Widget -->
-  <div class="chat-widget">
-    <button class="chat-toggle" id="chatToggle">
-      <div class="chat-icon-wrapper">
-        <i class="fas fa-headset"></i>
-        <span class="chat-badge">1</span>
-      </div>
-      <span class="pulse-ring"></span>
-      <span class="pulse-ring" style="animation-delay:.5s"></span>
-      <span class="pulse-ring" style="animation-delay:1s"></span>
-    </button>
-    <div class="chat-box" id="chatBox">
-      <div class="chat-header">
-        <div class="chat-header-info">
-          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=120&q=70&auto=format&fit=crop" alt="Support">
-          <div>
-            <h4>پشتیبانی آنلاین</h4>
-            <span class="chat-status"><i class="fas fa-circle"></i> آنلاین</span>
-          </div>
-        </div>
-        <button class="chat-close" id="chatClose"><i class="fas fa-times"></i></button>
-      </div>
-      <!-- فرم شروع چت (نام + تلفن) -->
-      <div class="chat-onboard" id="chatOnboard" style="position:absolute;inset:0;background:var(--bg-secondary);display:flex;flex-direction:column;gap:10px;justify-content:center;align-items:center;padding:16px;border-top:1px solid var(--border-color);z-index:5;">
-        <h4 style="color:var(--gold);margin-bottom:4px;">شروع گفتگو</h4>
-        <input id="obName" type="text" placeholder="نام و نام خانوادگی" required style="width:90%;padding:10px;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-primary);color:var(--text-primary);">
-        <input id="obPhone" type="tel" placeholder="شماره تماس" required inputmode="tel" style="width:90%;padding:10px;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-primary);color:var(--text-primary);">
-        <button id="obStart" class="btn btn-primary" style="padding:10px 20px;border-radius:20px;cursor:pointer;">شروع گفتگو</button>
-        <small style="color:var(--text-secondary)">اطلاعات شما فقط برای شروع پشتیبانی استفاده می‌شود.</small>
-      </div>
-      <div class="chat-messages" id="chatMessages" style="position:relative;">
-        <div class="chat-message bot animate-message">
-          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&q=70&auto=format&fit=crop" alt="bot">
-          <div class="message-content">
-            <p>سلام! 👋</p>
-            <p>چطور می‌تونم کمکتون کنم؟</p>
-            <span class="message-time">14:30</span>
-          </div>
-        </div>
-      </div>
-      <div class="chat-quick-replies">
-        <button class="quick-reply">قیمت‌ها</button>
-        <button class="quick-reply">زمان دوخت</button>
-        <button class="quick-reply">آموزش</button>
-      </div>
-      <div class="chat-input">
-        <button class="chat-attach"><i class="fas fa-paperclip"></i></button>
-        <input type="text" id="chatInput" placeholder="پیام خود را بنویسید..." disabled>
-        <button class="chat-emoji"><i class="far fa-smile"></i></button>
-        <button id="chatSend" disabled><i class="fas fa-paper-plane"></i></button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
   <script src="js/main.js" defer></script>
-  <script src="js/cart.js" defer></script>
-  
-  <!-- اسکریپت کوچک فعال‌سازی چت بعد از دریافت نام/تلفن -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function(){
-      const ob = document.getElementById('chatOnboard');
-      if(!ob) return;
-      const nameI = document.getElementById('obName');
-      const phoneI = document.getElementById('obPhone');
-      const startBtn = document.getElementById('obStart');
-      const input = document.getElementById('chatInput');
-      const send = document.getElementById('chatSend');
-      function validPhone(v){
-        const digits = (v||'').replace(/\D/g,'');
-        return /^[\d\s\-\+KATEX_INLINE_OPENKATEX_INLINE_CLOSE]+$/.test(v||'') && digits.length >= 10;
-      }
-      function enableChat(){
-        input?.removeAttribute('disabled');
-        send?.removeAttribute('disabled');
-        ob.style.display = 'none';
-      }
-      try{
-        const n = localStorage.getItem('support_name');
-        const p = localStorage.getItem('support_phone');
-        if(n && p){ enableChat(); }
-      }catch(e){}
-      startBtn?.addEventListener('click', ()=>{
-        const n = (nameI.value||'').trim();
-        const p = (phoneI.value||'').trim();
-        if(!n){ nameI.focus(); return; }
-        if(!validPhone(p)){ phoneI.focus(); phoneI.select?.(); return; }
-        try{
-          localStorage.setItem('support_name', n);
-          localStorage.setItem('support_phone', p);
-        }catch(e){}
-        enableChat();
-      });
-    });
-  </script>
+  <script src="js/chat.js" defer></script>
+  <script src="js/api.js" defer></script>
+  <script src="js/auth-ui.js" defer></script>
+  <script src="js/checkout.js" defer></script>
 </body>
 </html>

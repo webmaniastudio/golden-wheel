@@ -1,1 +1,211 @@
-﻿
+<!doctype html>
+﻿<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="dark">
+<head>
+<meta property="og:type" content="website">
+<meta property="og:title" content="مزون لباس">
+<meta property="og:description" content="خیاطی و مزون لباس شب و مجلسی">
+<meta property="og:url" content="/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="/">
+<meta name="description" content="مزون لباس | خرید و سفارش دوخت لباس شب و مجلسی با کیفیت عالی">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#D4AF37">
+  <title>چرخ طلایی | داشبورد کاربر</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    @font-face{
+      font-family:'IranNastaliq';
+      src:
+        url('https://cdn.jsdelivr.net/gh/rastikerdar/iran-nastaliq/dist/IranNastaliq.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/rastikerdar/iran-nastaliq@v3.2.2/dist/IranNastaliq.woff2') format('woff2'),
+        url('https://raw.githubusercontent.com/rastikerdar/iran-nastaliq/v3.4.0/dist/IranNastaliq.woff2') format('woff2');
+      font-display: swap;
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/account.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ClothingStore", "name": "مزون لباس", "image": "/og-image.jpg", "url": "/", "address": {"@type": "PostalAddress", "addressLocality": "تهران", "addressCountry": "IR"}, "openingHours": ["Sa-Thu 10:00-20:00"]}</script>
+</head>
+<body>
+  <!-- Loader -->
+  <div id="loader" class="loader">
+    <div class="golden-wheel">
+      <div class="wheel-container"><div class="wheel-spin"></div><div class="wheel-inner"></div><div class="wheel-dots"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+      <span class="loader-text">چرخ طلایی</span>
+      <div class="loader-progress"><div class="loader-progress-bar"></div></div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="main-header">
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo">
+          <div class="logo-wrapper" style="border-radius:50%;overflow:hidden;box-shadow:0 0 0 2px var(--gold) inset,0 0 16px rgba(212,175,55,.25)">
+            <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=200&q=60&auto=format&fit=crop" alt="چرخ طلایی" style="width:100%;height:100%;object-fit:cover;animation:none">
+            <div class="logo-shine"></div>
+          </div>
+          <span class="logo-text">چرخ طلایی</span>
+        </div>
+
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link" data-text="صفحه اصلی">صفحه اصلی</a></li>
+          <li><a href="shop.html" class="nav-link" data-text="فروشگاه">فروشگاه</a></li>
+          <li><a href="academy.html" class="nav-link" data-text="آکادمی">آکادمی</a></li>
+          <li><a href="blog.html" class="nav-link" data-text="وبلاگ">وبلاگ</a></li>
+          <li><a href="contact.html" class="nav-link" data-text="تماس با ما">تماس با ما</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <!-- auth-ui.js اینجا را مدیریت می‌کند -->
+          <a href="auth.html" class="auth-btn"><i class="fas fa-user"></i><b class="auth-label" style="font-weight:600;">ورود / ثبت‌نام</b></a>
+        </div>
+
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="باز کردن منوی موبایل">
+          <div class="hamburger"><span></span><span></span><span></span></div>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <div class="mobile-menu-logo">
+        <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?w=80&q=60&auto=format&fit=crop" alt="چرخ طلایی">
+        <span>چرخ طلایی</span>
+      </div>
+      <button class="mobile-menu-close" id="mobileMenuClose" aria-label="بستن منوی موبایل"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="mobile-menu-body">
+      <div class="mobile-search">
+        <input type="text" placeholder="جستجو..." aria-label="جستجو...">
+        <button id="searchBtn"><i class="fas fa-search"></i></button>
+      </div>
+      <ul class="mobile-nav">
+        <li><a href="index.html"><i class="fas fa-home"></i> صفحه اصلی</a></li>
+        <li><a href="shop.html"><i class="fas fa-shopping-bag"></i> فروشگاه</a></li>
+        <li><a href="academy.html"><i class="fas fa-graduation-cap"></i> آکادمی</a></li>
+        <li><a href="blog.html"><i class="fas fa-blog"></i> وبلاگ</a></li>
+        <li><a href="contact.html"><i class="fas fa-phone"></i> تماس با ما</a></li>
+        <li><a href="dashboard.html" class="active"><i class="fas fa-user"></i> داشبورد</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Dashboard -->
+  <section class="dashboard-section">
+    <div class="container">
+      <div class="dash-header">
+        <div class="dash-user">
+          <div class="user-avatar" id="uAvatar">👤</div>
+          <div class="user-meta">
+            <h3 id="uName">کاربر</h3>
+            <p id="uEmail" class="muted">email@example.com</p>
+          </div>
+        </div>
+        <div class="dash-actions">
+          <a href="shop.html" class="btn btn-secondary"><i class="fas fa-store"></i> فروشگاه</a>
+          <button id="logoutBtn" class="btn btn-primary"><i class="fas fa-sign-out-alt"></i> خروج</button>
+        </div>
+      </div>
+
+      <div class="dash-grid">
+        <a href="#orders" class="dash-card">
+          <div class="dash-icon"><i class="fas fa-receipt"></i></div>
+          <div class="dash-info">
+            <h4>سفارش‌ها</h4><p><span id="ordersCount">۰</span> سفارش</p>
+          </div>
+        </a>
+        <a href="#courses" class="dash-card">
+          <div class="dash-icon"><i class="fas fa-graduation-cap"></i></div>
+          <div class="dash-info">
+            <h4>دوره‌های من</h4><p><span id="coursesCount">۰</span> دوره</p>
+          </div>
+        </a>
+        <a href="#profile" class="dash-card">
+          <div class="dash-icon"><i class="fas fa-user-cog"></i></div>
+          <div class="dash-info">
+            <h4>پروفایل</h4><p>ویرایش اطلاعات</p>
+          </div>
+        </a>
+      </div>
+
+      <div id="orders" class="dash-panel">
+        <div class="panel-header"><h3><i class="fas fa-receipt"></i> سفارش‌ها</h3></div>
+        <div id="ordersList" class="orders-list"></div>
+        <div id="noOrders" class="empty-state" hidden>
+          <div class="empty-illustration"><i class="far fa-frown"></i></div>
+          <h4>سفارشی ثبت نشده</h4>
+          <p>به فروشگاه سربزنید و اولین سفارش خود را ثبت کنید.</p>
+          <a href="shop.html" class="btn btn-primary"><i class="fas fa-shopping-bag"></i> رفتن به فروشگاه</a>
+        </div>
+      </div>
+
+      <div id="courses" class="dash-panel">
+        <div class="panel-header"><h3><i class="fas fa-graduation-cap"></i> دوره‌های خریداری‌شده</h3></div>
+        <div id="coursesList" class="courses-list"></div>
+        <div id="noCourses" class="empty-state" hidden>
+          <div class="empty-illustration"><i class="far fa-frown"></i></div>
+          <h4>هنوز دوره‌ای ندارید</h4>
+          <p>به آکادمی سر بزنید و دوره مورد علاقه خود را انتخاب کنید.</p>
+          <a href="academy.html" class="btn btn-primary"><i class="fas fa-book-open"></i> مشاهده دوره‌ها</a>
+        </div>
+      </div>
+
+      <div id="profile" class="dash-panel">
+        <div class="panel-header"><h3><i class="fas fa-user-cog"></i> پروفایل</h3></div>
+        <form id="profileForm" class="profile-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label>نام و نام خانوادگی</label>
+              <input type="text" id="pName" required aria-label="text">
+            </div>
+            <div class="form-group">
+              <label>ایمیل</label>
+              <input type="email" id="pEmail" required aria-label="email">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>موبایل</label>
+              <input type="tel" id="pPhone" inputmode="tel" dir="ltr" aria-label="tel">
+            </div>
+            <div class="form-group">
+              <label>آواتار (اختیاری - لینک تصویر)</label>
+              <input type="url" id="pAvatar" placeholder="https://..." aria-label="https://...">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> ذخیره</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer ساده -->
+  <footer class="main-footer">
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="bottom-content">
+          <p>© ۱۴۰۳ چرخ طلایی</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js" defer></script>
+  <script src="js/chat.js" defer></script>
+  <script src="js/auth-ui.js" defer></script>
+  <script src="js/dashboard.js" defer></script>
+</body>
+</html>

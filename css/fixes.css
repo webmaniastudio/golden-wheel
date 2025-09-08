@@ -1,0 +1,30 @@
+/* fixes.css – فیکس‌های عمومی سبک */
+
+/* جلوگیری از اسکرول افقی */
+html, body { overflow-x: hidden; width: 100%; }
+
+/* فیکس زیرخط منوی هدر (به‌جای ::before) */
+.nav-link::before { display: none !important; }
+.nav-link { position: relative; padding-bottom: 6px; }
+.nav-link::after{
+  content: ''; position: absolute; right: 0; left: 0; bottom: -5px; height: 2px;
+  background: var(--gold); transform: scaleX(0); transform-origin: right; transition: transform .24s ease;
+}
+.nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+
+/* منوی موبایل واقعاً خارج کادر وقتی بسته است */
+.mobile-menu{
+  position: fixed; top: 0; right: 0; left: auto !important; height: 100dvh;
+  width: min(92vw, 380px) !important; max-width: 92vw;
+  background: var(--bg-secondary); border-left: 1px solid var(--border-color);
+  transform: translateX(120%) !important; visibility: hidden; pointer-events: none;
+  transition: transform .35s cubic-bezier(0.175,0.885,0.32,1.275), visibility 0s linear .35s;
+  z-index: 1002; overflow-y: auto; overscroll-behavior: contain; box-shadow: -5px 0 20px rgba(0,0,0,.3);
+}
+.mobile-menu.active{
+  transform: translateX(0) !important; visibility: visible; pointer-events: auto;
+  transition: transform .35s cubic-bezier(0.175,0.885,0.32,1.275), visibility 0s;
+}
+
+/* استایل select در تم تاریک/روشن برای جلوگیری از سفید شدن آیتم‌ها */
+select, option { background: var(--bg-primary); color: var(--text-primary); }

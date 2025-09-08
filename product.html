@@ -1,6 +1,15 @@
+<!doctype html>
 ﻿<!DOCTYPE html>
 <html lang="fa" dir="rtl" data-theme="dark">
 <head>
+<meta property="og:type" content="website">
+<meta property="og:title" content="مزون لباس">
+<meta property="og:description" content="خیاطی و مزون لباس شب و مجلسی">
+<meta property="og:url" content="/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="/">
+<meta name="description" content="مزون لباس | خرید و سفارش دوخت لباس شب و مجلسی با کیفیت عالی">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="theme-color" content="#D4AF37">
@@ -993,6 +1002,7 @@
       }
     }
   </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ClothingStore", "name": "مزون لباس", "image": "/og-image.jpg", "url": "/", "address": {"@type": "PostalAddress", "addressLocality": "تهران", "addressCountry": "IR"}, "openingHours": ["Sa-Thu 10:00-20:00"]}</script>
 </head>
 <body>
   <!-- Loader -->
@@ -1057,8 +1067,8 @@
       <!-- فرم شروع چت (نام + تلفن) -->
       <div class="chat-onboard" id="chatOnboard" style="position:absolute;inset:0;background:var(--bg-secondary);display:flex;flex-direction:column;gap:10px;justify-content:center;align-items:center;padding:16px;border-top:1px solid var(--border-color);z-index:5;">
         <h4 style="color:var(--gold);margin-bottom:4px;">شروع گفتگو</h4>
-        <input id="obName" type="text" placeholder="نام و نام خانوادگی" required style="width:90%;padding:10px;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-primary);color:var(--text-primary);">
-        <input id="obPhone" type="tel" placeholder="شماره تماس" required inputmode="tel" style="width:90%;padding:10px;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-primary);color:var(--text-primary);">
+        <input id="obName" type="text" placeholder="نام و نام خانوادگی" required style="width:90%;padding:10px;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-primary);color:var(--text-primary);" aria-label="نام و نام خانوادگی">
+        <input id="obPhone" type="tel" placeholder="شماره تماس" required inputmode="tel" style="width:90%;padding:10px;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-primary);color:var(--text-primary);" aria-label="شماره تماس">
         <button id="obStart" class="btn btn-primary" style="padding:10px 20px;border-radius:20px;cursor:pointer;">شروع گفتگو</button>
         <small style="color:var(--text-secondary)">اطلاعات شما فقط برای شروع پشتیبانی استفاده می‌شود.</small>
       </div>
@@ -1079,7 +1089,7 @@
       </div>
       <div class="chat-input">
         <button class="chat-attach"><i class="fas fa-paperclip"></i></button>
-        <input type="text" id="chatInput" placeholder="پیام خود را بنویسید..." disabled>
+        <input type="text" id="chatInput" placeholder="پیام خود را بنویسید..." disabled aria-label="پیام خود را بنویسید...">
         <button class="chat-emoji"><i class="far fa-smile"></i></button>
         <button id="chatSend" disabled><i class="fas fa-paper-plane"></i></button>
       </div>
@@ -1150,7 +1160,7 @@
     <div class="mobile-menu-body">
       <!-- جستجو داخل منو (دکمه سرچ) -->
       <div class="mobile-search">
-        <input type="text" placeholder="جستجو...">
+        <input type="text" placeholder="جستجو..." aria-label="جستجو...">
         <button id="searchBtn"><i class="fas fa-search"></i></button>
       </div>
       <ul class="mobile-nav">
@@ -1195,7 +1205,7 @@
     <button class="search-close" id="searchClose"><i class="fas fa-times"></i></button>
     <div class="search-wrapper">
       <div class="search-container">
-        <input type="text" id="searchInput" placeholder="جستجو در محصولات، دوره‌ها و مقالات..." autocomplete="off">
+        <input type="text" id="searchInput" placeholder="جستجو در محصولات، دوره‌ها و مقالات..." autocomplete="off" aria-label="جستجو در محصولات، دوره‌ها و مقالات...">
         <button class="search-submit"><i class="fas fa-search"></i></button>
       </div>
       <div class="search-suggestions">
@@ -1310,7 +1320,7 @@
                 <label class="option-label">تعداد</label>
                 <div class="quantity-selector">
                   <button class="quantity-btn minus" id="minusBtn">-</button>
-                  <input type="number" value="1" min="1" max="10" class="quantity-input" id="quantityInput">
+                  <input type="number" value="1" min="1" max="10" class="quantity-input" id="quantityInput" aria-label="number">
                   <button class="quantity-btn plus" id="plusBtn">+</button>
                 </div>
               </div>
@@ -1442,11 +1452,11 @@
             <form id="reviewFormElement">
               <div class="form-group">
                 <label>نام و نام خانوادگی</label>
-                <input type="text" placeholder="نام و نام خانوادگی خود را وارد کنید" required>
+                <input type="text" placeholder="نام و نام خانوادگی خود را وارد کنید" required aria-label="نام و نام خانوادگی خود را وارد کنید">
               </div>
               <div class="form-group">
                 <label>ایمیل</label>
-                <input type="email" placeholder="ایمیل خود را وارد کنید">
+                <input type="email" placeholder="ایمیل خود را وارد کنید" aria-label="ایمیل خود را وارد کنید">
               </div>
               <div class="form-group">
                 <label>امتیاز شما</label>
@@ -1542,7 +1552,7 @@
             <p>برای دریافت آخرین اخبار و تخفیف‌ها عضو شوید</p>
             <form class="newsletter-form">
               <div class="form-wrapper">
-                <input type="email" placeholder="ایمیل شما">
+                <input type="email" placeholder="ایمیل شما" aria-label="ایمیل شما">
                 <button type="submit"><i class="fas fa-paper-plane"></i></button>
               </div>
             </form>
@@ -2019,5 +2029,7 @@
       });
     });
   </script>
+  <link rel="stylesheet" href="css/fixes.css">
+<script src="js/auth-ui.js" defer></script>
 </body>
 </html>

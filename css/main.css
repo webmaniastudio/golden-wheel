@@ -3457,3 +3457,22 @@ section {
         gap: 15px;
     }
 }
+#chatOnboard.onboard-card{
+  position:absolute; inset:60px 12px 64px 12px;
+  background: var(--bg-primary);
+  border:1px solid var(--border-color);
+  border-radius:14px; padding:14px;
+  display:flex; flex-direction:column; gap:10px;
+  z-index:5; box-shadow: var(--shadow-md);
+}
+#chatOnboard .ob-row label{ font-size:13px; opacity:.8; margin-bottom:6px; display:block; }
+#chatOnboard input{
+  width:100%; padding:10px 12px; border:1px solid var(--border-color);
+  border-radius:10px; background: var(--bg-secondary); color: var(--text-color);
+}
+#chatOnboard .two-cols{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+#chatOnboard #obStart{
+  margin-top:6px; background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: var(--black); border:none; padding:10px 12px; border-radius:10px; cursor:pointer; font-weight:600;
+}
+#chatOnboard .small{ font-size:12px; opacity:.7; }

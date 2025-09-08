@@ -1,0 +1,21 @@
+/* checkout.css */
+.page-title{ font-family:var(--font-nastaliq); color:var(--gold); margin:14px 0 10px; text-align:center; }
+.co-grid{ display:grid; grid-template-columns:1fr; gap:16px; }
+@media(min-width:992px){ .co-grid{ grid-template-columns:2fr 1fr; } }
+
+.co-form{ border:1px solid var(--border-color); border-radius:12px; padding:14px; background:var(--bg-primary); }
+.co-form h3{ margin:8px 0 10px; color:var(--text-primary); }
+.form-row{ display:grid; grid-template-columns:1fr; gap:12px; }
+@media(min-width:640px){ .form-row{ grid-template-columns:1fr 1fr; } }
+.form-group{ display:flex; flex-direction:column; gap:6px; }
+.form-group input, .form-group textarea{ padding:12px; border-radius:10px; border:1px solid var(--border-color); background:var(--bg-secondary); color:var(--text-primary); }
+
+.ship-list{ display:grid; gap:8px; margin:8px 0 12px; color:var(--text-secondary); }
+
+.co-summary{ border:1px solid var(--border-color); border-radius:12px; padding:14px; background:var(--bg-primary); position:sticky; top:90px; height:max-content; }
+.co-summary h3{ margin:0 0 10px; }
+.co-item{ display:flex; gap:10px; align-items:center; margin:8px 0; }
+.co-item img{ width:54px; height:54px; border-radius:8px; object-fit:cover; }
+.co-item .title{ color:var(--text-primary); font-size:14px; }
+.row{ display:flex; justify-content:space-between; margin:6px 0; color:var(--text-secondary); }
+.row.total{ font-weight:800; color:var(--gold); }
